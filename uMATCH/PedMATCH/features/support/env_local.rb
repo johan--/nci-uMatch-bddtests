@@ -11,15 +11,10 @@ ENV['rules_endpoint'] = 'http://127.0.0.1:10250/api/v1/rules'
 ENV['patients_endpoint'] = 'http://127.0.0.1:10240/api/v1/patients'
 ENV['treatment_arm_endpoint'] = 'http://127.0.0.1:10235'
 ENV['cog_mock_endpoint'] = 'http://127.0.0.1:3000'
-# if ENV['OLD_IR_SYSTEM'] == 'TRUE'
-  ENV['ion_reporter_endpoint'] = 'http://127.0.0.1:3001/api/v1/ion_reporters'
-  ENV['aliquot_endpoint'] = 'http://127.0.0.1:3002/api/v1/aliquot'
-  ENV['sample_control_endpoint'] = 'http://127.0.0.1:3003/api/v1/sample_controls'
-# else
-#   ENV['ion_reporter_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/ion_reporters'
-#   ENV['aliquot_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/aliquot'
-#   ENV['sample_control_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/sample_controls'
-# end
+ENV['ion_reporter_endpoint'] = 'http://127.0.0.1:3001/api/v1/ion_reporters'
+ENV['aliquot_endpoint'] = 'http://127.0.0.1:3002/api/v1/aliquot'
+ENV['sample_control_endpoint'] = 'http://127.0.0.1:3003/api/v1/sample_controls'
+
 
 ENV['s3_bucket'] = 'pedmatch-dev'
 ENV['adult_match_s3_bucket'] = 'adultmatch-int'
@@ -30,8 +25,8 @@ ENV['PATIENT_ASSIGNMENT_JSON_LOCATION'] = '../../../../public/patient_jsons_for_
 ENV['TAs_ASSIGNMENT_JSON_LOCATION'] = '../../../../public/TAs_for_assignment_report_tests'
 ENV['rules_treatment_arm_location'] = '../../../../public/TAs_for_amoi_tests'
 ENV['GENE_LIST_FILE_LOCATION'] = './public/resources/'
-ENV['NEED_AUTH0'] = 'YES'  #'YES' or 'NO'
-ENV['print_log'] = 'NO'  #'YES' or 'NO'
+ENV['NEED_AUTH0'] = 'YES' #'YES' or 'NO'
+ENV['print_log'] = 'NO' #'YES' or 'NO'
 
 ENV['mock_ir_50_location'] = ''
 ENV['mock_ir_52_location'] = ''

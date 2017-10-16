@@ -13,15 +13,10 @@ ENV['rules_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/rules'
 ENV['patients_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/patients'
 ENV['treatment_arm_endpoint'] = 'https://pedmatch-int.nci.nih.gov'
 ENV['cog_mock_endpoint'] = 'http://umatch-inttest-alb-backend-1-304898384.us-east-1.elb.amazonaws.com:3000/'
-# if ENV['OLD_IR_SYSTEM'] == 'TRUE'
-  ENV['ion_reporter_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/ion_reporters'
-  ENV['aliquot_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/aliquot'
-  ENV['sample_control_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/sample_controls'
-# else
-#   ENV['ion_reporter_endpoint'] = 'http://pedmatch-inttest-alb-backend-2-1381614955.us-east-1.elb.amazonaws.com:3001/api/v1/ion_reporters'
-#   ENV['sample_control_endpoint'] = 'http://pedmatch-inttest-alb-backend-2-1381614955.us-east-1.elb.amazonaws.com:3002/api/v1/sample_controls'
-#   ENV['aliquot_endpoint'] = 'http://pedmatch-inttest-alb-backend-2-1381614955.us-east-1.elb.amazonaws.com:3003/api/v1/aliquot'
-# end
+ENV['ion_reporter_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/ion_reporters'
+ENV['aliquot_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/aliquot'
+ENV['sample_control_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/sample_controls'
+
 
 ENV['s3_bucket'] = 'pedmatch-int'
 ENV['adult_match_s3_bucket'] = 'adultmatch-int'

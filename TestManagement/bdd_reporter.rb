@@ -4,7 +4,8 @@ require 'json'
 
 class BddUploader
 
-  def self.run(json_folder, level, tag, date, s3_bucket)
+  def self.run(json_folder, level, tag, date, s3_bucket, remove_background = true)
+    @remove_background = remove_background
     @output_html_name = "#{level}#{tag}.html"
     @output_html_path = "#{json_folder}/#{@output_html_name}"
     generate_html(json_folder, level, tag, date)
@@ -38,18 +39,20 @@ class BddUploader
           puts "#{j} is not a valid json, delete it"
           File.delete(j)
         end
-        report_json.each do |r|
-          background_found = false
-          r['elements'].each do |e|
-            if e['keyword'] == 'Background'
-              r['elements'].delete(e) if background_found
-              background_found = true
+        if @remove_background
+          report_json.each do |r|
+            background_found = false
+            r['elements'].each do |e|
+              if e['keyword'] == 'Background'
+                r['elements'].delete(e) if background_found
+                background_found = true
+              end
             end
           end
+          file_write = File.open(j, 'w')
+          file_write.puts(report_json.to_json)
+          file_write.close
         end
-        file_write = File.open(j, 'w')
-        file_write.puts(report_json.to_json)
-        file_write.close
       end
     end
   end

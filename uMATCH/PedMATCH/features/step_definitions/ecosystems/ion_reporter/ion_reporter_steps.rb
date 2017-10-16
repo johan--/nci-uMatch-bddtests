@@ -889,6 +889,10 @@ When(/^DELETE to files service, response includes "([^"]*)" with code "([^"]*)"$
   expect(response['message']).to include message
 end
 
+When(/^tiggered by old ir ecosystem, test will fail$/) do
+  raise "We don't support old ir ecosystem anymore!!"
+end
+
 def prepare_ion_healthcheck_url
   params = @url_params.clone
   if @ion_id.present?

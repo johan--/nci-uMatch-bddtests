@@ -2,7 +2,7 @@
 @ion_reporter_aliquots
 Feature: Tests for aliquot service in ion ecosystem
 
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario Outline: ION_AQ01. for sample control specimen, aliquot service will generate tsv and bai files and upload to S3, then update database
 #    the vcf file test1.vcf and pdf file qa.pdf are in zip file test1.zip
     Given molecular id is "<moi>"
@@ -42,7 +42,7 @@ Feature: Tests for aliquot service in ion ecosystem
       | NTC_MDA_OAFXP      | SC_OAFXP_ANI1           | test1        | TISSUE  | FAILED |
       | SC_DARTMOUTH_KVBSX | SC_DARTMOUTH_KVBSX_ANI1 | blood_test1  | BLOOD   | PASSED |
 
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario: ION_AQ02. for patient tissue specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done
     Given molecular id is "ION_AQ02_TsShipped_MOI1"
     Given patient id is "ION_AQ02_TsShipped"
@@ -84,7 +84,7 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bai" should be available in S3
 
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario: ION_AQ03. for patient blood specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done
     Given molecular id is "ION_AQ03_BdShipped_BD_MOI1"
     Given patient id is "ION_AQ03_BdShipped"
@@ -126,7 +126,7 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bai" should be available in S3
 
-  @ion_reporter_p2
+  @ion_reporter_new_p2
   Scenario: ION_AQ04.  if no vcf file passed in, patient status will not change to TISSUE_VARIANT_REPORT_STATUS_RECEIVED
     Given molecular id is "ION_AQ04_TsShipped_MOI1"
     Given patient id is "ION_AQ04_TsShipped"
@@ -139,7 +139,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then wait for "30" seconds
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
 
-  @ion_reporter_p3
+  @ion_reporter_new_p3
   Scenario: ION_AQ05. extra key-value pair in the message body should NOT fail
     Given molecular id is "NTC_MDA_BKWJR"
     Then add field: "analysis_id" value: "SC_BKWJR_ANI1" to message body
@@ -152,7 +152,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "extra_info" value: "a comment" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
 
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario: ION_AQ06. aliquot service can process zip vcf properly
     #notice the base file name (test1.vcf) of zip file is different with
     #the base name (test1) of the unzipped vcf name. This is on purpose, try to verify if zip name and vcf name are
@@ -176,7 +176,7 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ06_TsShipped_MOI1/ION_AQ06_TsShipped_ANI1/test1.tsv" should be available in S3
     And file: "IR_TCWEV/ION_AQ06_TsShipped_MOI1/ION_AQ06_TsShipped_ANI1/test1.json" should be available in S3
 
-  @ion_reporter_p2
+  @ion_reporter_new_p2
   Scenario Outline: ION_AQ07. aliquot service can handle ":" in file name properly
     Given patient id is "<patient_id>"
     Given molecular id is "<patient_id>_MOI1"
@@ -201,7 +201,7 @@ Feature: Tests for aliquot service in ion ecosystem
       | ION_AQ07_TsShipped1 | 2017-02-07_09:18:25 | vcf_name       | 2017-02-07_09:18:25.vcf | no_need_delete          |
       | ION_AQ07_TsShipped2 | 2017-02-07_10:18:25 | zip_name       | 2017-02-07_10:18:25.zip | 2017-02-07_10:18:25.vcf |
 
-  @ion_reporter_p2
+  @ion_reporter_new_p2
   Scenario Outline: ION_AQ08. aliquot and patient services can handle patient variant report properly when bam file come before vcf file
 #  Example 1: No ani => bam with new ani | Has ani but no pending vr => vcf with same ani
 #  Example 2: Has ani but no pending vr => bam with same ani | Has ani but no pending vr => vcf with new ani
@@ -244,7 +244,7 @@ Feature: Tests for aliquot service in ion ecosystem
       | ION_AQ08_TsVrUploaded1 | ION_AQ08_TsVrUploaded1_ANI1 | TISSUE_VARIANT_REPORT_RECEIVED | have     | ION_AQ08_TsVrUploaded1_ANI1 | dna.bam  |
       | ION_AQ08_TsVrUploaded2 | ION_AQ08_TsVrUploaded2_ANI2 | TISSUE_VARIANT_REPORT_RECEIVED | not have | ION_AQ08_TsVrUploaded2_ANI2 | dna.bam  |
 
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario: ION_AQ09a aliquot service can handle vcf version 5.2 properly for patient
     Given patient id is "ION_AQ09_TsShipped"
     Given molecular id is "ION_AQ09_TsShipped_MOI1"
@@ -262,7 +262,7 @@ Feature: Tests for aliquot service in ion ecosystem
     And this variant report oncomine_control pool "1" sum should be "449632.5"
     And this variant report oncomine_control pool "2" sum should be "957045.5"
 
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario Outline: ION_AQ09b aliquot service can handle vcf version 5.2 properly for sample control
     Given molecular id is "<moi>"
     And file: "IR_TCWEV/<moi>/<moi>_ANI1/test1.tsv" has been removed from S3 bucket
@@ -286,7 +286,7 @@ Feature: Tests for aliquot service in ion ecosystem
       | PCC_MDA_ZCCND  | mda   |
 
 
-  @ion_reporter_p2
+  @ion_reporter_new_p2
   Scenario: ION_AQ20. for sample control specimen, if the files passed in are not in that path, aliquot service will not update database
     #there is no file in S3 for this sample control
     Given molecular id is "NTC_MDA_Q5E0X"
@@ -304,7 +304,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then field: "dna_bai_name" for this aliquot should be: "null"
     Then field: "cdna_bai_name" for this aliquot should be: "null"
 
-  @ion_reporter_p2
+  @ion_reporter_new_p2
   Scenario: ION_AQ21. for sample control specimen, if the file conversion failed, aliquot service will not update database
     #the files in S3 for this patient are invalid files (random text files with fake name)
     Given molecular id is "SC_MOCHA_M4UAF"
@@ -323,10 +323,10 @@ Feature: Tests for aliquot service in ion ecosystem
     Then field: "dna_bai_name" for this aliquot should be: "null"
     Then field: "cdna_bai_name" for this aliquot should be: "null"
 
-#  @ion_reporter_p2
+#  @ion_reporter_new_p2
 #  Scenario: ION_AQ22. for sample control specimen, if the file uploading fails, aliquot service will not update database
 
-  @ion_reporter_p2
+  @ion_reporter_new_p2
   Scenario: ION_AQ23. for patient specimen, if the files passed in are not in that path, aliquot service will not send message to patient ecosystem
     #there is no file in S3 for this patient
     Given molecular id is "ION_AQ23_TsShipped_MOI1"
@@ -342,7 +342,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then wait for "30" seconds
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
 
-#  @ion_reporter_p2
+#  @ion_reporter_new_p2
 #  Scenario: ION_AQ24. for patient specimen, if the file conversion failed, aliquot service will not send message to patient ecosystem
 #    #the files in S3 for this patient are invalid files (random text files with fake name)
 #    Given molecular id is "ION_AQ24_TsShipped_MOI1"
@@ -357,10 +357,10 @@ Feature: Tests for aliquot service in ion ecosystem
 #    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
 #    Then patient field: "current_status" should have value: "TISSUE_NUCLEIC_ACID_SHIPPED" after 30 seconds
 
-#  @ion_reporter_p2
+#  @ion_reporter_new_p2
 #  Scenario: ION_AQ25. for patient specimen, if the file uploading fails, aliquot service will not send message to patient ecosystem
 
-  @ion_reporter_p3
+  @ion_reporter_new_p3
   Scenario: ION_AQ26. if the molecular id is neither a sample control nor patient molecular id, aliquot PUT service should fail
     Given molecular id is "NON_EXISTING_MOI"
     Then add field: "analysis_id" value: "NON_EXISTING_MOI_ANI1" to message body
@@ -373,26 +373,26 @@ Feature: Tests for aliquot service in ion ecosystem
     When PUT to aliquot service, response includes "not found" with code "404"
 
 
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario: ION_AQ40. aliquot service can return correct result for sample control molecular_id
     Given molecular id is "SC_MOCHA_9LL0Q"
     Then call aliquot GET service, field: "site" for this sample_control should be: "mocha"
     Then call aliquot GET service, field: "control_type" for this sample_control should be: "positive"
     Then call aliquot GET service, field: "date_molecular_id_created" for this sample_control should be: "2016-10-12 21:19:50.001799"
 
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario: ION_AQ41. aliquot service can return correct result for patient tissue molecular_id
     Given molecular id is "ION_AQ41_TsVrUploaded_MOI1"
     Then call aliquot GET service, field: "patient_id" for this sample_control should be: "ION_AQ41_TsVrUploaded"
     Then call aliquot GET service, field: "molecular_id" for this sample_control should be: "ION_AQ41_TsVrUploaded_MOI1"
 
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario: ION_AQ42. aliquot service can return correct result for patient blood molecular_id
     Given molecular id is "ION_AQ42_BdVrUploaded_BD_MOI1"
     Then call aliquot GET service, field: "patient_id" for this sample_control should be: "ION_AQ42_BdVrUploaded"
     Then call aliquot GET service, field: "molecular_id" for this sample_control should be: "ION_AQ42_BdVrUploaded_BD_MOI1"
 
-  @ion_reporter_p2
+  @ion_reporter_new_p2
   Scenario Outline: ION_AQ43. aliquot service should only return VALID projected key-value pair and "molecular_id_type" field
     Given molecular id is "<moi>"
     Then add projection: "<field1>" to url
@@ -410,18 +410,18 @@ Feature: Tests for aliquot service in ion ecosystem
       #projection is not supported when query patient molecular id
 #      | ION_AQ43_TsVrUploaded_MOI1 | patient_id   | shipment_type |
 
-  @ion_reporter_p3
+  @ion_reporter_new_p3
   Scenario: ION_AQ44. aliquot service should fail if an invalid key is projected
     Given molecular id is "NTC_MDA_4CPNX"
     Then add projection: "non_existing_key" to url
     When GET from aliquot service, response "invalid projection key" with code "404"
 
-  @ion_reporter_p3
+  @ion_reporter_new_p3
   Scenario: ION_AQ45. aliquot service should return 404 error if query a non-existing molecular_id
     Given molecular id is "NON_EXISTING_MOI"
     When GET from aliquot service, response "not found" with code "404"
 
-  @ion_reporter_p3
+  @ion_reporter_new_p3
   Scenario: ION_AQ46. aliquot service should fail if no molecular_id and parameter is provided
     Given molecular id is ""
     When GET from aliquot service, response "not found" with code "404"
@@ -438,7 +438,7 @@ Feature: Tests for aliquot service in ion ecosystem
   ########## Note 4: Though aliquot/file doesn't check if uploader try to send vcf file with new name to ani which have variant report uploaded
   ##########         it will not be tested, because UI uploader only allow upload file to NEW analysis id,
   ##########         Match Uploader alway use same file name for same analysis id
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario Outline: ION_AQ61. aliquot/file service return 409 if file exists or variant report confirmed
     Given ion_reporter_id is "<ion_id>"
     And molecular id is "<moi>"
@@ -453,7 +453,7 @@ Feature: Tests for aliquot service in ion ecosystem
       | bdd_test_ion_reporter | ION_AQ42_BdVrUploaded_BD_MOI1 | ION_AQ42_BdVrUploaded_ANI1 | test1.vcf |
       | bdd_test_ion_reporter | ION_AQ61_VrConfirmed_MOI1     | ION_AQ61_VrConfirmed_ANI1  | test1.vcf |
 
-  @ion_reporter_p2
+  @ion_reporter_new_p2
   Scenario Outline: ION_AQ62. aliquot/file service return 404 if information in url is not correct
     Given ion_reporter_id is "<ion_id>"
     And molecular id is "<moi>"
@@ -465,7 +465,7 @@ Feature: Tests for aliquot service in ion ecosystem
       | ion_id                | moi       | ani                        | file      |
       | bdd_test_ion_reporter | non_exist | ION_AQ41_TsVrUploaded_ANI2 | test2.vcf |
 
-  @ion_reporter_p1
+  @ion_reporter_new_p1
   Scenario Outline: ION_AQ63. aliquot/file service return correct result if file doesn't exist
     Given ion_reporter_id is "<ion_id>"
     And molecular id is "<moi>"
@@ -483,7 +483,7 @@ Feature: Tests for aliquot service in ion ecosystem
       | IR_TCWEV | ION_AQ63_BdShipped_BD_MOI1    | ION_AQ63_BdShipped_ANI2    | test2.vcf | analysis_ids                    |
       | IR_TCWEV | ION_AQ42_BdVrUploaded_BD_MOI1 | ION_AQ42_BdVrUploaded_ANI2 | test2.vcf | molecular_id                    |
 
-  @ion_reporter_p2
+  @ion_reporter_new_p2
   Scenario Outline: ION_AQ80. aliquot service should fail when user want to create new item using POST
     Given molecular id is "<moi>"
     When POST to aliquot service, response includes "The method is not allowed" with code "405"
@@ -492,7 +492,7 @@ Feature: Tests for aliquot service in ion ecosystem
       | SC_MOCHA_N44B1          |
       | ION_AQ80_TsShipped_MOI1 |
 
-  @ion_reporter_p2
+  @ion_reporter_new_p2
   Scenario Outline: ION_AQ81. aliquot service should fail when user want to delete item using DELETE
     Given molecular id is "<moi>"
     When DELETE to aliquot service, response includes "The method is not allowed" with code "405"

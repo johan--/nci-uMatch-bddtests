@@ -120,7 +120,6 @@ script:
   # Get status of run into CURRENT_STATUS. Update STATUS only if it is 0. So failures should be preserved across runs till the end
   - |
     if [ "$CUC_TAG" == "@demo" ]; then
-      export OLD_IR_SYSTEM="TRUE"
       cd uMATCH/PedMATCH
       bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @demo_p1 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand --color' -n 1
       CURRENT_STATUS=$?
@@ -132,21 +131,7 @@ script:
     fi
 
   - |
-    if [ "$CUC_TAG" == "@ion_reporter" ]; then
-      export OLD_IR_SYSTEM="TRUE"
-      cd uMATCH/PedMATCH
-      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @ion_reporter_p1,@ion_reporter_p2  -f pretty --format json --out ../../results/output-@ion_reporter_p1-$TEST_ENV_NUMBER.json --expand --color' -n 2
-      CURRENT_STATUS=$?
-      if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
-      mv ../../results/ ../../results_all/
-      mkdir ../../results 
-      cd ../..
-    fi
-
-  - |
     if [ "$CUC_TAG" == "@ion_reporter_new" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules" ]; then
-      export OLD_IR_SYSTEM="FALSE"
       cd uMATCH/PedMATCH
       bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --format ParallelTests::Cucumber::FailuresLogger --out cucumber_failures.log --expand --color' -n 2
       ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"

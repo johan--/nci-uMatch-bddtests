@@ -14,11 +14,11 @@ module Helper_Methods
   extend self
 
   # constants
-  REQUEST_GAP = 5
-  REQUEST_TIMEOUT = 60
+  REQUEST_GAP ||= 5
+  REQUEST_TIMEOUT ||= 60
 
   # hash that holds statistics
-  STATS = Concurrent::Hash.new
+  STATS ||= Concurrent::Hash.new
   %i(idle_time auth0_calls_count http_count http_time).each{|k| STATS[k] = 0} # keys with initail value == 0
   STATS[:auth0_calls_per_user]        = Concurrent::Hash.new(0)
   STATS[:slow_http_requests]          = Concurrent::Hash.new
