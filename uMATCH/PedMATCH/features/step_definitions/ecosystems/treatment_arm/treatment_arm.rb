@@ -35,6 +35,7 @@ Then(/^wait until patient "([^"]*)" ta assignment report for id "([^"]*)" stratu
   @request_url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/assignment_report"
   try_time = 0
   old_patient_assignment = 'nothing'
+  puts "#{Time.now} start to get treatment arm assignment report"
   while try_time < 30
     @response = Helper_Methods.simple_get_request(@request_url)['message_json']
     next if @response.is_a?(Array) #when it's the first patient in this ta's assignment event table
@@ -51,6 +52,7 @@ Then(/^wait until patient "([^"]*)" ta assignment report for id "([^"]*)" stratu
     try_time += 1
     sleep 5.0
   end
+  puts "#{Time.now} treatment arm #{@ta_id} #{@stratum_id} response is \n #{@response}"
 end
 
 Given(/^GET assignment report service for treatment arm id "([^"]*)" and stratum id "([^"]*)"$/) do |ta_id, stratum_id|
