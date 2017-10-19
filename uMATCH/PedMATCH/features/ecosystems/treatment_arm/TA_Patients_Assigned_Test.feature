@@ -1,7 +1,7 @@
 @treatment_arm
 Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
 
-  @treatment_arm_p1
+  @treatment_arm_off_p1
   Scenario Outline: TA_AS01. treatment arm assignment data update properly (confirm variant report)
     Given patient id is "<patient_id>"
     And record treatment arm statistic numbers
@@ -21,7 +21,7 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
       | TA_AS01_TsVrReceivedV2      | ANI1 | PENDING_CONFIRMATION |                   |
       | TA_AS01_TsVrReceivedV2Step2 | ANI2 | PENDING_CONFIRMATION | PREVIOUSLY_ON_ARM |
 
-  @treatment_arm_p1
+  @treatment_arm_off_p1
   Scenario Outline: TA_AS02. treatment arm assignment data update properly (confirm assignment report)
     Given patient id is "<patient_id>"
     And record treatment arm statistic numbers
@@ -43,7 +43,7 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
       | TA_AS02_PendingConfV2      | TA_AS02_PendingConfV2_ANI1      | v_2 | PENDING_APPROVAL |                   |
       | TA_AS02_PendingConfV2Step2 | TA_AS02_PendingConfV2Step2_ANI2 | v_2 | PENDING_APPROVAL | PREVIOUSLY_ON_ARM |
 
-  @treatment_arm_p2
+  @treatment_arm_off_p2
   Scenario Outline: TA_AS03. statistic numbers update properly (change to OFF_STUDY)
     Given patient id is "<patient_id>"
     And record treatment arm statistic numbers
@@ -74,7 +74,7 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
       | TA_AS03_OnTreatmentArmV2      | v_2 | 1.0  | PREVIOUSLY_ON_ARM_OFF_STUDY   |                             | -1 | 1  | 0  | 0  |
       | TA_AS03_OnTreatmentArmV2Step2 | v_2 | 2.1  | PREVIOUSLY_ON_ARM_OFF_STUDY   | PREVIOUSLY_ON_ARM_OFF_STUDY | -1 | 1  | 0  | 0  |
 
-  @treatment_arm_p1
+  @treatment_arm_off_p1
   Scenario Outline: TA_AS04. statistic numbers update properly (change to ON_TREATMENT_ARM)
     Given patient id is "<patient_id>"
     And record treatment arm statistic numbers
@@ -99,7 +99,7 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
       | TA_AS04_PendingApprV2      | v_2 | 1.1  |                   |
       | TA_AS04_PendingApprV2Step2 | v_2 | 2.1  | PREVIOUSLY_ON_ARM |
 
-  @treatment_arm_p1
+  @treatment_arm_off_p1
   Scenario Outline: TA_AS05. statistic numbers update properly (send request assignment message)
     Given patient id is "<patient_id>"
     And record treatment arm statistic numbers
@@ -135,7 +135,7 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
       | TA_AS05_OnTreatmentArmV2Step2_1 | Y        | v_2 | 3.0  |  PREVIOUSLY_ON_ARM   | PREVIOUSLY_ON_ARM | -1 | 1  | 0  | 0  |
       | TA_AS05_OnTreatmentArmV2Step2_2 | N        | v_2 | 3.0  |  PREVIOUSLY_ON_ARM   | PREVIOUSLY_ON_ARM | -1 | 1  | 0  | 0  |
 
-  @treatment_arm_p2
+  @treatment_arm_off_p2
   Scenario: TA_AS40. treatment arm assignment patient list should include patient who has compassionate care assignment
     Given patient id is "TA_AS40_TsVrReceived"
     And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
@@ -151,6 +151,6 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
       | ta_id                    | stratum     | version    | patient_status     |
       | CukeTest-122-1-SUSPENDED | stratum122a | 2015-08-06 | COMPASSIONATE_CARE |
 
-  @treatment_arm_p2
+  @treatment_arm_off_p2
   Scenario: TA_OS4. /treatment_arms/accrual return correct result
     Given response of treatment arm accrual command should match database
