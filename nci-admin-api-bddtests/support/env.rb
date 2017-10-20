@@ -1,5 +1,5 @@
-ENV['HOSTNAME'] = 'http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com'
-ENV['ADMIN_API_ENDPOINT'] = "http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:10260"
+ENV['HOSTNAME'] = 'https://admintool.umatch-int.nci.nih.gov:10260/api/v1/admintool/version'
+ENV['ADMIN_API_ENDPOINT'] = "https://admintool.umatch-int.nci.nih.gov:10260/api/v1/admintool/version"
 
 ENV['s3_bucket'] = 'test-admin-tool'
 ENV['s3_endpoint'] = 'https://s3.amazonaws.com'
