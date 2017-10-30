@@ -131,7 +131,7 @@ script:
   - |
     if [ "$CUC_TAG" == "@ion_reporter_new" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@treatment_arm" -o "$CUC_TAG" == "@rules" ]; then
       cd uMATCH/PedMATCH
-      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --format ParallelTests::Cucumber::FailuresLogger --out cucumber_failures.log --expand --color' -n 2
+      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --format ParallelTests::Cucumber::FailuresLogger --out cucumber_failures.log --expand --color' -n 1
       ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       mv ../../results/ ../../results_all/
       mkdir ../../results
