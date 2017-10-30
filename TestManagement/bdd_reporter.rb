@@ -1,36 +1,66 @@
 require 'nokogiri'
 require 'tempfile'
 require 'json'
+require 'active_support'
+require 'active_support/core_ext'
+require 'rest-client'
 
-class BddUploader
+class BddReporter
+  @date = Date.today.strftime('%m-%d-%y')
 
-  def self.run(json_folder, level, tag, date, s3_bucket, remove_background = true)
-    @remove_background = remove_background
-    @output_html_name = "#{level}#{tag}.html"
-    @output_html_path = "#{json_folder}/#{@output_html_name}"
-    generate_html(json_folder, level, tag, date)
-    convert_html(@output_html_path, date)
-    upload_report(json_folder, @output_html_name, date, s3_bucket)
+  def self.upload(json_folder, level, tag, s3_bucket, remove_background = true)
+    html_name = "#{level}#{tag}.html"
+    clean_json_files(json_folder, remove_background)
+    generate_html(json_folder, html_name, level, tag, @date)
+    convert_html(json_folder, html_name, @date)
+    upload_report(json_folder, html_name, @date, s3_bucket)
   end
 
-  def self.generate_html(json_folder, level, tag, date)
-    clean_json_files(json_folder)
+  def self.update_service(project, tag, trigger_author, trigger_repo, trigger_commit, travis_url)
+    author = trigger_author.present? ? trigger_author : `git --no-pager show -s --format='%an <%ae>'`.split(' <')[0]
+    repo = trigger_repo.present? ? trigger_repo : File.basename(`git rev-parse --show-toplevel`)
+    commit = trigger_commit.present? ? trigger_commit : ENV['TRAVIS_COMMIT']
+    payload = {
+        project: project,
+        date: @date,
+        tag: tag.sub('@', ''),
+        trigger_author: author,
+        trigger_repo: repo,
+        trigger_commit: commit,
+        travis_url: travis_url
+    }.to_json
+
+    RestClient::Request.execute(:url => "#{ENV['TEST_MANAGEMENT_URL']}/reports/update",
+                                :method => :put,
+                                :verify_ssl => false,
+                                :payload => payload,
+                                :headers => {:content_type => 'application/json'})
+  end
+
+  def self.notify_user(project, tag, date=@date)
+    url = "#{ENV['TEST_MANAGEMENT_URL']}/report_notifie/#{project}/#{date}/#{tag.sub('@', '')}"
+    RestClient::Request.execute(:url => url,
+                                :method => :get,
+                                :verify_ssl => false)
+  end
+
+  def self.generate_html(json_folder, html_name, level, tag, date)
     template_file = "#{File.dirname(__FILE__)}/generate_report_js_template.txt"
     js_file = "#{File.dirname(__FILE__)}/bdd_reporter/support/generate_report.js"
     title = "#{tag.sub('@', '').upcase} BDD Reports (#{level}, #{date})"
     template = File.read(template_file)
     template.gsub!('**json_folder**', json_folder)
-    template.gsub!('**html_name**', @output_html_name)
+    template.gsub!('**html_name**', html_name)
     template.gsub!('**report_name**', title)
     file_write = File.open(js_file, 'w')
     file_write.puts(template)
     file_write.close
     cmd = "cd #{File.dirname(__FILE__)}/bdd_reporter; node support/generate_report.js"
     `#{cmd}`
-    puts "HTML report file #{@output_html_name} is generated in #{json_folder}"
+    puts "HTML report file #{html_name} is generated in #{json_folder}"
   end
 
-  def self.clean_json_files(json_folder)
+  def self.clean_json_files(json_folder, remove_background = true)
     Dir["#{json_folder}/*"].each do |j|
       if j.end_with?('.json')
         begin
@@ -39,7 +69,7 @@ class BddUploader
           puts "#{j} is not a valid json, delete it"
           File.delete(j)
         end
-        if @remove_background
+        if remove_background
           report_json.each do |r|
             background_found = false
             r['elements'].each do |e|
@@ -57,9 +87,9 @@ class BddUploader
     end
   end
 
-  def self.convert_html(report_path, date)
+  def self.convert_html(report_folder, report_file_name, date)
     puts 'Starting the conversion'
-    html = load_html(report_path)
+    html = load_html("#{report_folder}/#{report_file_name}")
     convert_images(html, date)
     convert_links(html, date)
     build_file(html, date)
