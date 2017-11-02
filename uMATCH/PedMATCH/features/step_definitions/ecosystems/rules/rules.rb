@@ -106,6 +106,21 @@ When(/^quality control json file should be generated$/) do
   @qc_report = JSON.parse(Helper_Methods.s3_read_text_file(bucket, json_path))
 end
 
+And(/^following variants can be found in quality control json$/) do |table|
+  table.hashes.each do |params|
+    pick = @qc_report[params['category']].select do |v|
+      select = true
+      params.each do |key, value|
+        next if key == 'category'
+        select = select && v[key] == value
+      end
+      select
+    end
+    puts "Searching variant #{params.to_json}, result should be 1"
+    expect(pick.size).to be == 1
+  end
+end
+
 And(/^the generated qc json should have these cnv genes$/) do |table|
   params = table.hashes
   expect(@qc_report.keys).to include 'copy_number_variant_genes'

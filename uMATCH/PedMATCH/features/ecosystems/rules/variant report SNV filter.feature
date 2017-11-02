@@ -193,3 +193,16 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | FIL_SNV_12a_TA.json | 1           | 1           |
       | FIL_SNV_12b_TA.json | 1           | 1           |
       | FIL_SNV_12c_TA.json | 0           | 0           |
+
+  @rules_p1
+  Scenario: FIL_SNV_13: Rule can process all snv snp mnv and mnp
+    Given a tsv variant report file "FIL_SNV_13" and treatment arms file "APEC1621-B.json"
+    And remove quality control json from S3
+    When call the amoi rest service
+    Then quality control json file should be generated
+    And following variants can be found in quality control json
+      | category   | identifier   | variant_type | position |
+      | snv_indels | FIL_SNV_13_1 | snv          | 16593601 |
+      | snv_indels | FIL_SNV_13_2 | snp          | 17593601 |
+      | snv_indels | FIL_SNV_13_3 | mnv          | 18593601 |
+      | snv_indels | .            | mnp          | 32972745 |
