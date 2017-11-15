@@ -224,7 +224,6 @@ after_success:
 #    if [ -d "~/build/CBIIT/nci-uMatch-bddtests/results/screenshot" ]; then
 #      aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
 #    fi
-#  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
 #  - curl -s -X PUT -H "Content-Type:application/json"
 #    -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_url\":\"$URL_TO_TRAVIS\"}"
 #    $TEST_MANAGEMENT_URL/reports/update
@@ -290,7 +289,6 @@ after_script:
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   #update test report service
-#  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
 notifications:
   slack:
     rooms:
