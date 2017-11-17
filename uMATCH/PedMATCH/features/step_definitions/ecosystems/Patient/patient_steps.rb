@@ -23,7 +23,7 @@ When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([
   puts response.to_s
   message = response['message']
   actual_match_expect(response['http_code'], code)
-  if code.to_i > 299   # This should cover all error scenarios
+  if code.to_i > 299 # This should cover all error scenarios
     if message == ''
       actual_include_expect(message.to_s, retMsg)
     else
@@ -545,13 +545,15 @@ Then(/^patient should "(have|not have)" assignment report \(analysis_id: "([^"]*
 end
 
 And(/^this variant report field: "([^"]*)" should be "([^"]*)"$/) do |field, value|
-  actual_include_expect(@current_variant_report.keys, field)
-  convert_value = value=='null' ? nil : value
   returned_value = @current_variant_report[field]
-  if returned_value.nil? || convert_value.nil?
-    actual_match_expect(returned_value, convert_value)
+  if value == 'null'
+    actual_match_expect(returned_value, nil)
+  elsif returned_value.nil?
+    actual_include_expect(@current_variant_report.keys, field)
+    actual_match_expect(returned_value, value)
   else
-    actual_match_expect(returned_value.to_s.downcase, convert_value.to_s.downcase)
+    actual_include_expect(@current_variant_report.keys, field)
+    actual_match_expect(returned_value.to_s.downcase, value.to_s.downcase)
   end
 end
 

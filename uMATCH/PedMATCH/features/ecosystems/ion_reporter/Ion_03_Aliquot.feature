@@ -201,7 +201,7 @@ Feature: Tests for aliquot service in ion ecosystem
       | ION_AQ07_TsShipped1 | 2017-02-07_09:18:25 | vcf_name       | 2017-02-07_09:18:25.vcf | no_need_delete          |
       | ION_AQ07_TsShipped2 | 2017-02-07_10:18:25 | zip_name       | 2017-02-07_10:18:25.zip | 2017-02-07_10:18:25.vcf |
 
-  @ion_reporter_new_p2
+  @ion_reporter_new_p2 @patients_p2
   Scenario Outline: ION_AQ08. aliquot and patient services can handle patient variant report properly when bam file come before vcf file
 #  Example 1: No ani => bam with new ani | Has ani but no pending vr => vcf with same ani
 #  Example 2: Has ani but no pending vr => bam with same ani | Has ani but no pending vr => vcf with new ani

@@ -26,6 +26,18 @@ class SeedFile
     result
   end
 
+  def self.all_keys(table, tag)
+    keys = TableInfo.keys(table)
+    items = all_items(table, tag)
+    result = []
+    items.each {|i|
+      this_key = {}
+      keys.each {|k| this_key[k] = i[k].values.first}
+      result << this_key
+    }
+    result
+  end
+
   def self.delete_patients(patient_list, tag)
     TableInfo.patient_tables.each {|table_name|
       field_name = table_name=='event' ? 'entity_id' : 'patient_id'
