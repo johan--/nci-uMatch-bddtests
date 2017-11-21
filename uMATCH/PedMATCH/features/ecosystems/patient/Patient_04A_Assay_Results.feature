@@ -35,7 +35,7 @@ Feature: Assay Messages
     Then set patient message field: "surgical_event_id" to value: "PT_AS01_SEI1"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
-      | patient_id | message        |
+      | patient_id | message    |
   #    |          |can't be blank             |
       | nonPatient | registered |
 #    |null      |can't be blank             |
@@ -56,18 +56,20 @@ Feature: Assay Messages
       | null  | can't be blank       |
 
   @patients_p2
-  Scenario Outline: PT_AS03. Assay result with invalid surgical_event_id(empty, non-existing, null) should fail
-  #		Test data: Patient=PT_AS03_SlideShipped, with surgical_event_id=PT_AS03_SlideShipped_SEI1
+  Scenario Outline: PT_AS03. Assay result with invalid surgical_event_id(empty, non-existing, non-active, from other patient, null) should fail
+  #		Test data: Patient=PT_AS03_SlideShipped, with surgical_event_id=PT_AS03_SlideShipped_SEI1 and PT_AS03_SlideShipped_SEI2
     Given patient id is "PT_AS03_SlideShipped"
     And load template assay message for this patient
     Then set patient message field: "biomarker" to value: "ICCPTENs"
     Then set patient message field: "surgical_event_id" to value: "<sei>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
-      | sei     | message           |
-      |         | can't be blank    |
-      | SEI_NON | surgical event_id |
-      | null    | can't be blank    |
+      | sei                        | message           |
+      |                            | can't be blank    |
+      | SEI_NON                    | surgical event_id |
+      | PT_AS03_SlideShipped_SEI1  | surgical event_id |
+      | PT_AS00_SlideShipped1_SEI1 | surgical event_id |
+      | null                       | can't be blank    |
 
 #    type has been removed from assay message
 #  Scenario Outline: PT_AS04. Assay result with invalid type(other than RESULT) should fail

@@ -9,12 +9,12 @@ class PatientStory < GeneralStory
 
   def initialize(patient_id)
     super(patient_id, 'ped-match', 'patient')
-    @active_sei = "#{@patient_id}_SEI0"
-    @active_bd_moi = "#{@patient_id}_BD_MOI0"
-    @active_ts_moi = "#{@patient_id}_MOI0"
-    @active_bd_ani = "#{@patient_id}_BD_ANI0"
-    @active_ts_ani = "#{@patient_id}_ANI0"
-    @active_bc = "#{@patient_id}_BC0"
+    @active_sei = "#{@data_id}_SEI0"
+    @active_bd_moi = "#{@data_id}_BD_MOI0"
+    @active_ts_moi = "#{@data_id}_MOI0"
+    @active_bd_ani = "#{@data_id}_BD_ANI0"
+    @active_ts_ani = "#{@data_id}_ANI0"
+    @active_bc = "#{@data_id}_BC0"
     @step_number = '1.0'
   end
 

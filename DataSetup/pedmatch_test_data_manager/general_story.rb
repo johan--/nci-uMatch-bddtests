@@ -3,7 +3,7 @@ require_relative 'log'
 
 class GeneralStory
   STORY_TABLE = 'test_management_seed_story'
-  STORY_SERVICE = ENV['TEST_MANAGEMENT_URL']
+  STORY_SERVICE = "#{ENV['TEST_MANAGEMENT_URL']}/seed_story"
 
   def self.all_seed_data(project)
     JSON.parse(Utilities.rest_request("#{STORY_SERVICE}_ids/#{project}", 'get'))
