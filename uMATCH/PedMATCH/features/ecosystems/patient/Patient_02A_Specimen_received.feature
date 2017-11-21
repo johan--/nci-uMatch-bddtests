@@ -27,7 +27,6 @@ Feature: NCH specimen received messages
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR02_Registered_SEI1")
-    Then this specimen has pathology status: "Y"
 
   @patients_p2
   Scenario: PT_SR02b. specimen_received message should not be processed twice if sent twice quickly

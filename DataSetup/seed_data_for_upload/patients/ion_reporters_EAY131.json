@@ -1,8 +1,14 @@
 {
     "Items": [
         {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:36.514328"
+            "study_id": {
+                "S": "EAY131"
+            },
+            "last_contact": {
+                "S": "2017-02-01 15:08:26.446499"
+            },
+            "ip_address": {
+                "S": "170.54.147.240"
             },
             "ion_reporter_version": {
                 "S": "5.0"
@@ -13,25 +19,25 @@
             "site": {
                 "S": "mocha"
             },
-            "ion_reporter_id": {
-                "S": "IR_IGXAW"
-            },
-            "last_contact": {
-                "S": "2017-02-01 15:08:26.446499"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
             },
             "host_name": {
                 "S": "MATCH_IR_IR_IGXAW"
             },
-            "ip_address": {
-                "S": "170.54.147.240"
-            },
-            "study_id": {
-                "S": "EAY131"
+            "ion_reporter_id": {
+                "S": "IR_IGXAW"
             }
         },
         {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+            "study_id": {
+                "S": "EAY131"
+            },
+            "last_contact": {
+                "S": "2017-02-01 15:08:01.446499"
+            },
+            "ip_address": {
+                "S": "254.194.103.181"
             },
             "ion_reporter_version": {
                 "S": "5.0"
@@ -42,25 +48,25 @@
             "site": {
                 "S": "mda"
             },
-            "ion_reporter_id": {
-                "S": "IR_CFUXR"
-            },
-            "last_contact": {
-                "S": "2017-02-01 15:08:01.446499"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
             },
             "host_name": {
                 "S": "MATCH_IR_IR_CFUXR"
             },
-            "ip_address": {
-                "S": "254.194.103.181"
-            },
-            "study_id": {
-                "S": "EAY131"
+            "ion_reporter_id": {
+                "S": "IR_CFUXR"
             }
         },
         {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+            "study_id": {
+                "S": "EAY131"
+            },
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
+            },
+            "ip_address": {
+                "S": "110.43.74.33"
             },
             "ion_reporter_version": {
                 "S": "5.0"
@@ -71,25 +77,25 @@
             "site": {
                 "S": "mgh"
             },
-            "ion_reporter_id": {
-                "S": "IR_MGH99"
-            },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
             },
             "host_name": {
                 "S": "MATCH_IR_IR_MGH99"
             },
-            "ip_address": {
-                "S": "110.43.74.33"
-            },
-            "study_id": {
-                "S": "EAY131"
+            "ion_reporter_id": {
+                "S": "IR_MGH99"
             }
         },
         {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+            "study_id": {
+                "S": "EAY131"
+            },
+            "last_contact": {
+                "S": "2017-02-01 15:08:27.446499"
+            },
+            "ip_address": {
+                "S": "151.232.195.85"
             },
             "ion_reporter_version": {
                 "S": "5.0"
@@ -100,25 +106,25 @@
             "site": {
                 "S": "yale"
             },
-            "ion_reporter_id": {
-                "S": "IR_YAL02"
-            },
-            "last_contact": {
-                "S": "2017-02-01 15:08:27.446499"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
             },
             "host_name": {
                 "S": "MATCH_IR_IR_YAL02"
             },
-            "ip_address": {
-                "S": "151.232.195.85"
-            },
-            "study_id": {
-                "S": "EAY131"
+            "ion_reporter_id": {
+                "S": "IR_YAL02"
             }
         },
         {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+            "study_id": {
+                "S": "EAY131"
+            },
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
+            },
+            "ip_address": {
+                "S": "109.229.233.70"
             },
             "ion_reporter_version": {
                 "S": "5.2"
@@ -129,20 +135,14 @@
             "site": {
                 "S": "dartmouth"
             },
-            "ion_reporter_id": {
-                "S": "IR_DTM99"
-            },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
             },
             "host_name": {
                 "S": "MATCH_IR_IR_DTM99"
             },
-            "ip_address": {
-                "S": "109.229.233.70"
-            },
-            "study_id": {
-                "S": "EAY131"
+            "ion_reporter_id": {
+                "S": "IR_DTM99"
             }
         }
     ],
