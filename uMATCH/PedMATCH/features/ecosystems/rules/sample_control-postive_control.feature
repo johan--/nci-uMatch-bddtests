@@ -56,6 +56,7 @@ Feature: Sample control tests for positive control
     Then the gene "RAD51B" is filtered out from the positive control variant report
     Then the gene "RAD51" is filtered out from the positive control variant report
     Then the gene "RAD51C" is filtered out from the positive control variant report
+    Then variant type "SNP" with "MAN20" not is found in the False positives table
 
     Scenario: SC-PC_10: Verify that when use vcf version 5.2 oncomine summary is generated
       Given a tsv variant report file "samplecontrol_vcf52" and treatment arms file "MultiTAs.json"

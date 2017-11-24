@@ -314,6 +314,18 @@ Then(/^variant type "([^"]*)" with "([^"]*)" is found in the False positives tab
   end
 end
 
+Then(/^variant type "([^"]*)" with "([^"]*)" not is found in the False positives table$/) do |arg1, arg2|
+  flag = false
+  @res['false_positive_variants'].each do |var|
+    if (var['variant_type'].eql?(arg1.downcase) & var['identifier'].eql?(arg2))
+      flag = true
+      break
+    end
+  end
+  if flag == true
+    fail("The variant of type #{arg1} and identifier #{arg2} is found in the false positives")
+  end
+end
 
 Then(/^positive variants is returned with (\d+) variants$/) do |arg1|
   expect(@res['positive_variants'].count).to eql(arg1.to_i)
