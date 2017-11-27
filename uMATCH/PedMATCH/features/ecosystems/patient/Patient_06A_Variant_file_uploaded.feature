@@ -190,9 +190,10 @@ Feature: Variant files uploaded message
     Then files for molecular_id "<moi>" and analysis_id "<ani>" are in S3
     When POST to MATCH variant report upload service, response includes "already has a variant report" with code "403"
     Examples:
-      | moi                                | ani                                |
-      | PT_VU12_VariantReportRejected_MOI1 | PT_VU12_VariantReportRejected_ANI1 |
-      | PT_VU12_VariantReportRejected_MOI1 | PT_VU12_VariantReportRejected_ANI2 |
+      | moi                                | ani                                | comment                      |
+      | PT_VU12_VariantReportRejected_MOI1 | PT_VU12_VariantReportRejected_ANI1 | existing expired ani         |
+      | PT_VU12_VariantReportRejected_MOI1 | PT_VU12_VariantReportRejected_ANI2 | existing active ani          |
+      | PT_VU12_VariantReportRejected_MOI1 | PT_VU10_VariantReportUploaded_ANI1 | existing other patient's ani |
 
   @patients_p2
   Scenario: PT_VU13. variant files uploaded will not be accepted after a patient has TISSUE_VARIANT_REPORT_CONFIRMED status

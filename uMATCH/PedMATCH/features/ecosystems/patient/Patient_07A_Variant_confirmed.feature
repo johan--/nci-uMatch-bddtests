@@ -144,12 +144,12 @@ Feature: Variant files confirmed messages
   Scenario Outline: PT_VC09. variant report confirm message with invalid analysis_id should fail
     Given patient id is "PT_VC09_VRUploaded"
     Then load template variant report confirm message for analysis id: "<ANI>"
-    When PUT to MATCH variant report "confirm" service, response includes "<message>" with code "403"
+    When PUT to MATCH variant report "confirm" service, response includes "latest analysis id" with code "403"
     Examples:
-      | ANI   | message            |
-#      |               |can't be blank             |
-#      |null           |can't be blank             |
-      | other | latest analysis id |
+      | ANI                                 | comment                                      |
+      | other                               | non existing analysis id                     |
+      | PT_SS21_TissueVariantConfirmed_ANI1 | confirmed analysis id from other patient     |
+      | PT_VC01_VRUploaded_ANI1             | not confirmed analysis id from other patient |
 
   @patients_p2
   Scenario Outline: PT_VC10. variant report confirm message using non-current ids should fail
@@ -184,9 +184,9 @@ Feature: Variant files confirmed messages
     Examples:
       | patient_id             | ani                            | status  | previous_status | message              |
       | PT_VC11b_TsVRConfirmed | PT_VC11b_TsVRConfirmed_ANI1    | confirm | confirmed       | CONFIRMED            |
-      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | confirm | rejected        | REJECTED            |
+      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | confirm | rejected        | REJECTED             |
       | PT_VC11b_TsVRConfirmed | PT_VC11b_TsVRConfirmed_ANI1    | reject  | confirmed       | CONFIRMED            |
-      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | reject  | rejected        | REJECTED            |
+      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | reject  | rejected        | REJECTED             |
       | PT_VC11b_BdVRConfirmed | PT_VC11b_BdVRConfirmed_BD_ANI1 | confirm | confirmed       | not in PENDING state |
       | PT_VC11b_BdVRRejected  | PT_VC11b_BdVRRejected_BD_ANI1  | confirm | rejected        | not in PENDING state |
       | PT_VC11b_BdVRConfirmed | PT_VC11b_BdVRConfirmed_BD_ANI1 | reject  | confirmed       | not in PENDING state |
@@ -260,7 +260,7 @@ Feature: Variant files confirmed messages
 #      | PT_VC15_PathAssayDoneVRUploadedToReject  | PT_VC15_PathAssayDoneVRUploadedToReject_ANI1  | reject    | TISSUE_VARIANT_REPORT_REJECTED  |
 #      | PT_VC15_PathDoneOneAssayVRUploaded       | PT_VC15_PathDoneOneAssayVRUploaded_ANI1       | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
 
-
+  @patients_p2
   Scenario Outline: PT_VC16. blood variant report can be confirmed when patient is in certain status
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<patient_id>_BD_ANI1"
