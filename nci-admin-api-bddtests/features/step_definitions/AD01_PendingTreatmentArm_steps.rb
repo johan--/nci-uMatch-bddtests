@@ -16,9 +16,7 @@ Then(/^I should get a list of all the treatment arm in the table$/) do
 	treatment_arm_collection = message.map { | ta | ta['treatment_arm_id'] }
   expect(message).to be_a Array
   expect(treatment_arm_collection.size).to eq(message.size)
-
 end
-
 
 When(/^The "([^"]*)" of the treatment arm should be "([^"]*)"$/) do |field, value|
   message = JSON.parse(@response['message'])
