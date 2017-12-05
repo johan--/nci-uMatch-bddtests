@@ -46,12 +46,10 @@ module.exports = function () {
         browser.ignoreSynchronization = false;
         loginPageObj.goToLoginPage();
 
-        var login_credentials = [];
-        login_credentials = utilities.returnValidUserCredentials(user_role);
+        var login_credentials = utilities.returnValidUserCredentials(user_role);
 
         var email = login_credentials[0];
         var password = login_credentials[1];
-        console.log("email: " + email);
 
         loginPageObj.login(email, password);
         utilities.waitForElement(dashboardPageObj.dashboardPanel, 'sticky top menu').then(function (presence){
