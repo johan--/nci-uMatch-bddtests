@@ -19,14 +19,12 @@ Feature: Make sure all services are running
     Then following key-value pairs should be returned
       | dynamodb_connection | successful |
       | queue_connection    | successful |
-      | cog_connection      | successful |
 
   Scenario: GN_HC04. healthcheck for treatment arm api should work as expected
     When call healthcheck for application "ta_api", http code "200" should be returned
     Then following key-value pairs should be returned
       | dynamodb_connection | successful |
       | queue_connection    | successful |
-      | cog_connection      | successful |
 
   Scenario: GN_HC05. healthcheck for treatment arm processor should work as expected
     When call healthcheck for application "ta_processor", http code "200" should be returned
