@@ -38,7 +38,7 @@ class BddReporter
   end
 
   def self.notify_user(project, tag, date=@date)
-    url = "#{ENV['TEST_MANAGEMENT_URL']}/report_notifie/#{project}/#{date}/#{tag.sub('@', '')}"
+    url = "#{ENV['TEST_MANAGEMENT_URL']}/report_notified/#{project}/#{date}/#{tag.sub('@', '')}"
     RestClient::Request.execute(:url => url,
                                 :method => :get,
                                 :verify_ssl => false)
