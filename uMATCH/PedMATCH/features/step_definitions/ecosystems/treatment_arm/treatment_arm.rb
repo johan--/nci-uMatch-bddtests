@@ -584,6 +584,15 @@ And(/^set the version of the treatment arm to "([^"]*)"$/) do |version|
   @jsonString = body.to_json.to_s
 end
 
+And(/^set the version of the treatment arm to "([^"]*)" and date_created to "([^"]*)"$/) do |version, date_created|
+  @version = nil_if_null version
+  body = JSON.parse(@jsonString)
+  body['version'] = @version
+  body['date_created'] = date_created
+
+  @jsonString = body.to_json.to_s
+end
+
 
 And(/^set template treatment arm json field: "([^"]*)" to value: "([^"]*)" in type: "([^"]*)"$/) do |field, value, type|
   loadTemplateJson()

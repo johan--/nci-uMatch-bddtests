@@ -1,22 +1,20 @@
-#encoding: utf-8
-
 @treatment_arm
 Feature: TA_TAS. Treatment Arm API Tests that focus on "treatment_arm_status" field
 
   @treatment_arm_p3
-  Scenario Outline: TA_TAS1. The status of new Treatment Arm should be set to "OPEN", no matter what the value of "treatment_arm_status" is
+  Scenario Outline: TA_TAS1. The status of new Treatment Arm should be set to "READY", no matter what the value of "treatment_arm_status" is
     Given template treatment arm json with an id: "<treatmentArmID>"
     And set template treatment arm json field: "treatment_arm_status" to string value: "<status>"
     When creating a new treatment arm using post request
     Then a success message is returned
     Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
-    Then the returned treatment arm has value: "OPEN" in field: "treatment_arm_status"
+    Then the returned treatment arm has value: "READY" in field: "treatment_arm_status"
     Examples:
     |treatmentArmID             |status     |
-    |APEC1621-TAS2-1            |           |
-    |APEC1621-TAS2-2            |CLOSED     |
-    |APEC1621-TAS2-3            |SUSPENDED  |
+    |APEC1621-TAS1-1            |           |
+    |APEC1621-TAS1-2            |CLOSED     |
+    |APEC1621-TAS1-3            |SUSPENDED  |
 
   @treatment_arm_p3
   Scenario: TA_TAS2. The status of update Treatment Arm should be set to same value with the last version
@@ -27,13 +25,36 @@ Feature: TA_TAS. Treatment Arm API Tests that focus on "treatment_arm_status" fi
     Then cog changes treatment arm with id:"APEC1621-TAS2-1" and stratumID:"STRATUM1" status to: "SUSPENDED"
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "SUSPENDED" in field: "treatment_arm_status"
-    Then set the version of the treatment arm to "2016-06-28"
+    Then set the version of the treatment arm to "2016-06-28" and date_created to "2017-12-06"
     When creating a new treatment arm using post request
     Then a success message is returned
     Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "SUSPENDED" in field: "treatment_arm_status"
 
+  @treatment_arm_p3
+  Scenario: TA_TAS3. The status of the Treatment Arm should be set to OPEN based on response from COG
+    Given template treatment arm json with an id: "APEC1621-TAS3-1", stratum_id: "STRATUM1" and version: "2016-06-03"
+    When creating a new treatment arm using post request
+    Then a success message is returned
+    Then wait for processor to complete request in "10" attempts
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "READY" in field: "treatment_arm_status"
+    Then cog changes treatment arm with id:"APEC1621-TAS3-1" and stratumID:"STRATUM1" status to: "OPEN"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "OPEN" in field: "treatment_arm_status"
+
+  @treatment_arm_p3
+  Scenario: TA_TAS4. The status of the Treatment Arm should remain READY if COG does not return information about the Treatment Arm
+    Given template treatment arm json with an id: "APEC1621-TAS4-1", stratum_id: "STRATUM1" and version: "2016-06-03"
+    When creating a new treatment arm using post request
+    Then a success message is returned
+    Then wait for processor to complete request in "10" attempts
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "READY" in field: "treatment_arm_status"
+    Then cog changes treatment arm with id:"APEC1621-TAS4-1" and stratumID:"STRATUM1" status to: "OPEN"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "READY" in field: "treatment_arm_status"
 
 
 #Eventually any treatment arm query via API will trigger TA processor to request latest treatment arm status from COG service
