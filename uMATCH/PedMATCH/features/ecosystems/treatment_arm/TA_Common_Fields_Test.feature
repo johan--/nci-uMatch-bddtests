@@ -113,7 +113,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Then a failure response code of "404" is returned
 
   @treatment_arm_p2
-  Scenario: TA_CF6. Verify that a treatment arm when created is assigned a status of OPEN
+  Scenario: TA_CF6. Verify that a treatment arm when created is assigned a status of READY
     Given that treatment arm is received from COG:
 	"""
 		{
@@ -178,7 +178,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
 	"""
     When creating a new treatment arm using post request
     Then a message with Status "SUCCESS" and message "Saved to datastore." is returned:
-    Then the treatment_arm_status field has a value "OPEN" for the ta "TA_test3"
+    Then the treatment_arm_status field has a value "READY" for the ta "TA_test3"
 
   @treatment_arm_p3
   Scenario Outline: TA_CF7. New Treatment Arm with unrequired field that has different kinds of value should pass
