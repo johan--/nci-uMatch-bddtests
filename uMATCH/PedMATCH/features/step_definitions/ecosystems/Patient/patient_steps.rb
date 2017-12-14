@@ -516,6 +516,7 @@ Then(/^patient should "(have|not have)" assignment report \(analysis_id: "([^"]*
   case have
     when 'have'
       expect(response.size).to be > 0
+      @current_assignment = response[0]
     when 'not have'
       expect(response.size).to eq 0
     else
@@ -557,8 +558,21 @@ And(/^this variant report field: "([^"]*)" should be "([^"]*)"$/) do |field, val
   end
 end
 
+And(/^this assignment report field: "([^"]*)" should be "([^"]*)"$/) do |field, value|
+  returned_value = @current_assignment[field]
+  if value == 'null'
+    actual_match_expect(returned_value, nil)
+  elsif returned_value.nil?
+    actual_include_expect(@current_assignment.keys, field)
+    actual_match_expect(returned_value, value)
+  else
+    actual_include_expect(@current_assignment.keys, field)
+    actual_match_expect(returned_value.to_s.downcase, value.to_s.downcase)
+  end
+end
+
 And(/^this variant report oncomine_control pool "(1|2)" sum should be "([^"]*)"$/) do |pool, value|
-  convert_value = value=='null' ? nil : value
+  _convert_value = value=='null' ? nil : value
   actual_include_expect(@current_variant_report.keys, 'oncomine_control_panel_summary')
   actual_match_expect(@current_variant_report['oncomine_control_panel_summary']["pool#{pool}Sum"], value)
 end

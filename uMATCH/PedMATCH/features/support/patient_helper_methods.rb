@@ -471,12 +471,11 @@ class Patient_helper_methods
   end
 
   def self.put_rollback(patient_id, step_number, auth0_role)
-    @patient_id = patient_id
-    @request_hash = {'step_number' => step_number}
+    @patient_id   = patient_id
+    @request_hash = { 'step_number' => step_number, 'patient_id' => patient_id }
     url = "#{ENV['patients_endpoint']}/#{@patient_id}/rollback"
     Helper_Methods.put_request(url, @request_hash.to_json.to_s, true, auth0_role)
   end
-
 
   def self.wait_until_patient_updated(patient_id)
     timeout = 30.0
@@ -510,7 +509,7 @@ class Patient_helper_methods
 
   def self.wait_until_patient_field_is(patient_id, field, value)
     url = "#{ENV['patients_endpoint']}/#{patient_id}"
-    Helper_Methods.get_special_result_from_url(url, 45, {field => value})
+    Helper_Methods.get_special_result_from_url(url, 45, { field => value })
   end
 
   def self.ui_title_find_variant_value(title, variant_hash)
@@ -547,5 +546,3 @@ class Patient_helper_methods
     result
   end
 end
-
-

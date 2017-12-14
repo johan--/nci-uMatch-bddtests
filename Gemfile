@@ -36,6 +36,7 @@ group :test, :development do
   gem 'spreadsheet'
   gem 'logger'
   gem 'sqlite3'
+  gem 'byebug'
 
 
 
