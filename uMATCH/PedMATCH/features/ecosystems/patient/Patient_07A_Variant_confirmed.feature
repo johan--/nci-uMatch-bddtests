@@ -235,7 +235,7 @@ Feature: Variant files confirmed messages
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
 
   @patients_p2 @demo_p1
-  Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has two types of assay ready
+  Scenario Outline: PT_VC15. variant file confirmation will or will not trigger assignment properly
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<ani>"
     When PUT to MATCH variant report "<vr_status>" service, response includes "changed successfully to" with code "200"
@@ -253,6 +253,10 @@ Feature: Variant files confirmed messages
       | PT_VC15_PtenBaf47AndVrReceived           | PT_VC15_PtenBaf47AndVrReceived_ANI1           | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
       | PT_VC15_PtenBrg1AndVrReceived            | PT_VC15_PtenBrg1AndVrReceived_ANI1            | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
       | PT_VC15_Baf47Brg1AndVrReceived           | PT_VC15_Baf47Brg1AndVrReceived_ANI1           | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_3AssayRbVrReceived               | PT_VC15_3AssayRbVrReceived_ANI1               | confirm   | RB_ORDER_REQUESTED              | new
+      | PT_VC15_NoAssayRbVrReceived              | PT_VC15_NoAssayRbVrReceived_ANI1              | confirm   | RB_ORDER_REQUESTED              | new
+      | PT_VC15_3AssayRbVrReceivedRbUnchecked    | PT_VC15_3AssayRbVrReceivedRbUnchecked_ANI1    | confirm   | PENDING_CONFIRMATION            | new
+      | PT_VC15_NoAssayRbVrReceivedRbUnchecked   | PT_VC15_NoAssayRbVrReceivedRbUnchecked_ANI1   | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED | new
           #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_VC15_VRUploadedPathConfirmed          | PT_VC15_VRUploadedPathConfirmed_ANI1          | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
 #      | PT_VC15_VRUploadedAssayReceived          | PT_VC15_VRUploadedAssayReceived_ANI1          | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |

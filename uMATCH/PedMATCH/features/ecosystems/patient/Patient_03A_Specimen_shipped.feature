@@ -342,15 +342,19 @@ Feature: NCH Specimen shipped messages
     And this specimen field: "specimen_type" should be: "BLOOD"
 
   @patients_p2
-  Scenario: PT_SS21. Tissue cannot be shipped if there is one tissue variant report get confirmed
+  Scenario Outline: PT_SS21. Tissue cannot be shipped if there is one tissue variant report get confirmed
   #    Testing patient: PT_SS21_TissueVariantConfirmed, surgical_event_id: PT_SS21_TissueVariantConfirmed_SEI1, molecular_id: PT_SS21_TissueVariantConfirmed_MOI1, analysis_id: PT_SS21_TissueVariantConfirmed_ANI1
   #      this patient has TISSUE_VARIANT_REPORT_CONFIRMED status
-    Given patient id is "PT_SS21_TissueVariantConfirmed"
+    Given patient id is "<patient_id>"
     And load template specimen type: "TISSUE" shipped message for this patient
-    Then set patient message field: "surgical_event_id" to value: "PT_SS21_TissueVariantConfirmed_SEI1"
-    Then set patient message field: "molecular_id" to value: "PT_SS21_TissueVariantConfirmed_MOI2"
+    Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
+    Then set patient message field: "molecular_id" to value: "<patient_id>_MOI2"
     Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "confirmed variant report" with code "403"
+    Examples:
+      | patient_id                     |
+      | PT_SS21_TissueVariantConfirmed |
+      | PT_SS21_RbRequested            | new
 
 
   @patients_p2

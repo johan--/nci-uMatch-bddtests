@@ -185,12 +185,16 @@ Feature: NCH specimen received messages
       | TISSUE        | study_id | OTHER | is not a valid study_id | PT_SR11_Registered_SEI1 |
 
   @patients_p1
-  Scenario: PT_SR12. new tissue specimen message cannot be received when there is one CONFIRMED tissue variant report
+  Scenario Outline: PT_SR12. new tissue specimen message cannot be received when there is one CONFIRMED tissue variant report
     #  Test patient: PT_SR12_VariantReportConfirmed: VR confirmed PT_SR12_VariantReportConfirmed_SEI1, PT_SR12_VariantReportConfirmed_MOI1, PT_SR12_VariantReportConfirmed_ANI1
-    Given patient id is "PT_SR12_VariantReportConfirmed"
+    Given patient id is "<patient_id>"
     And load template specimen type: "TISSUE" received message for this patient
-    Then set patient message field: "surgical_event_id" to value: "PT_SR12_VariantReportConfirmed_SEI2"
+    Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI2"
     When POST to MATCH patients service, response includes "cannot transition from" with code "403"
+    Examples:
+      | patient_id                     |
+      | PT_SR12_VariantReportConfirmed |
+      | PT_SR12_RbRequested            | new
 
   @patients_p1
   Scenario: PT_SR14a. When a new TISSUE specimen_received message is received,  the pending TISSUE variant report from the old Surgical event is set to "REJECTED" status

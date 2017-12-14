@@ -1,5 +1,6 @@
 #encoding: utf-8
 Feature: Patients request assignment tests
+
   Background:
     Given patient API user authorization role is "PATIENT_MESSAGE_SENDER"
 
@@ -41,6 +42,7 @@ Feature: Patients request assignment tests
       | PT_RA02_AssayReceived       | 1.0         | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
       | PT_RA02_TsVrReceived        | 2.0         | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_RA02_TsVrConfirmed       | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_RA02_RbRequested         | 1.0         | 1.0              |         | 403       | RB_ORDER_REQUESTED              | new
       | PT_RA02_TsVrRejected        | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
       | PT_RA02_NoTaAvailable       | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
       | PT_RA02_CompassionateCare   | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
@@ -84,6 +86,7 @@ Feature: Patients request assignment tests
       | PT_RA03_AssayReceived       | 1.0         | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
       | PT_RA03_TsVrReceived        | 2.0         | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_RA03_TsVrConfirmed       | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_RA03_RbRequested         | 1.0         | 1.0              |         | 403       | RB_ORDER_REQUESTED              | new
       | PT_RA03_TsVrRejected        | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
       | PT_RA03_NoTaAvailable       | 1.0         | 1.0              |         | 202       | REQUEST_ASSIGNMENT              |
       | PT_RA03_CompassionateCare   | 1.0         | 1.0              |         | 202       | REQUEST_ASSIGNMENT              |
@@ -124,23 +127,24 @@ Feature: Patients request assignment tests
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Then patient status should change to "<next_status>"
     Examples:
-      | patient_id                     | next_step_number | message | http_code | next_status                     |
-      | PT_RA04a_PendingConfirmation   | 1.0              |         | 403       | PENDING_CONFIRMATION            |
-      | PT_RA04a_PendingApproval       | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_OnTreatmentArm        | 1.1              |         | 202       | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_RequestAssignment     | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_RequestNoAssignment   | 1.1              |         | 403       | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_Registered            | 1.0              |         | 403       | REGISTRATION                    |
-      | PT_RA04a_TsReceived            | 1.0              |         | 403       | TISSUE_SPECIMEN_RECEIVED        |
-      | PT_RA04a_TsShipped             | 2.0              |         | 403       | TISSUE_NUCLEIC_ACID_SHIPPED     |
-      | PT_RA04a_slideShipped          | 2.0              |         | 403       | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
-      | PT_RA04a_AssayReceived         | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
-      | PT_RA04a_TsVrReceived          | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
-      | PT_RA04a_TsVrConfirmed         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
-      | PT_RA04a_TsVrRejected          | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
-      | PT_RA04a_NoTaAvailable         | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_CompassionateCare     | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_OffStudy              | 1.0              |         | 403       | OFF_STUDY                       |
+      | patient_id                   | next_step_number | message | http_code | next_status                     |
+      | PT_RA04a_PendingConfirmation | 1.0              |         | 403       | PENDING_CONFIRMATION            |
+      | PT_RA04a_PendingApproval     | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_OnTreatmentArm      | 1.1              |         | 202       | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_RequestAssignment   | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_RequestNoAssignment | 1.1              |         | 403       | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_Registered          | 1.0              |         | 403       | REGISTRATION                    |
+      | PT_RA04a_TsReceived          | 1.0              |         | 403       | TISSUE_SPECIMEN_RECEIVED        |
+      | PT_RA04a_TsShipped           | 2.0              |         | 403       | TISSUE_NUCLEIC_ACID_SHIPPED     |
+      | PT_RA04a_slideShipped        | 2.0              |         | 403       | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
+      | PT_RA04a_AssayReceived       | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
+      | PT_RA04a_TsVrReceived        | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
+      | PT_RA04a_TsVrConfirmed       | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_RA04a_RbRequested         | 1.0              |         | 403       | RB_ORDER_REQUESTED              | new
+      | PT_RA04a_TsVrRejected        | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
+      | PT_RA04a_NoTaAvailable       | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_CompassionateCare   | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_OffStudy            | 1.0              |         | 403       | OFF_STUDY                       |
     #no bio expired any more
 #      | PT_RA04a_OffStudyBiopsyExpired | 1.0              |         | 403       | OFF_STUDY_BIOPSY_EXPIRED        |
 

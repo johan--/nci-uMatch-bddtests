@@ -204,21 +204,23 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos days_pending should be correct
     Then this patient patient_limbos has_amoi should be "<amoi>"
     Examples:
-      | patient_id                   | count | contain_message         | amoi  |
-      | PT_SC04b_TsReceived          | 2     | Tissue-Slide            | false |
-      | PT_SC04b_TsShippedNoSd       | 2     | Variant-Slide           | false |
-      | PT_SC04b_SdShippedNoTs       | 4     | Tissue-BAF47-BRG1-PTEN  | false |
-      | PT_SC04b_TsSdShipped         | 4     | Variant-BAF47-BRG1-PTEN | false |
-      | PT_SC04b_TsVrUploadedNoSd    | 2     | confirmed-Slide         | true  |
-      | PT_SC04b_TsVrConfirmedAndSd  | 3     | PTEN-BAF47-BRG1         | true  |
-      | PT_SC04b_TsVrConfirmedNoSd   | 1     | Slide                   | true  |
-      | PT_SC04b_VrConfirmedOneAssay | 2     | BAF47-BRG1              | true  |
-      | PT_SC04b_TsShippedTwoAssay   | 2     | BAF47-Variant           | false |
-      | PT_SC04b_ThreeAssayNoTs      | 1     | Tissue                  | false |
-      | PT_SC04b_ThreeAssayAndTs     | 1     | Variant                 | false |
-      | PT_SC04b_PendingConfirmation | 1     | assignment              | true  |
-      | PT_SC04b_PendingApproval     | 1     | approval                | true  |
-      | UI_PA09_TsVr52Uploaded       | 2     | confirmed-Slide         | false |
+      | patient_id                         | count | contain_message         | amoi  |
+      | PT_SC04b_TsReceived                | 2     | Tissue-Slide            | false |
+      | PT_SC04b_TsShippedNoSd             | 2     | Variant-Slide           | false |
+      | PT_SC04b_SdShippedNoTs             | 4     | Tissue-BAF47-BRG1-PTEN  | false |
+      | PT_SC04b_TsSdShipped               | 4     | Variant-BAF47-BRG1-PTEN | false |
+      | PT_SC04b_TsVrUploadedNoSd          | 2     | confirmed-Slide         | true  |
+      | PT_SC04b_TsVrConfirmedAndSd        | 3     | PTEN-BAF47-BRG1         | true  |
+      | PT_SC04b_TsVrConfirmedNoSd         | 1     | Slide                   | true  |
+      | PT_SC04b_VrConfirmedOneAssay       | 2     | BAF47-BRG1              | true  |
+      | PT_SC04b_TsShippedTwoAssay         | 2     | BAF47-Variant           | false |
+      | PT_SC04b_ThreeAssayNoTs            | 1     | Tissue                  | false |
+      | PT_SC04b_ThreeAssayAndTs           | 1     | Variant                 | false |
+      | PT_SC04b_PendingConfirmation       | 1     | assignment              | true  |
+      | PT_SC04b_PendingApproval           | 1     | approval                | true  |
+      | UI_PA09_TsVr52Uploaded             | 2     | confirmed-Slide         | false |
+      | PT_SC04b_RbRequested               | 2     | confirmed-RB            | true  | new
+      | PT_SC04b_RbUncheckVrConfirmedAndSd | 3     | PTEN-BAF47-BRG1         | true  | new
 
   @patients_p1
   Scenario: PT_SC04c patient_limbos should update properly after tissue is shipped
@@ -253,10 +255,12 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos should have "<count>" messages which contain "<contain_message>"
     Then this patient patient_limbos days_pending should be correct
     Examples:
-      | patient_id        | biomarker | count | contain_message    |
-      | PT_SC04d_NoAssay  | ICCPTENs  | 3     | variant-BAF47-BRG1 |
-      | PT_SC04d_OneAssay | ICCBAF47s | 2     | variant-BRG1       |
-      | PT_SC04d_TwoAssay | ICCBRG1s  | 1     | variant            |
+      | patient_id                  | biomarker | count | contain_message    |
+      | PT_SC04d_NoAssay            | ICCPTENs  | 3     | variant-BAF47-BRG1 |
+      | PT_SC04d_OneAssay           | ICCBAF47s | 2     | variant-BRG1       |
+      | PT_SC04d_TwoAssay           | ICCBRG1s  | 1     | variant            |
+      | PT_SC04d_RbRequested3Assay  | ICCRBs    | 1     | assignment         | new
+      | PT_SC04d_RbRequestedNoAssay | ICCRBs    | 3     | PTEN-BAF47-BRG1    | new
 
   @patients_p1
   Scenario Outline: PT_SC04e patient_limbos should update properly after variant report is confirmed
@@ -273,9 +277,11 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos days_pending should be correct
     Then this patient patient_limbos has_amoi should be "<amoi>"
     Examples:
-      | patient_id             | confirm | status                          | count | messages        | amoi  |
-      | PT_SC04e_TsVrUploaded1 | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  |
-      | PT_SC04e_TsVrUploaded2 | reject  | TISSUE_VARIANT_REPORT_REJECTED  | 4     | variant         | false |
+      | patient_id                    | confirm | status                          | count | messages        | amoi  |
+      | PT_SC04e_TsVrUploaded1        | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  |
+      | PT_SC04e_TsVrUploaded2        | reject  | TISSUE_VARIANT_REPORT_REJECTED  | 4     | variant         | false |
+      | PT_SC04e_RbVrUploaded         | confirm | RB_ORDER_REQUESTED              | 2     | confirmed-RB    | true  | new
+      | PT_SC04e_RbVrUncheckedNoAssay | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  | new
 
   @patients_p1
   Scenario Outline: PT_SC04f patient_limbos should update properly after new tissue specimen is received
@@ -617,15 +623,16 @@ Feature: Patient GET service valid special case tests
     Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "vcf" file names: "test1.vcf"
 
   Scenario: PT_SC07e specimen_events should display assay history in correct order
-    Given patient GET service: "specimen_events", patient id: "PT_SC07e_FiveAssay", id: ""
+    Given patient GET service: "specimen_events", patient id: "PT_SC07e_FiveAssayThenRbAssay", id: "" redo patient
     When GET from MATCH patient API, http code "200" should return
     Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" should have these assays
-      | order | biomarker | result        | result_date          |
-      | 1     | ICCBRG1s  | NEGATIVE      | 2017-06-05T21:15:47Z |
-      | 2     | ICCBRG1s  | INDETERMINATE | 2017-06-05T21:15:43Z |
-      | 3     | ICCPTENs  | POSITIVE      | 2017-06-05T21:15:41Z |
-      | 4     | ICCBAF47s | NEGATIVE      | 2017-06-05T21:15:39Z |
-      | 5     | ICCPTENs  | NEGATIVE      | 2017-06-05T21:15:38Z |
+      | order | biomarker | result        | result_date |
+      | 1     | ICCBRG1s  | NEGATIVE      | time        |
+      | 2     | ICCBRG1s  | INDETERMINATE | time        |
+      | 3     | ICCPTENs  | POSITIVE      | time        |
+      | 4     | ICCBAF47s | NEGATIVE      | time        |
+      | 5     | ICCPTENs  | NEGATIVE      | time        |
+      | 6     | ICCRBs    | NEGATIVE      | time        |
 
   @patients_p1
   Scenario Outline: PT_SC08a variant report can be downloaded properly
@@ -732,12 +739,13 @@ Feature: Patient GET service valid special case tests
 
   @patients_p2
   Scenario: PT_SC11a assay event should have correct values
-    Given patient id is "PT_SC11a_AssayReceived"
+    Given patient id is "PT_SC11a_3AssayAndRbRecieved" redo patient
     And patient GET service: "events", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then returned events should include assay event with biomacker "IHC PTEN" result "NEGATIVE"
     Then returned events should include assay event with biomacker "IHC BRG1" result "POSITIVE"
     Then returned events should include assay event with biomacker "IHC BAF47" result "INDETERMINATE"
+    Then returned events should include assay event with biomacker "IHC RB" result "NEGATIVE"
 
   @patients_p1
   Scenario: PT_SC11b all events should have required field

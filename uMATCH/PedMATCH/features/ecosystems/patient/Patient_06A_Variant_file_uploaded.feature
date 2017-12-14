@@ -196,13 +196,17 @@ Feature: Variant files uploaded message
       | PT_VU12_VariantReportRejected_MOI1 | PT_VU10_VariantReportUploaded_ANI1 | existing other patient's ani |
 
   @patients_p2
-  Scenario: PT_VU13. variant files uploaded will not be accepted after a patient has TISSUE_VARIANT_REPORT_CONFIRMED status
+  Scenario Outline: PT_VU13. variant files uploaded will not be accepted after a patient has TISSUE_VARIANT_REPORT_CONFIRMED status
   #    Test patient: PT_VU13_VariantReportConfirmed; VR confirmed _SEI1, _MOI1, _ANI1
-    Given patient id is "PT_VU13_VariantReportConfirmed"
-    And load template variant file uploaded message for molecular id: "PT_VU13_VariantReportConfirmed_MOI1"
-    Then set patient message field: "analysis_id" to value: "PT_VU13_VariantReportConfirmed_ANI2"
-    Then files for molecular_id "PT_VU13_VariantReportConfirmed_MOI1" and analysis_id "PT_VU13_VariantReportConfirmed_ANI2" are in S3
+    Given patient id is "<patient_id>"
+    And load template variant file uploaded message for molecular id: "<patient_id>_MOI1"
+    Then set patient message field: "analysis_id" to value: "<patient_id>_ANI2"
+    Then files for molecular_id "<patient_id>_MOI1" and analysis_id "<patient_id>_ANI2" are in S3
     When POST to MATCH variant report upload service, response includes "confirmed TISSUE variant report" with code "403"
+    Examples:
+    |patient_id|
+    |PT_VU13_VariantReportConfirmed|
+    |PT_VU13_RbRequested           |
 
   @patients_p3
   Scenario: PT_VU14. variant file uploaded to blood specimen should has correct result
@@ -266,6 +270,7 @@ Feature: Variant files uploaded message
       | PT_VU17_TsShippedAssayReceived | PT_VU17_TsShippedAssayReceived_MOI1 | true  |
       | PT_VU17_TsVrConfirmed          | PT_VU17_TsVrConfirmed_MOI1          | false |
       | PT_VU17_TsVrRejected           | PT_VU17_TsVrRejected_MOI1           | true  |
+      | PT_VU17_RbRequested            | PT_VU17_TsVrConfirmed_MOI1          | false | new
       | PT_VU17_OnTreatmentArm         | PT_VU17_OnTreatmentArm_MOI1         | false |
       | PT_VU17_ReqAssignment          | PT_VU17_ReqAssignment_MOI1          | false |
       | PT_VU17_ReqNoAssignment        | PT_VU17_ReqNoAssignment_MOI1        | false |
