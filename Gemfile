@@ -24,9 +24,9 @@ group :test, :development do
   # gem 'simplecov-rcov'
   # gem "rcov_rails"
   # gem "rcov"
+  # gem "creek"
   gem 'json'
   gem "xls2json"
-  gem "creek"
   gem "parallel_tests"
   gem "httparty"
   gem 'cucumber-api'
