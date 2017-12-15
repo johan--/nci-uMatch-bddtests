@@ -117,6 +117,11 @@ Feature: Patient API rollback tests
       | PT_RB01a_VrConfirmedTwoAssays |
       | PT_RB01a_VrRejectedTwoAssays  |
 
+
+  ############################################################
+  ######## PENDING_APPROVAL ---> PENDING_CONFIRMATION ########
+  ############################################################
+
   @patients_p1_off
   Scenario Outline: PT_RB01b. Patient on PENDING_APPROVAL can be rolled back properly to PENDING_CONFIRMATION
     Given patient id is "<patient_id>"
@@ -131,21 +136,33 @@ Feature: Patient API rollback tests
     And patient latest event field "event_message" should be "Patient has been rolled back from PENDING_APPROVAL to PENDING_CONFIRMATION"
     Then patient should "have" assignment report (analysis_id: "<patient_id>_BD_ANI2")
     And this assignment report field: "status" should be "pending"
-   # Then load template variant report confirm message for analysis id: "<patient_id>_ANI1"
-   # When PUT to MATCH variant report "confirm" service, response includes "changed successfully to" with code "200"
-   # Then patient status should change to "TISSUE_VARIANT_REPORT_CONFIRMED"
-   # Then load template assay message for this patient
-   # Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
-   # Then set patient message field: "biomarker" to value: " ICCBRG1s"
-   # Then set patient message field: "result" to value: "POSITIVE"
-   # When POST to MATCH patients service, response includes "successfully" with code "202"
-   # Then patient status should change to "PENDING_CONFIRMATION"
     Examples:
-      | patient_id                 |
-      | PT_VC16_BdVrPendingApproval|
+      | patient_id                  |
+      | PT_VC16_BdVrPendingApproval |
+
+
+  ######################################################################
+  ######## PENDING_CONFIRMATION ---> TISSUE_VARIANT_REPORT_RECEIVED ####
+  ######################################################################
+
+  @patients_p1_off @adithya
+  Scenario Outline: PT_RB01c. Patient on PENDING_CONFIRMATION can be rolled back properly
+    Given patient id is "<patient_id>"
+    And this patient(patient_id: "<patient_id>") has status "PENDING_CONFIRMATION"
+    Then patient should have variant report (analysis_id: "<patient_id>_BD_ANI2")
+    And this variant report field: "comment_user" should be "QA"
+    And this variant report field: "status" should be "confirmed"
+    When PUT to MATCH rollback with step number "1.0", response includes "RollBack" with code "202"
+    Then patient(patient_id: "<patient_id>") status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient should have variant report (analysis_id: "<patient_id>_BD_ANI2")
+    And this variant report field: "status" should be "pending"
+    Examples:
+      | patient_id                      |
+      | PT_VC16_BdVrPendingConfirmation |
+
 
   @patients_p2_off
-  Scenario Outline: PT_RB01c. rollback request should only rollback the latest confirmed variant report
+  Scenario Outline: PT_RB01d. rollback request should only rollback the latest confirmed variant report
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
     When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "202"

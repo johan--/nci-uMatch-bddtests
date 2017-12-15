@@ -150,6 +150,11 @@ Given(/^patient id is "([^"]*)"$/) do |patient_id|
   @patient_id = patient_id=='null' ? nil : patient_id
 end
 
+And(/^this patient\(patient_id: "([^"]*)"\) has status "([^"]*)"$/) do |patient_id, patient_status|
+  patient = Patient_helper_methods.wait_until_patient_updated(patient_id)
+  actual_match_expect(patient['current_status'], patient_status)
+end
+
 And(/^variant uuid is "([^"]*)"$/) do |uuid|
   @current_variant_uuid = uuid=='null' ? nil : uuid
 end
@@ -183,6 +188,11 @@ end
 
 Then(/^files for molecular_id "([^"]*)" and analysis_id "([^"]*)" are in S3$/) do |moi, ani|
   Patient_helper_methods.upload_vr_to_s3(moi, ani)
+end
+
+Then(/^patient\(patient_id: "([^"]*)"\) status should change to "([^"]*)"$/) do |patient_id, patient_status|
+  patient = Patient_helper_methods.wait_until_patient_updated(patient_id)
+  actual_match_expect(patient['current_status'], patient_status)
 end
 
 Then(/^upload files for molecular_id "([^"]*)" analysis_id "([^"]*)" using template "([^"]*)"$/) do |moi, ani, template|
