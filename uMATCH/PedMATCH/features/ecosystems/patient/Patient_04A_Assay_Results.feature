@@ -302,12 +302,12 @@ Feature: Assay Messages
     Then patient status should change to "<patient_status>"
     Examples:
       | patient_id                  | patient_status                  |
-      | PT_AS12b_NoVr3Assay         | ASSAY_RESULTS_RECEIVED          | new
-      | PT_AS12b_VrReceived3Assay   | TISSUE_VARIANT_REPORT_RECEIVED  | new
-      | PT_AS12b_VrConfirmed3Assay  | TISSUE_VARIANT_REPORT_CONFIRMED | new
-      | PT_AS12b_RbRequestedNoAssay | RB_ORDER_REQUESTED              | new
-      | PT_AS12b_RbRequested2Assay  | RB_ORDER_REQUESTED              | new
-      | PT_AS12b_RbRequest3Assay    | PENDING_CONFIRMATION            | new
+      | PT_AS12b_NoVr3Assay         | ASSAY_RESULTS_RECEIVED          |
+      | PT_AS12b_VrReceived3Assay   | TISSUE_VARIANT_REPORT_RECEIVED  |
+      | PT_AS12b_VrConfirmed3Assay  | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_AS12b_RbRequestedNoAssay | RB_ORDER_REQUESTED              |
+      | PT_AS12b_RbRequested2Assay  | RB_ORDER_REQUESTED              |
+      | PT_AS12b_RbRequest3Assay    | PENDING_CONFIRMATION            |
 
   @patients_p3
   Scenario: PT_AS13. extra key-value pair in the message body should NOT fail

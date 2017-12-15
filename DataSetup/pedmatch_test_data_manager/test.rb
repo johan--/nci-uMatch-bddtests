@@ -125,6 +125,7 @@ pt.create_seed_patient {
   pt.story_assignment_confirmed
   pt.story_on_treatment_arm('APEC1621-A', '100')
 }
+
 pt = PatientStory.new('PT_VC16_BdVrReqAssignment')
 pt.create_seed_patient {
   pt.story_register
@@ -143,6 +144,7 @@ pt.create_seed_patient {
   pt.story_on_treatment_arm('APEC1621-A', '100')
   pt.story_request_assignment('Y')
 }
+
 pt = PatientStory.new('PT_VC16_BdVrOffStudy')
 pt.create_seed_patient {
   pt.story_register
@@ -150,6 +152,95 @@ pt.create_seed_patient {
   pt.story_specimen_shipped_blood
   pt.story_blood_variant_report
   pt.story_off_study
+}
+
+pt = PatientStory.new('PT_AS12b_NoVr3Assay')
+pt.create_seed_patient {
+  pt.story_register
+  pt.story_specimen_received_tissue
+  pt.story_specimen_shipped_tissue
+  pt.story_specimen_shipped_slide
+  pt.story_specimen_received_blood
+  pt.story_specimen_shipped_blood
+  pt.story_blood_variant_report
+  pt.story_assay('ICCPTENs')
+  pt.story_assay('ICCBAF47s')
+  pt.story_assay('ICCBRG1s')
+}
+
+pt = PatientStory.new('PT_AS12b_VrReceived3Assay')
+pt.create_seed_patient {
+  pt.story_register
+  pt.story_specimen_received_tissue
+  pt.story_specimen_shipped_tissue
+  pt.story_specimen_shipped_slide
+  pt.story_specimen_received_blood
+  pt.story_specimen_shipped_blood
+  pt.story_blood_variant_report
+  pt.story_assay('ICCPTENs')
+  pt.story_assay('ICCBAF47s')
+  pt.story_assay('ICCBRG1s')
+  pt.story_tissue_variant_report
+}
+
+pt = PatientStory.new('PT_AS12b_VrConfirmed3Assay')
+pt.create_seed_patient {
+  pt.story_register
+  pt.story_specimen_received_tissue
+  pt.story_specimen_shipped_tissue
+  pt.story_specimen_shipped_slide
+  pt.story_specimen_received_blood
+  pt.story_specimen_shipped_blood
+  pt.story_blood_variant_report
+  pt.story_assay('ICCPTENs')
+  pt.story_assay('ICCBAF47s')
+  pt.story_assay('ICCBRG1s')
+  pt.story_tissue_variant_report
+  pt.story_tissue_vr_confirmed
+}
+
+pt = PatientStory.new('PT_AS12b_RbRequestedNoAssay')
+pt.create_seed_patient {
+  pt.story_register
+  pt.story_specimen_received_tissue
+  pt.story_specimen_shipped_tissue
+  pt.story_specimen_shipped_slide
+  pt.story_specimen_received_blood
+  pt.story_specimen_shipped_blood
+  pt.story_blood_variant_report
+  pt.story_tissue_variant_report
+  pt.story_tissue_vr_confirmed
+}
+
+pt = PatientStory.new('PT_AS12b_RbRequested2Assay')
+pt.create_seed_patient {
+  pt.story_register
+  pt.story_specimen_received_tissue
+  pt.story_specimen_shipped_tissue
+  pt.story_specimen_shipped_slide
+  pt.story_specimen_received_blood
+  pt.story_specimen_shipped_blood
+  pt.story_blood_variant_report
+  pt.story_assay('ICCPTENs')
+  pt.story_assay('ICCBRG1s')
+  pt.story_tissue_variant_report
+  pt.story_tissue_vr_confirmed
+}
+
+pt = PatientStory.new('PT_AS12b_RbRequest3Assay')
+pt.create_seed_patient {
+  pt.story_register
+  pt.story_specimen_received_tissue
+  pt.story_specimen_shipped_tissue
+  pt.story_specimen_shipped_slide
+  pt.story_specimen_received_blood
+  pt.story_specimen_shipped_blood
+  pt.story_blood_variant_report
+  pt.story_assay('ICCPTENs')
+  pt.story_assay('ICCBAF47s')
+  pt.story_assay('ICCBRG1s')
+  pt.story_tissue_variant_report
+  pt.story_tissue_vr_confirmed
 }
 
 list = []
@@ -165,6 +256,13 @@ list << 'PT_VC16_BdVrPendingApproval'
 list << 'PT_VC16_BdVrOnTreatmentArm'
 list << 'PT_VC16_BdVrReqAssignment'
 list << 'PT_VC16_BdVrOffStudy'
+list << 'PT_AS12b_NoVr3Assay'
+list << 'PT_AS12b_VrReceived3Assay'
+list << 'PT_AS12b_VrConfirmed3Assay'
+list << 'PT_AS12b_RbRequestedNoAssay'
+list << 'PT_AS12b_RbRequested2Assay'
+list << 'PT_AS12b_RbRequest3Assay'
+
 
 PedMatchTestData.load_seed_patients(list)
 
