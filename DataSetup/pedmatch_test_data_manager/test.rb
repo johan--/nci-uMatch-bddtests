@@ -239,7 +239,7 @@ pt.create_seed_patient {
   pt.story_assay('ICCPTENs')
   pt.story_assay('ICCBAF47s')
   pt.story_assay('ICCBRG1s')
-  pt.story_tissue_variant_report
+  pt.story_tissue_variant_report('rb_assay')
   pt.story_tissue_vr_confirmed
 }
 
