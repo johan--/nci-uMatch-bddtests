@@ -145,7 +145,7 @@ Feature: Patient API rollback tests
   ######## PENDING_CONFIRMATION ---> TISSUE_VARIANT_REPORT_RECEIVED ####
   ######################################################################
 
-  @patients_p1_off @adithya
+  @patients_p1_off
   Scenario Outline: PT_RB01c. Patient on PENDING_CONFIRMATION can be rolled back properly
     Given patient id is "<patient_id>"
     And this patient(patient_id: "<patient_id>") has status "PENDING_CONFIRMATION"
@@ -161,8 +161,31 @@ Feature: Patient API rollback tests
       | PT_VC16_BdVrPendingConfirmation |
 
 
+  ##################################################
+  ##### ON_TREATMENT_ARM ---> PENDING_APPROVAL #####
+  ##################################################
+
+  @patients_p1_off
+  Scenario Outline: PT_RB01d. Patient on ON_TREATMENT_ARM can be rolled back properly to PENDING_APPROVAL
+    Given patient id is "<patient_id>"
+    And this patient(patient_id: "<patient_id>") has status "ON_TREATMENT_ARM"
+    Then patient should have variant report (analysis_id: "<patient_id>_BD_ANI2")
+    And this variant report field: "comment_user" should be "QA"
+    And this variant report field: "status" should be "confirmed"
+    Then patient should "have" assignment report (analysis_id: "<patient_id>_BD_ANI2")
+    And this assignment report field: "comment_user" should be "QA"
+    And this assignment report field: "status" should be "confirmed"
+   # When PUT to MATCH rollback with step number "1.0", response includes "RollBack" with code "202"
+   # Then patient(patient_id: "<patient_id>") status should change to "PENDING_APPROVAL"
+   # Then patient should have variant report (analysis_id: "<patient_id>_BD_ANI2")
+   # And this variant report field: "status" should be "pending"
+    Examples:
+      | patient_id                 |
+      | PT_VC16_BdVrOnTreatmentArm |
+
+
   @patients_p2_off
-  Scenario Outline: PT_RB01d. rollback request should only rollback the latest confirmed variant report
+  Scenario Outline: PT_RB01E. rollback request should only rollback the latest confirmed variant report
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
     When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "202"
