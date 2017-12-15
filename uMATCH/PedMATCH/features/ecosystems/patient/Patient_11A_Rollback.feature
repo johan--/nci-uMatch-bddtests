@@ -117,7 +117,7 @@ Feature: Patient API rollback tests
       | PT_RB01a_VrConfirmedTwoAssays |
       | PT_RB01a_VrRejectedTwoAssays  |
 
-  @patients_p1_off @adithya
+  @patients_p1_off
   Scenario Outline: PT_RB01b. Patient on PENDING_APPROVAL can be rolled back properly to PENDING_CONFIRMATION
     Given patient id is "<patient_id>"
     Then patient should "have" assignment report (analysis_id: "<patient_id>_BD_ANI2")
