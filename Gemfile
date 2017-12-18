@@ -27,7 +27,7 @@ group :test, :development do
   # gem "creek"
   gem 'json'
   gem "xls2json"
-  gem "parallel_tests"
+  gem 'parallel_tests', '2.18.0'
   gem "httparty"
   gem 'cucumber-api'
   gem 'hashdiff'
