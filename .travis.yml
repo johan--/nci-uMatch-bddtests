@@ -68,7 +68,8 @@ before_script:
   - cd ..
 
   #remove the results folder placeholder
-  - rm results/output.json
+  - md results
+#  - rm results/output.json
 
   # Version reporting
   - ruby -v
