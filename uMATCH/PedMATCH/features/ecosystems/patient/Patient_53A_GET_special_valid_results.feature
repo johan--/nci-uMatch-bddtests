@@ -623,9 +623,9 @@ Feature: Patient GET service valid special case tests
     Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "vcf" file names: "test1.vcf"
 
   Scenario: PT_SC07e specimen_events should display assay history in correct order
-    Given patient GET service: "specimen_events", patient id: "PT_SC07e_FiveAssayThenRbAssay", id: "" redo patient
+    Given patient GET service: "specimen_events", patient id: "PT_SC07e_FiveAssayThenRbAssay", id: ""
     When GET from MATCH patient API, http code "200" should return
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" should have these assays
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssayThenRbAssay_SEI1" should have these assays
       | order | biomarker | result        | result_date |
       | 1     | ICCBRG1s  | NEGATIVE      | time        |
       | 2     | ICCBRG1s  | INDETERMINATE | time        |
@@ -739,7 +739,7 @@ Feature: Patient GET service valid special case tests
 
   @patients_p2
   Scenario: PT_SC11a assay event should have correct values
-    Given patient id is "PT_SC11a_3AssayAndRbRecieved" redo patient
+    Given patient id is "PT_SC11a_3AssayAndRbRecieved"
     And patient GET service: "events", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then returned events should include assay event with biomacker "IHC PTEN" result "NEGATIVE"
