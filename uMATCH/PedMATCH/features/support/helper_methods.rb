@@ -272,7 +272,7 @@ module Helper_Methods
     total_time = 0.0
     old_hash = nil
     wait_time = 5
-    internal_timeout = 45.0
+    internal_timeout = 30.0
     loop do
       new_hash = simple_get_request(url)['message_json']
       # puts new_hash.to_json.to_s
@@ -293,7 +293,7 @@ module Helper_Methods
   end
 
   def get_special_result_from_url(url, timeout, query_hash, path=[])
-    internal_timeout = 300.0
+    internal_timeout = 30.0
     run_time = 0.0
     wait_time = 5
     loop do
