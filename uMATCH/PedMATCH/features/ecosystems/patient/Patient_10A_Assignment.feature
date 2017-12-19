@@ -229,15 +229,33 @@ Feature: Patients assignment tests
       | assignment_report_status | treatment_arm_id | treatment_arm_stratum_id | treatment_arm_version |
       | PENDING                  | null             | null                     | null                  |
 
-    @patients_p1
-    Scenario: PT_AM13. multiple assignment can be processed at same time
-      Given patient id is "PT_AM13_AssayVrReady1"
-      And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
-      Then load template variant report confirm message for analysis id: "PT_AM13_AssayVrReady1_ANI1"
-      When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
-      Given patient id is "PT_AM13_AssayVrReady2"
-      Then load template variant report confirm message for analysis id: "PT_AM13_AssayVrReady2_ANI1"
-      When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
-      And patient status should change to "PENDING_CONFIRMATION"
-      Then patient id is "PT_AM13_AssayVrReady1"
-      And patient status should change to "PENDING_CONFIRMATION"
+  @patients_p1
+  Scenario: PT_AM13. multiple assignment can be processed at same time
+    Given patient id is "PT_AM13_AssayVrReady1"
+    And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    Then load template variant report confirm message for analysis id: "PT_AM13_AssayVrReady1_ANI1"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+    Given patient id is "PT_AM13_AssayVrReady2"
+    Then load template variant report confirm message for analysis id: "PT_AM13_AssayVrReady2_ANI1"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+    And patient status should change to "PENDING_CONFIRMATION"
+    Then patient id is "PT_AM13_AssayVrReady1"
+    And patient status should change to "PENDING_CONFIRMATION"
+
+  @patients_p1
+  Scenario Outline: PT_AM14. Patient Assignment should also accept Mock COG data with the DOB field in it
+    Given patient id is "<patient_id>"
+    And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    Then load template variant report confirm message for analysis id: "<analysis_id>"
+    And call Mock COG and check the existence of DOB field in this patient "<patient_id>" data
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+    And patient status should change to "PENDING_CONFIRMATION"
+    Then patient API user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
+    Then load template assignment report confirm message for analysis id: "<analysis_id>"
+    Then PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_APPROVAL"
+    Then wait for "15" seconds
+    Then COG received assignment status: "PENDING_APPROVAL" for this patient
+  Examples:
+    | patient_id                | analysis_id                    |
+    | PT_DOB1_VrConfirmed3Assay | PT_DOB1_VrConfirmed3Assay_ANI1 |

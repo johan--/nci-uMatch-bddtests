@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 require 'rspec'
 require 'json'
+require 'httparty'
 require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/patient_helper_methods.rb'
 require_relative '../../../support/cog_helper_methods.rb'
@@ -1607,8 +1608,14 @@ Then(/^apply auth0 token using "(old|new)" password, response includes "([^"]*)"
   end
 
   response = Auth0Token.ped_match_auth0_response(username, password)
-  # expect(response.to_s).to include msg
   expect(response.code.to_s).to eq code
+end
+
+And(/^call Mock COG and check the existence of DOB field in this patient "([^"]*)" data$/) do |patient_id|
+  url      = "#{ENV['cog_mock_endpoint']}" + "/api/patient/" + "#{patient_id}"
+  response = HTTParty.get(url)
+  parsed_response = JSON.parse(response.body)
+  expect(parsed_response).to include('date_of_birth')
 end
 
 def actual_match_expect(actual, expect)
