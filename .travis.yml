@@ -127,6 +127,8 @@ script:
       cd uMATCH/PedMATCH
       touch cucumber_failures.log
       bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @patients_queueless -f pretty --format json --out ../../results/output-$CUC_TAG_queueless-$TEST_ENV_NUMBER.json --format ParallelTests::Cucumber::FailuresLogger --out cucumber_failures.log --expand --color' -n 8
+      CURRENT_STATUS=$?
+      if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'patient_queue'"
       ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'treatment_arm_queue'"
       ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'pedmatch-int_ion_reporter_queue3'"

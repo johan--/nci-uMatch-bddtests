@@ -45,6 +45,7 @@ class BddReporter
   end
 
   def self.generate_html(json_folder, html_name, level, tag, date)
+    puts "The following files will be converted to bdd report: \n #{Dir["#{json_folder}/*"]}"
     template_file = "#{File.dirname(__FILE__)}/generate_report_js_template.txt"
     js_file = "#{File.dirname(__FILE__)}/bdd_reporter/support/generate_report.js"
     title = "#{tag.sub('@', '').upcase} BDD Reports (#{level}, #{date})"
