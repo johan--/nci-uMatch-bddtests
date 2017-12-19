@@ -4,7 +4,7 @@ Feature: Patients off study tests
   Background:
     Given patient API user authorization role is "PATIENT_MESSAGE_SENDER"
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario Outline: PT_OS01. patient can be set to OFF_STUDY status from certain status
     Given patient id is "<patient_id>"
     And load template off study message for this patient
@@ -72,7 +72,7 @@ Feature: Patients off study tests
       | PT_OS01a_OffStudy              | 1.0                 | off          | 403       | OFF_STUDY                |
       | PT_OS01a_OffStudyBiopsyExpired | 1.0                 | expired      | 403       | OFF_STUDY_BIOPSY_EXPIRED |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_OS02. variant report confirmation should fail if patient is on OFF_STUDY status
 #    patient: "PT_OS02_OffStudy1" assay ready, tissue vr waiting for confirm before OFF_STUDY
 #    patient: "PT_OS02_OffStudy2" assay ready, tissue vr waiting for confirm before OFF_STUDY_BIOPSY_EXPIRED
@@ -85,7 +85,7 @@ Feature: Patients off study tests
       | PT_OS02_OffStudy1 | PT_OS02_OffStudy1_ANI1 |
       | PT_OS02_OffStudy2 | PT_OS02_OffStudy2_ANI1 |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_OS02a. variant report upload should fail if patient is on OFF_STUDY status
 #    patient: "PT_OS02a_OffStudy1" tissue shipped before OFF_STUDY
 #    patient: "PT_OS02a_OffStudy2" tissue shipped before OFF_STUDY_BIOPSY_EXPIRED
@@ -101,7 +101,7 @@ Feature: Patients off study tests
     #no bio expired any more
 #      | PT_OS02a_OffStudy2 |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_OS03. assignment report confirmation should fail if patient is on OFF_STUDY status
 #    patient: "PT_OS03_OffStudy1" assay ready, Assignment report waiting for confirmation before OFF_STUDY
 #    patient: "PT_OS03_OffStudy2" assay ready, Assignment report waiting for confirm before OFF_STUDY_BIOPSY_EXPIRED

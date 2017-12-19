@@ -4,7 +4,7 @@ Feature: Patients request assignment tests
   Background:
     Given patient API user authorization role is "PATIENT_MESSAGE_SENDER"
 
-  @patients_p1 @demo_p1
+  @patients_p1 @demo_p1 @patients_need_queue
   Scenario Outline: PT_RA01. patient can be set to request assignment (rebiopsy=N) properly
 #    patient: PT_RA01_PendingApproval is on 1.0 now
 #    patient: PT_RA01_OnTreatmentArm is on 1.1 now
@@ -21,7 +21,7 @@ Feature: Patients request assignment tests
       | PT_RA01_PendingApproval | 1.0              | APEC1621-ETE-A | 100           |
       | PT_RA01_OnTreatmentArm  | 2.0              | APEC1621-ETE-A | 100           |
 
-  @patients_p2
+  @patients_p2 @patients_need_queue
   Scenario Outline: PT_RA02. patient can only be set to request assignment(rebiopsy=N) when patient is on certain status
     Given patient id is "<patient_id>"
     And load template request assignment message for this patient
@@ -63,7 +63,7 @@ Feature: Patients request assignment tests
     Then patient field: "current_step_number" should have value: "2.0"
     Then patient should have selected treatment arm: "APEC1621-ETE-A" with stratum id: "100"
 
-  @patients_p2
+  @patients_p2 @patients_need_queue
   Scenario Outline: PT_RA03. patient can only be set to request assignment(rebiopsy=Y) when patient is on certain status
 #    if patient is REQUEST_ASSIGNMENT status then it make no sense to receive another same request assignment (rebiopsy=Y) message, so reject it
     Given patient id is "<patient_id>"
@@ -160,7 +160,7 @@ Feature: Patients request assignment tests
 #    And template request assignment message for this patient (rebiopsy: "N", step number: "2.0")
 #    When POST to MATCH patients service, response includes "expired" with code "403"
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario Outline: PT_RA06. assignment process should not be triggered if assignment request has rebiopsy = Y
     Given patient id is "<patient_id>"
     And load template request assignment message for this patient
@@ -173,7 +173,7 @@ Feature: Patients request assignment tests
       | PT_RA06_OnTreatmentArm | 1.1                 |
       | PT_RA06_PendingAproval | 1.0                 |
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario: PT_RA07. request assignment with rebiopsy = N should generate assignment report properly
     Given patient id is "PT_RA07_VrAndAssayReady"
     Then patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
@@ -228,7 +228,7 @@ Feature: Patients request assignment tests
     And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 4 CONFIRMED assignment reports
     And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_RA08. request assignment message with invalid rebiopsy field should fail
     Given patient id is "<patient_id>"
     Then load template request assignment message for this patient
@@ -241,7 +241,7 @@ Feature: Patients request assignment tests
       | PT_RA08_OnTreatmentArm      | n        |
       | PT_RA08_RequestNoAssignment | other    |
 
-  @patients_p2
+  @patients_p2 @patients_need_queue
   Scenario Outline: PT_RA09. request assignment message without rebiopsy field should works as rebiospy = N
     Given patient id is "<patient_id>"
     Then load template request assignment message for this patient
@@ -255,7 +255,7 @@ Feature: Patients request assignment tests
       | PT_RA09_OnTreatmentArm      |
       | PT_RA09_RequestNoAssignment |
 
-  @patients_p2
+  @patients_p2 @patients_need_queue
   Scenario Outline: PT_RA10. request assignment message with rebiopsy is "" or null should works as rebiospy = N
     Given patient id is "<patient_id>"
     Then load template request assignment message for this patient

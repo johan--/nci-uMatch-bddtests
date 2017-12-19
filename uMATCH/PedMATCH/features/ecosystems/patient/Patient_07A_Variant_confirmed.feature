@@ -5,7 +5,7 @@ Feature: Variant files confirmed messages
   Background:
     Given patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
 
-  @patients_p1
+  @patients_p1 @patients_queueless
   Scenario: PT_VC00. blood variant can be confirmed properly
     Given patient id is "PT_VC00_BdVrUploaded"
     And a random variant for analysis id "PT_VC00_BdVrUploaded_BD_ANI1"
@@ -17,7 +17,7 @@ Feature: Variant files confirmed messages
     When PUT to MATCH variant "checked" service for this uuid, response includes "changed to true" with code "200"
     Then this variant should have confirmed field: "true" and comment field: "checking variant"
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_VC01. variant confirm message with invalid variant_uuid should fail
     Given patient id is "PT_VC01_VRUploaded"
     And variant uuid is "<uuid>"
@@ -42,7 +42,7 @@ Feature: Variant files confirmed messages
 #      |null                             |NilClass did not match the following type: string        |
       | not_checked_or_unchecked | Unregnized checked flag in variant confirmation url |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario: PT_VC03. variant_confirmed message will not be accepted if it is using a variant uuid that belongs to a rejected variant report (uuid should be only ones in current pending variant list)
 #    Test Patient: PT_VC03_VRUploadedAfterRejected, VR rejected: PT_VC03_VRUploadedAfterRejected(_SEI1, _MOI1, _ANI1), VR uploaded PT_VC03_VRUploadedAfterRejected(_SEI1, _MOI1, _ANI2)
     Given patient id is "PT_VC03_VRUploadedAfterRejected"
@@ -52,7 +52,7 @@ Feature: Variant files confirmed messages
 
 #  comment: should not be null or empty if confirmed is false --- DON'T test, this will be UI work
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario: PT_VC04. when variant get confirmed again after it get un-confirmed, the comment value should be cleared
     #    Test Patient: PT_VC04_VRUploaded, VR uploaded PT_VC04_VRUploaded(_SEI1, _MOI1, _ANI1)
     Given patient id is "PT_VC04_VRUploaded"
@@ -65,7 +65,7 @@ Feature: Variant files confirmed messages
     Then PUT to MATCH variant "checked" service for this uuid, response includes "changed to true" with code "200"
     Then this variant should have confirmed field: "true" and comment field: "null"
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario: PT_VC04a. comment can be updated properly
     #Test patient: PT_VC04a_VRUploaded, PT_VC04a_VRUploaded(_SEI1, _MOI1, _ANI1)
     Given patient id is "PT_VC04a_VRUploaded"
@@ -77,7 +77,7 @@ Feature: Variant files confirmed messages
     Then PUT to MATCH variant "unchecked" service for this uuid, response includes "changed to false" with code "200"
     Then this variant should have confirmed field: "false" and comment field: "COMMENT_EDITED"
 
-  @patients_p2
+  @patients_p2 @patients_need_queue
   Scenario: PT_VC05. confirmed fields should be "true" as default
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
     Given patient id is "PT_VC05_TissueShipped"
@@ -89,7 +89,7 @@ Feature: Variant files confirmed messages
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then variants in variant report (analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true"
 
-  @patients_p2
+  @patients_p2 @patients_need_queue
   Scenario: PT_VC05a. all confirmed fields should be "false" after a new variant report get uploaded
     #    Test Patient: PT_VC05a_VRUploaded, VR uploaded PT_VC05a_VRUploaded(_SEI1, _MOI1, _ANI1)
     Given patient id is "PT_VC05a_VRUploaded"
@@ -151,7 +151,7 @@ Feature: Variant files confirmed messages
       | PT_SS21_TissueVariantConfirmed_ANI1 | confirmed analysis id from other patient     |
       | PT_VC01_VRUploaded_ANI1             | not confirmed analysis id from other patient |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_VC10. variant report confirm message using non-current ids should fail
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<ani>"
@@ -174,7 +174,7 @@ Feature: Variant files confirmed messages
 #      |null           |can't be blank                                                                  |
       | other  | can only be 'confirm' or 'reject' |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_VC11b. variant report cannot be confirmed (rejected) more than one time
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<ani>"
@@ -193,7 +193,7 @@ Feature: Variant files confirmed messages
       | PT_VC11b_BdVRRejected  | PT_VC11b_BdVRRejected_BD_ANI1  | reject  | rejected        | not in PENDING state |
 
 
-  @patients_p1
+  @patients_p1 @patients_queueless
   Scenario Outline: PT_VC12. after accepting variant_file_confirmed message, patient should be set to correct status, comment, user and date
 #  Test patient: PT_VC12_VRUploaded1: vr uploaded PT_VC12_VRUploaded1(_SEI1, _MOI1, _SEI1)
 #  Test patient: PT_VC12_VRUploaded2: vr uploaded PT_VC12_VRUploaded2(_SEI1, _MOI1, _SEI1)
@@ -212,7 +212,7 @@ Feature: Variant files confirmed messages
       | PT_VC12_VRUploaded1 | PT_VC12_VRUploaded1_ANI1 | confirm | a                               | user1 |
       | PT_VC12_VRUploaded2 | PT_VC12_VRUploaded2_ANI1 | reject  | this variant report is rejected | user2 |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario: PT_VC13. if variant report rejected, comment values for variants that are in this variant report should NOT BE cleared (this test has been changed, before the comments values should BE changed)
 #    Test patient PT_VC13_VRUploaded1: vr uploaded   PT_VC13_VRUploaded1(_SEI1, _MOI1, _ANI1)
 #    first snv variant has confirmed=false, comment="TEST"
@@ -227,6 +227,7 @@ Feature: Variant files confirmed messages
     Then patient status should change to "TISSUE_VARIANT_REPORT_REJECTED"
     Then this variant should have confirmed field: "false" and comment field: "Tests"
 
+  @patients_p2 @patients_queueless
   Scenario: PT_VC14. confirming blood variant report will not trigger patient assignment process
     Given patient id is "PT_VC14_BdTsVrUploadedAssayReady"
     Then load template variant report confirm message for analysis id: "PT_VC14_BdTsVrUploadedAssayReady_BD_ANI1"
@@ -234,7 +235,7 @@ Feature: Variant files confirmed messages
     Then wait for "5" seconds
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
 
-  @patients_p2 @demo_p1
+  @patients_p2 @demo_p1 @patients_need_queue
   Scenario Outline: PT_VC15. variant file confirmation will or will not trigger assignment properly
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<ani>"
@@ -264,7 +265,7 @@ Feature: Variant files confirmed messages
 #      | PT_VC15_PathAssayDoneVRUploadedToReject  | PT_VC15_PathAssayDoneVRUploadedToReject_ANI1  | reject    | TISSUE_VARIANT_REPORT_REJECTED  |
 #      | PT_VC15_PathDoneOneAssayVRUploaded       | PT_VC15_PathDoneOneAssayVRUploaded_ANI1       | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_VC16. blood variant report can be confirmed when patient is in certain status
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<patient_id>_BD_ANI1"

@@ -5,7 +5,7 @@ Feature: NCH specimen received messages
   Background:
     Given patient API user authorization role is "SPECIMEN_MESSAGE_SENDER"
 
-  @patients_p3 @patients_need_queue
+  @patients_p3
   Scenario: PT_SR01. blood specimen received message can be processed properly
     Given patient id is "PT_SR01_Registered"
     And load template specimen type: "BLOOD" received message for this patient
@@ -41,7 +41,7 @@ Feature: NCH specimen received messages
     Then wait for "30" seconds
     Then patient should have one specimen with surgical_event_id "PT_SR02b_Registered_SEI1"
 
-  @patients_p3 @patients_queueless
+  @patients_p3
   Scenario: PT_SR03. "Blood" specimen received message with surgical_event_id should fail
     Given patient id is "PT_SR03_Registered"
     And load template specimen type: "BLOOD" received message for this patient
@@ -91,7 +91,7 @@ Feature: NCH specimen received messages
       | TISSUE | PT_NonExistingPatient_SEI1 |
       | BLOOD  |                            |
 
-  @patients_p3 @patients_queueless
+  @patients_p3
   Scenario Outline: PT_SR08. Return error message when invalid type (other than BLOOD or TISSUE) is received
     Given patient id is "PT_SR08_Registered"
     And load template specimen type: "<specimen_type>" received message for this patient
@@ -246,7 +246,7 @@ Feature: NCH specimen received messages
     Then patient should have variant report (analysis_id: "PT_SR14d_BdVrUploaded_BD_ANI1")
     And this variant report field: "status" should be "PENDING"
 
-  @patients_p3 @patients_queueless
+  @patients_p3
   Scenario Outline: PT_SR13. extra key-value pair in the message body should NOT fail
     Given patient id is "PT_SR13_Registered"
     And load template specimen type: "<type>" received message for this patient

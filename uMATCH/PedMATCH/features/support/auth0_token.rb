@@ -97,6 +97,7 @@ class Auth0Token
       ENV[token_variable] = response_hash['id_token']
       puts "A #{ENV[token_variable].length} digits auth0 #{role} token is generated"
     end
+    # ENV[token_variable] = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5wbS1pLWFkbWluQG91dGxvb2suY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHBzOi8vbmNpbWF0Y2guYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDU4OGY2M2ViYTIyYWEzMTI3MzM1Y2M4MyIsImF1ZCI6IlQ1dVlOQUNuWUlBMDNCMkZCeW9UdnNhVUlnZjY1ZzNhIiwiaWF0IjoxNTEyNDE2OTE4LCJleHAiOjE1MTI1MDMzMTh9.kDUsKFH8gETtmiaGHSjrkooh9798PAuAfn3dAMZCsqI'
     return ENV[token_variable]
   end
 
