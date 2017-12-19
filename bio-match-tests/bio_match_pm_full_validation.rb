@@ -41,7 +41,7 @@ class BioMatchPMFullValidation
       @rule_url='https://pedmatch-uat.nci.nih.gov/api/v1/rules'
       @ta_url='https://pedmatch-uat.nci.nih.gov/api/v1/treatment_arms'
       @ir_url='https://pedmatch-uat.nci.nih.gov/api/v1/aliquot'
-      @mock_cog_url='http://umatch-uat-alb-backend-1961495808.us-east-1.elb.amazonaws.com:3000'
+      @mock_cog_url='http://umatch-uat-alb-backend-80807423.us-east-1.elb.amazonaws.com:3000'
       @s3_bucket='pedmatch-uat'
       # ENV['AWS_ACCESS_KEY_ID'] = ''
       # ENV['AWS_SECRET_ACCESS_KEY'] = ''
@@ -208,6 +208,16 @@ class BioMatchPMFullValidation
   def set_ta_status_to_cog(ta_status)
     url = "#{@mock_cog_url}/setTreatmentArmStatus"
     Helper_Methods.post_request(url, ta_status.to_json)
+  end
+
+  def tas
+    url = "#{@mock_cog_url}/treatmentarms"
+    Helper_Methods.get_request(url)
+  end
+
+  def reset
+    url = "#{@mock_cog_url}/restart"
+    Helper_Methods.post_request(url, '{}')
   end
 
   def ta_string(ta_id, stratum)

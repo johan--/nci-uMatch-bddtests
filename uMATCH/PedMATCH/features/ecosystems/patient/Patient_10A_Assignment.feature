@@ -1,7 +1,7 @@
 #encoding: utf-8
 Feature: Patients assignment tests
 
-  @patients_p1 @demo_p1
+  @patients_p1 @demo_p1 @patients_need_queue
   Scenario Outline: PT_AM01. in proper situation, patient ecosystem can send correct status (other than PENDING_APPROVAL) to COG
 #    patient: PT_AM01_TsVrReceived1 will not have TA available
 #    patient: PT_AM01_TsVrReceived1 will have a closed TA available
@@ -33,7 +33,7 @@ Feature: Patients assignment tests
     Then wait for "180" seconds
     Then patient status should change to "PENDING_CONFIRMATION"
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_AM02b. assignment report can be confirmed if cog service recovered after 2 failures
     Given patient id is "<patient_id>"
     And this patient is in mock assign lost patient list, service will come back after "3" tries
@@ -62,7 +62,7 @@ Feature: Patients assignment tests
     Then set patient message field: "step_number" to value: "1.1"
     When POST to MATCH patients service, response includes "treatment arm id" with code "403"
 
-  @patients_p1 @demo_p1
+  @patients_p1 @demo_p1 @patients_need_queue
   Scenario Outline: PT_AM04. treatment arm should be able to assign to multiple patients
     Given patient id is "<patient_id>"
     And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
@@ -85,7 +85,7 @@ Feature: Patients assignment tests
       | PT_AM04_TsReceived1 | PT_AM04_TsReceived1_ANI1 |
       | PT_AM04_TsReceived2 | PT_AM04_TsReceived2_ANI1 |
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario Outline: PT_AM05. patients can be properly assigned to treatment arms with same id but different stratum
     Given patient id is "<patient_id>"
     And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
@@ -110,7 +110,7 @@ Feature: Patients assignment tests
       | PT_AM05_TsVrReceived1 | PT_AM05_TsVrReceived1_ANI1 | 100        |
       | PT_AM05_TsVrReceived2 | PT_AM05_TsVrReceived2_ANI1 | 200        |
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario Outline: PT_AM06. patient can be properly re-assigned to treatment arms with same id but different stratum
     Given patient id is "<patient_id>"
     And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
@@ -144,7 +144,7 @@ Feature: Patients assignment tests
 #    Then patient step number should be "1.1" within 15 seconds
 
 
-  @patients_p2
+  @patients_p2 @patients_need_queue
   Scenario Outline: PT_AM09. even if patient data from COG has empty drug_id, patient should still be assigned
     #PT_AM09_VrAssayReady1 has drug_id null in mock cog data
     #PT_AM09_VrAssayReady2 has drug_id '' in mock cog data
@@ -161,7 +161,7 @@ Feature: Patients assignment tests
       | PT_AM09_VrAssayReady2 | PT_AM09_VrAssayReady2_ANI1 |
       | PT_AM09_VrAssayReady3 | PT_AM09_VrAssayReady3_ANI1 |
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario: PT_AM10. patient should show correct assignment for selected arm
     Given patient id is "PT_AM10_AssayVrReady"
     And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
@@ -229,7 +229,7 @@ Feature: Patients assignment tests
       | assignment_report_status | treatment_arm_id | treatment_arm_stratum_id | treatment_arm_version |
       | PENDING                  | null             | null                     | null                  |
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario: PT_AM13. multiple assignment can be processed at same time
     Given patient id is "PT_AM13_AssayVrReady1"
     And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
@@ -242,7 +242,7 @@ Feature: Patients assignment tests
     Then patient id is "PT_AM13_AssayVrReady1"
     And patient status should change to "PENDING_CONFIRMATION"
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario Outline: PT_AM14. Patient Assignment should also accept Mock COG data with the DOB field in it
     Given patient id is "<patient_id>"
     And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"

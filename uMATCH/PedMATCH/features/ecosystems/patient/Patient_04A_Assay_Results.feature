@@ -5,7 +5,7 @@ Feature: Assay Messages
   Background:
     Given patient API user authorization role is "ASSAY_MESSAGE_SENDER"
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario Outline: PT_AS00. Assay result message can be consumed successfully
     Given patient id is "<patient_id>"
     And load template assay message for this patient
@@ -27,7 +27,7 @@ Feature: Assay Messages
       | PT_AS00_SlideShipped4 | PT_AS00_SlideShipped4_SEI1 | ICCBRG1s  | INDETERMINATE |
 
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_AS01. Assay result with invalid patient_id(empty, non-existing, null) should fail
     Given patient id is "<patient_id>"
     And load template assay message for this patient
@@ -40,7 +40,7 @@ Feature: Assay Messages
       | nonPatient | registered |
 #    |null      |can't be blank             |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_AS02. Assay result with invalid study_id(empty, non-existing, null) should fail
   #		Test data: Patient=PT_AS02_SlideShipped, with surgical_event_id=PT_AS02_SlideShipped_SEI1, slide_barcode=PT_AS02_SlideShipped_BC1
     Given patient id is "PT_AS02_SlideShipped"
@@ -55,7 +55,7 @@ Feature: Assay Messages
       | ICCBAF47s | other | not a valid study_id |
       | ICCRBs    | null  | can't be blank       |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_AS03. Assay result with invalid surgical_event_id(empty, non-existing, non-active, from other patient, null) should fail
   #		Test data: Patient=PT_AS03_SlideShipped, with surgical_event_id=PT_AS03_SlideShipped_SEI1 and PT_AS03_SlideShipped_SEI2
     Given patient id is "PT_AS03_SlideShipped"
@@ -82,7 +82,7 @@ Feature: Assay Messages
 #      |OTHER     |cannot transition from                                    |
 #      |null      |NilClass did not match the following type: string         |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_AS05. Assay result with invalid biomarker(other than ICCPTENs, ICCBRG1s, ICCRBs or ICCBAF47s) should fail
     Given patient id is "PT_AS05_SlideShipped"
     And load template assay message for this patient
@@ -95,7 +95,7 @@ Feature: Assay Messages
       | OTHER    | biomarker      |
       | ICCMLH1s | biomarker      |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_AS06. Assay result with invalid reported_date(empty, non-date, null) should fail
     Given patient id is "PT_AS06_SlideShipped"
     And load template assay message for this patient
@@ -113,7 +113,7 @@ Feature: Assay Messages
 #      | 1997-06-06T10:42:13+00:00 | slide         | 403  |
 
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_AS07. Assay result with invalid result(other than POSITIVE, NEGATIVE or INDETERMINATE) should fail
     Given patient id is "PT_AS07_SlideShipped"
     And load template assay message for this patient
@@ -129,7 +129,7 @@ Feature: Assay Messages
 
 
 #Logic tests:
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario Outline: PT_AS08. Assay result received for patient who has no slide shipped (using same surgical_event_id) should fail
   #		Test data: Patient=PT_AS08_Registered, without slide shipment
   #		Patient=PT_AS08_TissueReceived, tissue received with surgical_event_id=PT_AS08_TissueReceived_SEI1, without slide shipment
@@ -183,7 +183,7 @@ Feature: Assay Messages
       | biomarker | result   | reported_date    |
       | ICCBRG1s  | NEGATIVE | saved_time_value |
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario: PT_AS10a. Assay result received for active surgical_event_id but doesn't belong to this patient should fail
   #  Test data: Patient=PT_AS10aSlideShipped1, sei=PT_AS10aSlideShipped1_SEI1,
   #             Patient=PT_AS10aSlideShipped2, sei=PT_AS10aSlideShipped2_SEI1,
@@ -193,7 +193,7 @@ Feature: Assay Messages
     Then set patient message field: "surgical_event_id" to value: "PT_AS10bSlideShipped2_SEI1"
     When POST to MATCH patients service, response includes "surgical" with code "403"
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario Outline: PT_AS11. Assay result can be received multiple times with same surgical_event_id and the latest assay should be used
   #  Test data: Patient=PT_AS11SlideShipped, surgical_event_id=PT_AS11SlideShipped_SEI1, has slide shipped
     Given patient id is "PT_AS11SlideShipped"
@@ -221,7 +221,7 @@ Feature: Assay Messages
       | ICCBRG1s  | INDETERMINATE |
       | ICCRBs    | POSITIVE      |
 
-  @patients_p2 @demo_p1
+  @patients_p2 @demo_p1 @patients_need_queue
   Scenario Outline: PT_AS12. assay result received message can be processed properly
     Given patient id is "<patient_id>"
     And load template assay message for this patient
@@ -247,7 +247,7 @@ Feature: Assay Messages
       | PT_AS12_RbRequested          | ASSAY_RESULTS_RECEIVED | PT_AS12_RbRequested_SEI1          | new
       | PT_AS12_RbRequestAndReceived | PENDING_CONFIRMATION   | PT_AS12_RbRequestAndReceived_SEI1 | new
 
-  @patients_p2 @demo_p1
+  @patients_p2 @demo_p1 @patients_need_queue
   Scenario Outline: PT_AS12a. assay result can be received and updated properly after assignment
     Given patient id is "<patient_id>"
     And load template assay message for this patient
@@ -289,7 +289,7 @@ Feature: Assay Messages
       | PT_AS12_PendingApproval     | PENDING_APPROVAL     | 1.0         | successful       | 202  |
       | PT_AS12_OnTreatmentArm      | ON_TREATMENT_ARM     | 2.0         | successful       | 202  |
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario Outline: PT_AS12b. RB assay can be processed properly
     Given patient id is "<patient_id>"
     And load template assay message for this patient
@@ -345,7 +345,7 @@ Feature: Assay Messages
       | ICCRBs    | POSITIVE | 2017-06-06T11:42:13+00:00 |
       | ICCRBs    | NEGATIVE | 2017-06-06T11:42:13+00:00 |
 
-  @patients_p2 @demo_p1
+  @patients_p2 @demo_p1 @patients_need_queue
   Scenario Outline: PT_AS15. assay with older report date should be considered as old assay
     Given patient id is "PT_AS15_AssayReceived"
     And load template assay message for this patient
