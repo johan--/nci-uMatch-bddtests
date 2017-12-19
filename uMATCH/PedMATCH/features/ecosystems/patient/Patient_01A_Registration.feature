@@ -5,7 +5,7 @@ Feature: Register a new patient in PEDMatchbox:
   Background:
     Given patient API user authorization role is "PATIENT_MESSAGE_SENDER"
 
-  @patients_p1
+  @patients_p1 @patients_need_queue
   Scenario: PT_RG01. New patient can be registered successfully
     Given patient id is "PT_RG01_New"
     And load template registration message for this patient
@@ -17,7 +17,7 @@ Feature: Register a new patient in PEDMatchbox:
     And patient field: "current_step_number" should have value: "1.0"
     And patient field: "patient_id" should have value: "PT_RG01_New"
 
-  @patients_p2
+  @patients_p2 @patients_need_queue
   Scenario: PT_RG01b. same message send immediately after the first time, should not create two same patient
     Given patient id is "PT_RG01b_New"
     And load template registration message for this patient
@@ -28,14 +28,14 @@ Feature: Register a new patient in PEDMatchbox:
     Then wait for "15" seconds
     Then there should have one patient with id "PT_RG01b_New"
 
-  @patients_p2
+  @patients_p2 @patients_queueless
   Scenario: PT_RG02. patient registration with invalid patient_id should fail
     Given patient id is "PT_RG02_ExistingPatient"
     Given load template registration message for this patient
     Then set patient message field: "status_date" to value: "current"
     When POST to MATCH patients service, response includes "already been registered" with code "403"
 
-  @patients_p3
+  @patients_p3 @patients_queueless
   Scenario Outline: PT_RG03. patient registration with invalid study_id
     Given patient id is "<patient_id>"
     Given load template registration message for this patient
@@ -50,7 +50,7 @@ Feature: Register a new patient in PEDMatchbox:
       | PT_RG03_WrongCaseStudyID | Apec1621   | not a valid study_id |
       | PT_RG03_GoodIDPlusBad    | APEC1621x1 | not a valid study_id |
 
-  @patients_p3
+  @patients_p3 @patients_queueless
   Scenario Outline: PT_RG04. patient registration with invalid step_number should fail
     Given patient id is "<patient_id>"
     Given load template registration message for this patient
@@ -67,7 +67,7 @@ Feature: Register a new patient in PEDMatchbox:
       | PT_RG04_WrongStpNum3 | 8.0         | 1.0            |
       | PT_RG04_WrongStpNum4 | 1.5         | 1.0            |
 
-  @patients_p3
+  @patients_p3 @patients_queueless
   Scenario Outline: PT_RG05. patient registration with invalid status_date should fail
     Given patient id is "<patient_id>"
     Given load template registration message for this patient
@@ -81,7 +81,7 @@ Feature: Register a new patient in PEDMatchbox:
       | PT_RG05_FutureDate    | future      | invalid date   | 400  |
       | PT_RG05_TimeStampDate | 1471360795  | invalid date   | 400  |
 
-  @patients_p3
+  @patients_p3 @patients_queueless
   Scenario: PT_RG06. extra key-value pair in the message body should NOT fail
     Given patient id is "PT_RG06"
     Given load template registration message for this patient
