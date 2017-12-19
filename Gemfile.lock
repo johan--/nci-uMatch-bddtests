@@ -56,6 +56,7 @@ GEM
     aws-sigv4 (1.0.2)
     bson (4.2.2)
     builder (3.2.3)
+    byebug (9.1.0)
     celluloid (0.17.3)
       celluloid-essentials
       celluloid-extras
@@ -186,8 +187,8 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     os (0.9.6)
-    parallel (1.12.0)
-    parallel_tests (2.19.0)
+    parallel (1.12.1)
+    parallel_tests (2.18.0)
       parallel
     public_suffix (3.0.1)
     rack (2.0.3)
@@ -304,6 +305,7 @@ DEPENDENCIES
   aws-record
   aws-sdk (~> 2)
   aws-sdk-rails
+  byebug
   celluloid-io
   concurrent-ruby
   cucumber (= 2.4.0)
@@ -317,7 +319,7 @@ DEPENDENCIES
   json
   logger
   mongo (~> 2.0)
-  parallel_tests
+  parallel_tests (= 2.18.0)
   rails (~> 5.0)
   rest-client (~> 1.8.0)
   roo
