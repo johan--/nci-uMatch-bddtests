@@ -21,7 +21,7 @@ Feature: Patients off study tests
       | PT_OS01_AssayReceived       | 1.0                 | successfully | 202       | OFF_STUDY      |
       | PT_OS01_TsVrReceived        | 2.0                 | successfully | 202       | OFF_STUDY      |
       | PT_OS01_TsVrConfirmed       | 1.0                 | successfully | 202       | OFF_STUDY      |
-      | PT_OS01_RbRequested         | 1.0                 | successfully | 202       | OFF_STUDY      | new
+      | PT_OS01_RbRequested         | 1.0                 | successfully | 202       | OFF_STUDY      |
       | PT_OS01_TsVrRejected        | 1.0                 | successfully | 202       | OFF_STUDY      |
       | PT_OS01_PendingConfirmation | 2.0                 | successfully | 202       | OFF_STUDY      |
       | PT_OS01_PendingApproval     | 2.0                 | successfully | 202       | OFF_STUDY      |

@@ -219,7 +219,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC04b_PendingConfirmation       | 1     | assignment              | true  |
       | PT_SC04b_PendingApproval           | 1     | approval                | true  |
       | UI_PA09_TsVr52Uploaded             | 2     | confirmed-Slide         | false |
-      | PT_SC04b_RbRequested               | 2     | confirmed-RB            | true  | new
+      | PT_SC04b_RbRequested               | 2     | confirmed-RB            | true  |
       | PT_SC04b_RbUncheckVrConfirmedAndSd | 3     | PTEN-BAF47-BRG1         | true  | new
 
   @patients_p1 @patients_need_queue
@@ -280,7 +280,7 @@ Feature: Patient GET service valid special case tests
       | patient_id                    | confirm | status                          | count | messages        | amoi  |
       | PT_SC04e_TsVrUploaded1        | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  |
       | PT_SC04e_TsVrUploaded2        | reject  | TISSUE_VARIANT_REPORT_REJECTED  | 4     | variant         | false |
-      | PT_SC04e_RbVrUploaded         | confirm | RB_ORDER_REQUESTED              | 2     | confirmed-RB    | true  | new
+      | PT_SC04e_RbVrUploaded         | confirm | RB_ORDER_REQUESTED              | 2     | confirmed-RB    | true  |
       | PT_SC04e_RbVrUncheckedNoAssay | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  | new
 
   @patients_p1 @patients_need_queue

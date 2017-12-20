@@ -270,7 +270,7 @@ Feature: Variant files uploaded message
       | PT_VU17_TsShippedAssayReceived | PT_VU17_TsShippedAssayReceived_MOI1 | true  |
       | PT_VU17_TsVrConfirmed          | PT_VU17_TsVrConfirmed_MOI1          | false |
       | PT_VU17_TsVrRejected           | PT_VU17_TsVrRejected_MOI1           | true  |
-      | PT_VU17_RbRequested            | PT_VU17_TsVrConfirmed_MOI1          | false | new
+      | PT_VU17_RbRequested            | PT_VU17_TsVrConfirmed_MOI1          | false |
       | PT_VU17_OnTreatmentArm         | PT_VU17_OnTreatmentArm_MOI1         | false |
       | PT_VU17_ReqAssignment          | PT_VU17_ReqAssignment_MOI1          | false |
       | PT_VU17_ReqNoAssignment        | PT_VU17_ReqNoAssignment_MOI1        | false |

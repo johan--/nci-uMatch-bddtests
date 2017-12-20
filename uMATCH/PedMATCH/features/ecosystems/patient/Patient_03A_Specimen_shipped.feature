@@ -354,7 +354,7 @@ Feature: NCH Specimen shipped messages
     Examples:
       | patient_id                     |
       | PT_SS21_TissueVariantConfirmed |
-      | PT_SS21_RbRequested            | new
+      | PT_SS21_RbRequested            |
 
 
   @patients_p2 @patients_queueless

@@ -194,7 +194,7 @@ Feature: NCH specimen received messages
     Examples:
       | patient_id                     |
       | PT_SR12_VariantReportConfirmed |
-      | PT_SR12_RbRequested            | new
+      | PT_SR12_RbRequested            |
 
   @patients_p1 @patients_need_queue
   Scenario: PT_SR14a. When a new TISSUE specimen_received message is received,  the pending TISSUE variant report from the old Surgical event is set to "REJECTED" status

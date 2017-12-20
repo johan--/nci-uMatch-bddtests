@@ -42,7 +42,7 @@ Feature: Patients request assignment tests
       | PT_RA02_AssayReceived       | 1.0         | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
       | PT_RA02_TsVrReceived        | 2.0         | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_RA02_TsVrConfirmed       | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
-      | PT_RA02_RbRequested         | 1.0         | 1.0              |         | 403       | RB_ORDER_REQUESTED              | new
+      | PT_RA02_RbRequested         | 1.0         | 1.0              |         | 403       | RB_ORDER_REQUESTED              |
       | PT_RA02_TsVrRejected        | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
       | PT_RA02_NoTaAvailable       | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
       | PT_RA02_CompassionateCare   | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
@@ -86,7 +86,7 @@ Feature: Patients request assignment tests
       | PT_RA03_AssayReceived       | 1.0         | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
       | PT_RA03_TsVrReceived        | 2.0         | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_RA03_TsVrConfirmed       | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
-      | PT_RA03_RbRequested         | 1.0         | 1.0              |         | 403       | RB_ORDER_REQUESTED              | new
+      | PT_RA03_RbRequested         | 1.0         | 1.0              |         | 403       | RB_ORDER_REQUESTED              |
       | PT_RA03_TsVrRejected        | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
       | PT_RA03_NoTaAvailable       | 1.0         | 1.0              |         | 202       | REQUEST_ASSIGNMENT              |
       | PT_RA03_CompassionateCare   | 1.0         | 1.0              |         | 202       | REQUEST_ASSIGNMENT              |
@@ -140,7 +140,7 @@ Feature: Patients request assignment tests
       | PT_RA04a_AssayReceived       | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
       | PT_RA04a_TsVrReceived        | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_RA04a_TsVrConfirmed       | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
-      | PT_RA04a_RbRequested         | 1.0              |         | 403       | RB_ORDER_REQUESTED              | new
+      | PT_RA04a_RbRequested         | 1.0              |         | 403       | RB_ORDER_REQUESTED              |
       | PT_RA04a_TsVrRejected        | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
       | PT_RA04a_NoTaAvailable       | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
       | PT_RA04a_CompassionateCare   | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
