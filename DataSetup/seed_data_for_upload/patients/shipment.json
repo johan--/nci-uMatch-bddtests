@@ -1,5 +1,5 @@
 {
-    "Count": 838, 
+    "Count": 850, 
     "Items": [
         {
             "shipment_type": {
@@ -1676,6 +1676,47 @@
             }, 
             "slide_barcode": {
                 "S": "PT_RA04a_AssayReceived_BC1"
+            }
+        }, 
+        {
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            }, 
+            "uuid": {
+                "S": "98689339-f3e4-45ac-acc5-170152205b0e"
+            }, 
+            "shipped_date": {
+                "S": "2017-12-20T01:04:54+00:00"
+            }, 
+            "dna_volume_ul": {
+                "N": "10"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_RbRequest3Assay"
+            }, 
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "cdna_volume_ul": {
+                "N": "10"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_RbRequest3Assay_SEI1"
+            }, 
+            "molecular_id": {
+                "S": "PT_AS12b_RbRequest3Assay_MOI1"
             }
         }, 
         {
@@ -4680,6 +4721,47 @@
                 "S": "TISSUE_DNA_AND_CDNA"
             }, 
             "uuid": {
+                "S": "f799ce9b-596c-4a07-b29a-342cff2f0b68"
+            }, 
+            "shipped_date": {
+                "S": "2017-12-20T00:31:34+00:00"
+            }, 
+            "dna_volume_ul": {
+                "N": "10"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_VrReceived3Assay"
+            }, 
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "cdna_volume_ul": {
+                "N": "10"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_VrReceived3Assay_SEI1"
+            }, 
+            "molecular_id": {
+                "S": "PT_AS12b_VrReceived3Assay_MOI1"
+            }
+        }, 
+        {
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            }, 
+            "uuid": {
                 "S": "9b58d753-6709-4937-8f08-bc063f033458"
             }, 
             "shipped_date": {
@@ -6734,6 +6816,38 @@
             }
         }, 
         {
+            "shipped_date": {
+                "S": "2017-12-20T00:42:30+00:00"
+            }, 
+            "uuid": {
+                "S": "0c7698c1-78d9-433f-a0a4-8c35a39b23d7"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_RbRequestedNoAssay"
+            }, 
+            "shipment_type": {
+                "S": "SLIDE"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_RbRequestedNoAssay_SEI1"
+            }, 
+            "slide_barcode": {
+                "S": "PT_AS12b_RbRequestedNoAssay_BC1"
+            }
+        }, 
+        {
             "shipment_type": {
                 "S": "TISSUE_DNA_AND_CDNA"
             }, 
@@ -7838,6 +7952,47 @@
             }
         }, 
         {
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            }, 
+            "uuid": {
+                "S": "ddf5855e-6a08-4ebb-aab9-1f36d917c756"
+            }, 
+            "shipped_date": {
+                "S": "2017-12-20T00:35:45+00:00"
+            }, 
+            "dna_volume_ul": {
+                "N": "10"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_VrConfirmed3Assay"
+            }, 
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "cdna_volume_ul": {
+                "N": "10"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_VrConfirmed3Assay_SEI1"
+            }, 
+            "molecular_id": {
+                "S": "PT_AS12b_VrConfirmed3Assay_MOI1"
+            }
+        }, 
+        {
             "shipped_date": {
                 "S": "2017-06-20T20:10:54+00:00"
             }, 
@@ -8077,6 +8232,38 @@
             }, 
             "slide_barcode": {
                 "S": "PT_DOB1_VrConfirmed3Assay_BC1"
+            }
+        }, 
+        {
+            "shipped_date": {
+                "S": "2017-12-20T00:31:42+00:00"
+            }, 
+            "uuid": {
+                "S": "161fbb0c-eeaa-4b1f-972a-5e8b4667dcae"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_VrReceived3Assay"
+            }, 
+            "shipment_type": {
+                "S": "SLIDE"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_VrReceived3Assay_SEI1"
+            }, 
+            "slide_barcode": {
+                "S": "PT_AS12b_VrReceived3Assay_BC1"
             }
         }, 
         {
@@ -11049,6 +11236,47 @@
             }
         }, 
         {
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            }, 
+            "uuid": {
+                "S": "11c27480-ab69-424f-ae33-807b828ebfd4"
+            }, 
+            "shipped_date": {
+                "S": "2017-12-20T00:42:22+00:00"
+            }, 
+            "dna_volume_ul": {
+                "N": "10"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_RbRequestedNoAssay"
+            }, 
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "cdna_volume_ul": {
+                "N": "10"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_RbRequestedNoAssay_SEI1"
+            }, 
+            "molecular_id": {
+                "S": "PT_AS12b_RbRequestedNoAssay_MOI1"
+            }
+        }, 
+        {
             "shipped_date": {
                 "S": "2017-06-05T19:01:32+00:00"
             }, 
@@ -11110,6 +11338,38 @@
             }, 
             "slide_barcode": {
                 "S": "PT_RA10_PendingApproval1_BC1"
+            }
+        }, 
+        {
+            "shipped_date": {
+                "S": "2017-12-20T00:49:54+00:00"
+            }, 
+            "uuid": {
+                "S": "ce5ded23-1ada-4d80-b547-b4978c27a2c4"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_RbRequested2Assay"
+            }, 
+            "shipment_type": {
+                "S": "SLIDE"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_RbRequested2Assay_SEI1"
+            }, 
+            "slide_barcode": {
+                "S": "PT_AS12b_RbRequested2Assay_BC1"
             }
         }, 
         {
@@ -13809,6 +14069,38 @@
         }, 
         {
             "shipped_date": {
+                "S": "2017-12-20T01:05:02+00:00"
+            }, 
+            "uuid": {
+                "S": "18290465-0d5d-4124-af06-f6354c9436a7"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_RbRequest3Assay"
+            }, 
+            "shipment_type": {
+                "S": "SLIDE"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_RbRequest3Assay_SEI1"
+            }, 
+            "slide_barcode": {
+                "S": "PT_AS12b_RbRequest3Assay_BC1"
+            }
+        }, 
+        {
+            "shipped_date": {
                 "S": "2017-06-21T02:33:48+00:00"
             }, 
             "uuid": {
@@ -14976,6 +15268,47 @@
             }, 
             "slide_barcode": {
                 "S": "PT_OS01a_PendingConfirmation_BC1"
+            }
+        }, 
+        {
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            }, 
+            "uuid": {
+                "S": "406a62cc-8d63-4e25-9615-d39ec639261e"
+            }, 
+            "shipped_date": {
+                "S": "2017-12-20T00:22:54+00:00"
+            }, 
+            "dna_volume_ul": {
+                "N": "10"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_NoVr3Assay"
+            }, 
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "cdna_volume_ul": {
+                "N": "10"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_NoVr3Assay_SEI1"
+            }, 
+            "molecular_id": {
+                "S": "PT_AS12b_NoVr3Assay_MOI1"
             }
         }, 
         {
@@ -23016,6 +23349,38 @@
         }, 
         {
             "shipped_date": {
+                "S": "2017-12-20T00:35:54+00:00"
+            }, 
+            "uuid": {
+                "S": "66aa4cfe-4523-4ab4-ab8d-9ee8673fe283"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_VrConfirmed3Assay"
+            }, 
+            "shipment_type": {
+                "S": "SLIDE"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_VrConfirmed3Assay_SEI1"
+            }, 
+            "slide_barcode": {
+                "S": "PT_AS12b_VrConfirmed3Assay_BC1"
+            }
+        }, 
+        {
+            "shipped_date": {
                 "S": "2017-06-21T01:52:44+00:00"
             }, 
             "uuid": {
@@ -23783,6 +24148,47 @@
             }, 
             "molecular_id": {
                 "S": "PT_OS01_PendingApproval_MOI1"
+            }
+        }, 
+        {
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            }, 
+            "uuid": {
+                "S": "3b205e0b-5874-4c51-a125-0c45adc3917a"
+            }, 
+            "shipped_date": {
+                "S": "2017-12-20T00:49:50+00:00"
+            }, 
+            "dna_volume_ul": {
+                "N": "10"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_RbRequested2Assay"
+            }, 
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "cdna_volume_ul": {
+                "N": "10"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_RbRequested2Assay_SEI1"
+            }, 
+            "molecular_id": {
+                "S": "PT_AS12b_RbRequested2Assay_MOI1"
             }
         }, 
         {
@@ -29582,6 +29988,38 @@
             }
         }, 
         {
+            "shipped_date": {
+                "S": "2017-12-20T00:23:03+00:00"
+            }, 
+            "uuid": {
+                "S": "695f3791-a4b5-465c-99ad-d810c92ae7ac"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_AS12b_NoVr3Assay"
+            }, 
+            "shipment_type": {
+                "S": "SLIDE"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_AS12b_NoVr3Assay_SEI1"
+            }, 
+            "slide_barcode": {
+                "S": "PT_AS12b_NoVr3Assay_BC1"
+            }
+        }, 
+        {
             "shipment_type": {
                 "S": "TISSUE_DNA_AND_CDNA"
             }, 
@@ -31309,6 +31747,6 @@
             }
         }
     ], 
-    "ScannedCount": 838, 
+    "ScannedCount": 850, 
     "ConsumedCapacity": null
 }

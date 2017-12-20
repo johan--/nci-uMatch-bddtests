@@ -5,7 +5,7 @@ require_relative 'patient_story'
 require_relative 'constants'
 
 pt = PatientStory.new('PT_VC16_BdVrTsReceived')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_blood
   pt.story_specimen_shipped_blood
@@ -13,7 +13,7 @@ pt.create_seed_patient {
   pt.story_specimen_received_tissue
 }
 pt = PatientStory.new('PT_VC16_BdVrTsShipped')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_blood
   pt.story_specimen_shipped_blood
@@ -22,7 +22,7 @@ pt.create_seed_patient {
   pt.story_specimen_shipped_tissue
 }
 pt = PatientStory.new('PT_VC16_BdVrSlideShipped')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_blood
   pt.story_specimen_shipped_blood
@@ -32,7 +32,7 @@ pt.create_seed_patient {
   pt.story_specimen_shipped_slide
 }
 pt = PatientStory.new('PT_VC16_BdVrAssayReceived')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -45,7 +45,7 @@ pt.create_seed_patient {
   pt.story_assay('ICCBRG1s')
 }
 pt = PatientStory.new('PT_VC16_BdVrTsVrReceived')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -55,7 +55,7 @@ pt.create_seed_patient {
   pt.story_tissue_variant_report
 }
 pt = PatientStory.new('PT_VC16_BdVrTsVrConfirmed')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -66,7 +66,7 @@ pt.create_seed_patient {
   pt.story_tissue_vr_confirmed
 }
 pt = PatientStory.new('PT_VC16_BdVrTsVrRejected')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -77,7 +77,7 @@ pt.create_seed_patient {
   pt.story_tissue_vr_confirmed('reject')
 }
 pt = PatientStory.new('PT_VC16_BdVrPendingConfirmation')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -92,7 +92,7 @@ pt.create_seed_patient {
   pt.story_tissue_vr_confirmed
 }
 pt = PatientStory.new('PT_VC16_BdVrPendingApproval')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -109,7 +109,7 @@ pt.create_seed_patient {
 }
 
 pt = PatientStory.new('PT_VC16_BdVrOnTreatmentArm')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -127,7 +127,7 @@ pt.create_seed_patient {
 }
 
 pt = PatientStory.new('PT_VC16_BdVrReqAssignment')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -146,7 +146,7 @@ pt.create_seed_patient {
 }
 
 pt = PatientStory.new('PT_VC16_BdVrOffStudy')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_blood
   pt.story_specimen_shipped_blood
@@ -155,7 +155,7 @@ pt.create_seed_patient {
 }
 
 pt = PatientStory.new('PT_AS12b_NoVr3Assay')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -169,7 +169,7 @@ pt.create_seed_patient {
 }
 
 pt = PatientStory.new('PT_AS12b_VrReceived3Assay')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -184,7 +184,7 @@ pt.create_seed_patient {
 }
 
 pt = PatientStory.new('PT_AS12b_VrConfirmed3Assay')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -200,7 +200,7 @@ pt.create_seed_patient {
 }
 
 pt = PatientStory.new('PT_AS12b_RbRequestedNoAssay')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -213,7 +213,7 @@ pt.create_seed_patient {
 }
 
 pt = PatientStory.new('PT_AS12b_RbRequested2Assay')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
@@ -228,7 +228,7 @@ pt.create_seed_patient {
 }
 
 pt = PatientStory.new('PT_AS12b_RbRequest3Assay')
-pt.create_seed_patient {
+pt.create_seed_story {
   pt.story_register
   pt.story_specimen_received_tissue
   pt.story_specimen_shipped_tissue
