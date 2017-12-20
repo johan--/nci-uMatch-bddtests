@@ -259,8 +259,8 @@ Feature: Patient GET service valid special case tests
       | PT_SC04d_NoAssay            | ICCPTENs  | 3     | variant-BAF47-BRG1 |
       | PT_SC04d_OneAssay           | ICCBAF47s | 2     | variant-BRG1       |
       | PT_SC04d_TwoAssay           | ICCBRG1s  | 1     | variant            |
-      | PT_SC04d_RbRequested3Assay  | ICCRBs    | 1     | assignment         | new
-      | PT_SC04d_RbRequestedNoAssay | ICCRBs    | 3     | PTEN-BAF47-BRG1    | new
+      | PT_SC04d_RbRequested3Assay  | ICCRBs    | 1     | assignment         |
+      | PT_SC04d_RbRequestedNoAssay | ICCRBs    | 3     | PTEN-BAF47-BRG1    |
 
   @patients_p1 @patients_need_queue
   Scenario Outline: PT_SC04e patient_limbos should update properly after variant report is confirmed
