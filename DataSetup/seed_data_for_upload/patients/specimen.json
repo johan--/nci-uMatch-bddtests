@@ -5108,10 +5108,10 @@
                 "S": "PT_SC04d_RbRequested3Assay_SEI1"
             }, 
             "sorting_key": {
-                "S": "2017-12-20T17:37:27:559.559224"
+                "S": "2017-12-21T18:26:45:840.840057"
             }, 
             "collected_date": {
-                "S": "2017-12-20T00:00:00+00:00"
+                "S": "2017-12-21T00:00:00+00:00"
             }, 
             "patient_id": {
                 "S": "PT_SC04d_RbRequested3Assay"
@@ -5120,7 +5120,7 @@
                 "S": "APEC1621SC"
             }, 
             "received_date": {
-                "S": "2017-12-20T17:37:19+00:00"
+                "S": "2017-12-21T18:26:40+00:00"
             }, 
             "assays": {
                 "L": [
@@ -5130,7 +5130,7 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-20T12:37:53-05:00"
+                                "S": "2017-12-21T12:27:13-06:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -5149,7 +5149,7 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-20T12:37:48-05:00"
+                                "S": "2017-12-21T12:27:06-06:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -5168,7 +5168,7 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-20T12:37:42-05:00"
+                                "S": "2017-12-21T12:26:59-06:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -5178,6 +5178,25 @@
                             }, 
                             "result": {
                                 "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "comment": {
+                                "S": "RB assay order requested"
+                            }, 
+                            "result_date": {
+                                "S": " "
+                            }, 
+                            "requested_date": {
+                                "S": "2017-12-21 12:28:33 -0600"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCRBs"
                             }
                         }
                     }
@@ -10434,10 +10453,10 @@
                 "S": "PT_AS12b_RbRequest3Assay_SEI1"
             }, 
             "sorting_key": {
-                "S": "2017-12-20T01:04:52:580.580736"
+                "S": "2017-12-21T20:10:58:816.816902"
             }, 
             "collected_date": {
-                "S": "2017-12-19T00:00:00+00:00"
+                "S": "2017-12-21T00:00:00+00:00"
             }, 
             "patient_id": {
                 "S": "PT_AS12b_RbRequest3Assay"
@@ -10446,7 +10465,7 @@
                 "S": "APEC1621SC"
             }, 
             "received_date": {
-                "S": "2017-12-20T01:04:45+00:00"
+                "S": "2017-12-21T20:10:52+00:00"
             }, 
             "assays": {
                 "L": [
@@ -10456,7 +10475,7 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-19T20:05:22-05:00"
+                                "S": "2017-12-21T14:11:24-06:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -10475,7 +10494,7 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-19T20:05:14-05:00"
+                                "S": "2017-12-21T14:11:18-06:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -10494,7 +10513,7 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-19T20:05:07-05:00"
+                                "S": "2017-12-21T14:11:12-06:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -10504,6 +10523,25 @@
                             }, 
                             "result": {
                                 "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "comment": {
+                                "S": "RB assay order requested"
+                            }, 
+                            "result_date": {
+                                "S": " "
+                            }, 
+                            "requested_date": {
+                                "S": "2017-12-21 14:13:13 -0600"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCRBs"
                             }
                         }
                     }
@@ -21687,10 +21725,10 @@
                 "S": "PT_AS12b_RbRequested2Assay_SEI1"
             }, 
             "sorting_key": {
-                "S": "2017-12-20T00:49:49:892.892477"
+                "S": "2017-12-21T20:16:37:304.304956"
             }, 
             "collected_date": {
-                "S": "2017-12-19T00:00:00+00:00"
+                "S": "2017-12-21T00:00:00+00:00"
             }, 
             "patient_id": {
                 "S": "PT_AS12b_RbRequested2Assay"
@@ -21699,7 +21737,7 @@
                 "S": "APEC1621SC"
             }, 
             "received_date": {
-                "S": "2017-12-20T00:49:43+00:00"
+                "S": "2017-12-21T20:16:32+00:00"
             }, 
             "assays": {
                 "L": [
@@ -21709,13 +21747,13 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-19T19:50:08-05:00"
+                                "S": "2017-12-21T14:16:58-06:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
                             }, 
                             "biomarker": {
-                                "S": "ICCBRG1s"
+                                "S": "ICCBAF47s"
                             }, 
                             "result": {
                                 "S": "POSITIVE"
@@ -21728,7 +21766,7 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-19T19:50:01-05:00"
+                                "S": "2017-12-21T14:16:48-06:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -21738,6 +21776,25 @@
                             }, 
                             "result": {
                                 "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "comment": {
+                                "S": "RB assay order requested"
+                            }, 
+                            "result_date": {
+                                "S": " "
+                            }, 
+                            "requested_date": {
+                                "S": "2017-12-21 14:18:38 -0600"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCRBs"
                             }
                         }
                     }
@@ -30982,10 +31039,10 @@
                 "S": "PT_AS12b_RbRequestedNoAssay_SEI1"
             }, 
             "sorting_key": {
-                "S": "2017-12-20T00:42:20:994.994577"
+                "S": "2017-12-21T20:22:43:401.401447"
             }, 
             "collected_date": {
-                "S": "2017-12-19T00:00:00+00:00"
+                "S": "2017-12-21T00:00:00+00:00"
             }, 
             "patient_id": {
                 "S": "PT_AS12b_RbRequestedNoAssay"
@@ -30994,7 +31051,30 @@
                 "S": "APEC1621SC"
             }, 
             "received_date": {
-                "S": "2017-12-20T00:42:14+00:00"
+                "S": "2017-12-21T20:22:38+00:00"
+            }, 
+            "assays": {
+                "L": [
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "comment": {
+                                "S": "RB assay order requested"
+                            }, 
+                            "result_date": {
+                                "S": " "
+                            }, 
+                            "requested_date": {
+                                "S": "2017-12-21 14:24:14 -0600"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCRBs"
+                            }
+                        }
+                    }
+                ]
             }, 
             "active_molecular_id": {
                 "S": "PT_AS12b_RbRequestedNoAssay_MOI1"
@@ -33082,10 +33162,10 @@
                 "S": "PT_SC04d_RbRequestedNoAssay_SEI1"
             }, 
             "sorting_key": {
-                "S": "2017-12-20T17:45:32:230.230191"
+                "S": "2017-12-21T19:59:18:805.805678"
             }, 
             "collected_date": {
-                "S": "2017-12-20T00:00:00+00:00"
+                "S": "2017-12-21T00:00:00+00:00"
             }, 
             "patient_id": {
                 "S": "PT_SC04d_RbRequestedNoAssay"
@@ -33094,7 +33174,30 @@
                 "S": "APEC1621SC"
             }, 
             "received_date": {
-                "S": "2017-12-20T17:45:25+00:00"
+                "S": "2017-12-21T19:59:12+00:00"
+            }, 
+            "assays": {
+                "L": [
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "comment": {
+                                "S": "RB assay order requested"
+                            }, 
+                            "result_date": {
+                                "S": " "
+                            }, 
+                            "requested_date": {
+                                "S": "2017-12-21 14:01:16 -0600"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCRBs"
+                            }
+                        }
+                    }
+                ]
             }, 
             "active_molecular_id": {
                 "S": "PT_SC04d_RbRequestedNoAssay_MOI1"
