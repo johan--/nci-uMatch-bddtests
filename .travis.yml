@@ -271,7 +271,7 @@ after_success:
       docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-$TRIGGER_REPO-UAT -i $TRIGGER_DOCKER_IMAGE:$TRIGGER_VER  --timeout 540 --max-definitions 25
       STATUS=$?
       if [ "$STATUS" == 0 ]; then
-        curl -s -X PUT -H "Content-Type:application/json" -d "{\"project\":\"ped-match\", \"cuc_tag\":\"$CUC_TAG\", \"clear_tags\":\"true\", \"deployed_image\":\"fnlcr/$TRIGGER_REPO:$TRIGGER_VER\"}" $TEST_MANAGEMENT_URL/dynamic_tags_deploy
+        curl -s -X PUT -H "Content-Type:application/json" -d "{\"project\":\"ped-match\", \"cuc_tag\":\"$CUC_TAG\", \"clear_tags\":\"false\", \"deployed_image\":\"fnlcr/$TRIGGER_REPO:$TRIGGER_VER\"}" $TEST_MANAGEMENT_URL/dynamic_tags_deploy
       else
         echo "PUSH UAT status is $STATUS"
         TRAVIS_TEST_RESULT=$STATUS
