@@ -1,5 +1,5 @@
 {
-    "Count": 647, 
+    "Count": 650, 
     "Items": [
         {
             "surgical_event_id": {
@@ -30684,6 +30684,112 @@
         }, 
         {
             "surgical_event_id": {
+                "S": "PT_SC04b_RbUncheckVrConfirmedAndSd_SEI1"
+            }, 
+            "sorting_key": {
+                "S": "2017-12-21T17:55:41:476.476248"
+            }, 
+            "collected_date": {
+                "S": "2017-12-21T00:00:00+00:00"
+            }, 
+            "patient_id": {
+                "S": "PT_SC04b_RbUncheckVrConfirmedAndSd"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "received_date": {
+                "S": "2017-12-21T17:55:35+00:00"
+            }, 
+            "assays": {
+                "L": [
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-21T11:56:18-06:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCRBs"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-21T11:56:10-06:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBRG1s"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-21T11:56:02-06:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBAF47s"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-21T11:55:55-06:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCPTENs"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "active_molecular_id": {
+                "S": "PT_SC04b_RbUncheckVrConfirmedAndSd_MOI1"
+            }, 
+            "specimen_type": {
+                "S": "TISSUE"
+            }
+        }, 
+        {
+            "surgical_event_id": {
                 "S": "PT_AU04_MochaTsShipped0_SEI1"
             }, 
             "sorting_key": {
@@ -31968,6 +32074,93 @@
         }, 
         {
             "surgical_event_id": {
+                "S": "PT_VC15_3AssayRbVrReceivedRbUnchecked_SEI1"
+            }, 
+            "sorting_key": {
+                "S": "2017-12-21T17:42:37:250.250674"
+            }, 
+            "collected_date": {
+                "S": "2017-12-21T00:00:00+00:00"
+            }, 
+            "patient_id": {
+                "S": "PT_VC15_3AssayRbVrReceivedRbUnchecked"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "received_date": {
+                "S": "2017-12-21T17:42:31+00:00"
+            }, 
+            "assays": {
+                "L": [
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-21T11:43:05-06:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBRG1s"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-21T11:42:57-06:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBAF47s"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-21T11:42:51-06:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCPTENs"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "active_molecular_id": {
+                "S": "PT_VC15_3AssayRbVrReceivedRbUnchecked_MOI1"
+            }, 
+            "specimen_type": {
+                "S": "TISSUE"
+            }
+        }, 
+        {
+            "surgical_event_id": {
                 "S": "PT_AM09_VrAssayReady1_SEI1"
             }, 
             "sorting_key": {
@@ -32905,6 +33098,32 @@
             }, 
             "active_molecular_id": {
                 "S": "PT_SC04d_RbRequestedNoAssay_MOI1"
+            }, 
+            "specimen_type": {
+                "S": "TISSUE"
+            }
+        }, 
+        {
+            "surgical_event_id": {
+                "S": "PT_SC04e_RbVrUncheckedNoAssay_SEI1"
+            }, 
+            "sorting_key": {
+                "S": "2017-12-21T18:05:12:279.279772"
+            }, 
+            "collected_date": {
+                "S": "2017-12-21T00:00:00+00:00"
+            }, 
+            "patient_id": {
+                "S": "PT_SC04e_RbVrUncheckedNoAssay"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "received_date": {
+                "S": "2017-12-21T18:05:06+00:00"
+            }, 
+            "active_molecular_id": {
+                "S": "PT_SC04e_RbVrUncheckedNoAssay_MOI1"
             }, 
             "specimen_type": {
                 "S": "TISSUE"
@@ -35704,6 +35923,6 @@
             }
         }
     ], 
-    "ScannedCount": 647, 
+    "ScannedCount": 650, 
     "ConsumedCapacity": null
 }

@@ -220,7 +220,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC04b_PendingApproval           | 1     | approval                | true  |
       | UI_PA09_TsVr52Uploaded             | 2     | confirmed-Slide         | false |
       | PT_SC04b_RbRequested               | 2     | confirmed-RB            | true  |
-      | PT_SC04b_RbUncheckVrConfirmedAndSd | 3     | PTEN-BAF47-BRG1         | true  | new
+      | PT_SC04b_RbUncheckVrConfirmedAndSd | 3     | PTEN-BAF47-BRG1         | true  |
 
   @patients_p1 @patients_need_queue
   Scenario: PT_SC04c patient_limbos should update properly after tissue is shipped
@@ -281,7 +281,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC04e_TsVrUploaded1        | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  |
       | PT_SC04e_TsVrUploaded2        | reject  | TISSUE_VARIANT_REPORT_REJECTED  | 4     | variant         | false |
       | PT_SC04e_RbVrUploaded         | confirm | RB_ORDER_REQUESTED              | 2     | confirmed-RB    | true  |
-      | PT_SC04e_RbVrUncheckedNoAssay | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  | new
+      | PT_SC04e_RbVrUncheckedNoAssay | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  |
 
   @patients_p1 @patients_need_queue
   Scenario Outline: PT_SC04f patient_limbos should update properly after new tissue specimen is received
