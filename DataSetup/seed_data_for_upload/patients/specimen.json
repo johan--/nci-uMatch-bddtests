@@ -1,5 +1,5 @@
 {
-    "Count": 646, 
+    "Count": 647, 
     "Items": [
         {
             "surgical_event_id": {
@@ -13619,6 +13619,32 @@
             }, 
             "active_molecular_id": {
                 "S": "PT_OS02_OffStudy1_MOI1"
+            }, 
+            "specimen_type": {
+                "S": "TISSUE"
+            }
+        }, 
+        {
+            "surgical_event_id": {
+                "S": "PT_VC15_NoAssayRbVrReceivedRbUnchecked_SEI1"
+            }, 
+            "sorting_key": {
+                "S": "2017-12-21T17:16:11:449.449153"
+            }, 
+            "collected_date": {
+                "S": "2017-12-21T00:00:00+00:00"
+            }, 
+            "patient_id": {
+                "S": "PT_VC15_NoAssayRbVrReceivedRbUnchecked"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "received_date": {
+                "S": "2017-12-21T17:16:06+00:00"
+            }, 
+            "active_molecular_id": {
+                "S": "PT_VC15_NoAssayRbVrReceivedRbUnchecked_MOI1"
             }, 
             "specimen_type": {
                 "S": "TISSUE"
@@ -35678,6 +35704,6 @@
             }
         }
     ], 
-    "ScannedCount": 646, 
+    "ScannedCount": 647, 
     "ConsumedCapacity": null
 }
