@@ -244,7 +244,7 @@ Feature: Assay Messages
       | patient_id                   | patient_status         | sei                               |
       | PT_AS12_VrConfirmed          | PENDING_CONFIRMATION   | PT_AS12_VrConfirmed_SEI1          |
       | PT_AS12_VrReceived           | ASSAY_RESULTS_RECEIVED | PT_AS12_VrReceived_SEI1           |
-      | PT_AS12_RbRequested          | RB_ORDER_REQUESTED     | PT_AS12_RbRequested_SEI1          |
+      | PT_AS12_RbRequested          | ASSAY_RESULTS_RECEIVED | PT_AS12_RbRequested_SEI1          |
       | PT_AS12_RbRequestAndReceived | PENDING_CONFIRMATION   | PT_AS12_RbRequestAndReceived_SEI1 |
 
   @patients_p2 @demo_p1 @patients_need_queue
