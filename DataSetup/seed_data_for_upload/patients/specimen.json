@@ -5362,10 +5362,10 @@
                 "S": "PT_AS12_RbRequestAndReceived_SEI1"
             }, 
             "sorting_key": {
-                "S": "2017-12-20T21:02:00:968.968170"
+                "S": "2017-12-28T18:13:55:508.508465"
             }, 
             "collected_date": {
-                "S": "2017-12-20T00:00:00+00:00"
+                "S": "2017-12-28T00:00:00+00:00"
             }, 
             "patient_id": {
                 "S": "PT_AS12_RbRequestAndReceived"
@@ -5374,26 +5374,32 @@
                 "S": "APEC1621SC"
             }, 
             "received_date": {
-                "S": "2017-12-20T21:01:55+00:00"
+                "S": "2017-12-28T18:13:50+00:00"
             }, 
             "assays": {
                 "L": [
                     {
                         "M": {
-                            "active": {
-                                "BOOL": true
+                            "comment": {
+                                "S": "RB assay result received"
                             }, 
-                            "result_date": {
-                                "S": "2017-12-20T16:03:16-05:00"
-                            }, 
-                            "case_number": {
-                                "S": "case-1234"
+                            "requested_date": {
+                                "S": "2017-12-28 12:15:23 -0600"
                             }, 
                             "biomarker": {
                                 "S": "ICCRBs"
                             }, 
                             "result": {
                                 "S": "POSITIVE"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-28T12:15:24-06:00"
                             }
                         }
                     }
