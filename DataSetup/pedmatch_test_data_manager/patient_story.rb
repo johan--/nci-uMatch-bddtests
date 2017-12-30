@@ -63,7 +63,7 @@ class PatientStory < GeneralStory
   def story_specimen_received_blood(collect_date='today')
     d = collect_date.include?(':') ? collect_date : "#{collect_date}T00:01:01+00:00"
     d = 'current' if collect_date == 'today'
-    this_story = {operation: 'specimen_received_TISSUE'}
+    this_story = { operation: 'specimen_received_BLOOD' }
     this_story['parameters'] = {
         '<patient_id>': @data_id,
         '<collection_dt>': collect_date,
