@@ -190,11 +190,11 @@ Feature: NCH specimen received messages
     Given patient id is "<patient_id>"
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI2"
-    When POST to MATCH patients service, response includes "cannot transition from" with code "403"
+    When POST to MATCH patients service, response includes "<error_message>" with code "403"
     Examples:
-      | patient_id                     |
-      | PT_SR12_VariantReportConfirmed |
-      | PT_SR12_RbRequested            |
+      | patient_id                     | error_message                          |
+      | PT_SR12_VariantReportConfirmed | cannot transition from                 |
+      | PT_SR12_RbRequested            | already has a confirmed variant report |
 
   @patients_p1 @patients_need_queue
   Scenario: PT_SR14a. When a new TISSUE specimen_received message is received,  the pending TISSUE variant report from the old Surgical event is set to "REJECTED" status
