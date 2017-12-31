@@ -350,11 +350,11 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
     Then set patient message field: "molecular_id" to value: "<patient_id>_MOI2"
     Then set patient message field: "shipped_dttm" to value: "current"
-    When POST to MATCH patients service, response includes "confirmed variant report" with code "403"
+    When POST to MATCH patients service, response includes "<error>" with code "403"
     Examples:
-      | patient_id                     |
-      | PT_SS21_TissueVariantConfirmed |
-      | PT_SS21_RbRequested            |
+      | patient_id                     | error                                       |
+      | PT_SS21_TissueVariantConfirmed | already has a confirmed variant report      |
+      | PT_SS21_RbRequested            | cannot transition from 'RB_ORDER_REQUESTED' |
 
 
   @patients_p2 @patients_queueless

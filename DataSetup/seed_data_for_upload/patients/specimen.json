@@ -1,5 +1,5 @@
 {
-    "Count": 651, 
+    "Count": 652, 
     "Items": [
         {
             "surgical_event_id": {
@@ -7384,6 +7384,112 @@
             }, 
             "active_molecular_id": {
                 "S": "PT_SC04e_TsVrUploaded1_MOI1"
+            }, 
+            "specimen_type": {
+                "S": "TISSUE"
+            }
+        }, 
+        {
+            "surgical_event_id": {
+                "S": "PT_SS21_RbRequested_SEI1"
+            }, 
+            "sorting_key": {
+                "S": "2017-12-31T04:19:48:199.199683"
+            }, 
+            "collected_date": {
+                "S": "2017-12-30T00:00:00+00:00"
+            }, 
+            "patient_id": {
+                "S": "PT_SS21_RbRequested"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "received_date": {
+                "S": "2017-12-31T04:19:42+00:00"
+            }, 
+            "assays": {
+                "L": [
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-30T22:20:16-06:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBRG1s"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-30T22:20:08-06:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBAF47s"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2017-12-30T22:20:02-06:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCPTENs"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "comment": {
+                                "S": "RB assay order requested"
+                            }, 
+                            "result_date": {
+                                "S": " "
+                            }, 
+                            "requested_date": {
+                                "S": "2017-12-30 22:21:43 -0600"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCRBs"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "active_molecular_id": {
+                "S": "PT_SS21_RbRequested_MOI1"
             }, 
             "specimen_type": {
                 "S": "TISSUE"
@@ -36138,6 +36244,6 @@
             }
         }
     ], 
-    "ScannedCount": 651, 
+    "ScannedCount": 652, 
     "ConsumedCapacity": null
 }
