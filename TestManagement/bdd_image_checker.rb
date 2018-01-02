@@ -29,7 +29,7 @@ class BDDImageChecker
     end
     int_commit = rest_get(url)['Commit']
     raise "Response from #{trigger_repo}/version doesn't has commit number!" if int_commit.nil?
-    git_base_url = "https://api.github.com/repos/CBIIT/#{trigger_repo}/commits"
+    git_base_url = "https://api.github.com/repos/BIAD/#{trigger_repo}/commits"
     int_commit_time = DateTime.parse(rest_get("#{git_base_url}/#{int_commit}")['commit']['committer']['date'])
     trigger_commit_time = DateTime.parse(rest_get("#{git_base_url}/#{trigger_commit}")['commit']['committer']['date'])
     puts "Image in INT:\n    Commit: #{int_commit}\n    Commit Time: #{int_commit_time}"

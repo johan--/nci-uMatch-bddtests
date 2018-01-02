@@ -1,7 +1,7 @@
 # nci-uMatch-bddtests
 BDD Tests for PEDMatch
-[![Code Climate](https://codeclimate.com/github/CBIIT/nci-uMatch-bddtests/badges/gpa.svg)](https://codeclimate.com/github/CBIIT/nci-uMatch-bddtests)
-[![Issue Count](https://codeclimate.com/github/CBIIT/nci-uMatch-bddtests/badges/issue_count.svg)](https://codeclimate.com/github/CBIIT/nci-uMatch-bddtests)
+[![Code Climate](https://codeclimate.com/github/BIAD/nci-uMatch-bddtests/badges/gpa.svg)](https://codeclimate.com/github/BIAD/nci-uMatch-bddtests)
+[![Issue Count](https://codeclimate.com/github/BIAD/nci-uMatch-bddtests/badges/issue_count.svg)](https://codeclimate.com/github/BIAD/nci-uMatch-bddtests)
 
 The following cucumber tags are used in the project and have specific purposes.
 ```

@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CBIIT/nci-match-ui-bddtests.git"
+    "url": "git+https://github.com/BIAD/nci-match-ui-bddtests.git"
   },
   "author": "Raseel Mohamed",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CBIIT/nci-match-ui-bddtests/issues"
+    "url": "https://github.com/BIAD/nci-match-ui-bddtests/issues"
   },
-  "homepage": "https://github.com/CBIIT/nci-match-ui-bddtests#readme",
+  "homepage": "https://github.com/BIAD/nci-match-ui-bddtests#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",

@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CBIIT/ctrp_datawarehouse_bddtests.git"
+    "url": "git+https://github.com/BIAD/ctrp_datawarehouse_bddtests.git"
   },
   "author": "Li Wang",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CBIIT/ctrp_datawarehouse_bddtests/issues"
+    "url": "https://github.com/BIAD/ctrp_datawarehouse_bddtests/issues"
   },
-  "homepage": "https://github.com/CBIIT/ctrp_datawarehouse_bddtests",
+  "homepage": "https://github.com/BIAD/ctrp_datawarehouse_bddtests",
   "devDependencies": {
     "cucumber-html-reporter": "0.2.16"
   },
