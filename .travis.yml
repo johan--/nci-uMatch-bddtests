@@ -144,7 +144,7 @@ script:
       ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'pedmatch-int_ion_reporter_queue3'"
       ruby -r "../../DataSetup/pedmatch_test_data_manager/ped_match_database.rb" -e "PedMatchDatabase.reload_int '$CUC_TAG_TRIM'"
       cat cucumber_failures_queueless.log cucumber_failures_need_queue.log >> cucumber_failures.log
-      cucumber -f pretty @cucumber_failures.log,   --format json --out ../../results/rerun.json --expand
+      cucumber -f pretty @cucumber_failures.log --format json --out ../../results/rerun.json --expand
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddReporter.upload '$ROOT_FOLDER/results', 'rerun', '$CUC_TAG', 'cucumber-test-reports'"
