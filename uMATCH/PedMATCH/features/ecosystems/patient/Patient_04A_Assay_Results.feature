@@ -26,6 +26,7 @@ Feature: Assay Messages
       | PT_AS00_SlideShipped3 | PT_AS00_SlideShipped3_SEI1 | ICCRBs    | NEGATIVE      |
       | PT_AS00_SlideShipped4 | PT_AS00_SlideShipped4_SEI1 | ICCBRG1s  | INDETERMINATE |
 
+
 @patients_p1 @patients_need_queue
   Scenario Outline: PT_AS00a. RB Assay message should be rejected before Variant Report is Uploaded
     Given patient id is "<patient_id>"
@@ -36,22 +37,24 @@ Feature: Assay Messages
     Then set patient message field: "reported_date" to value: "current"
     When POST to MATCH patients service, response includes "rejected because it was not previously requested" with code "403"
     Examples:
-      | patient_id        | sei                    | biomarker | result   |
-      | PT_AS00a_3AssayRb | PT_AS00a_3AssayRb_SEI1 | ICCRBs    | NEGATIVE |
+      | patient_id       | sei                   | biomarker | result   |
+      | PT_AS00a_3Assay  | PT_AS00a_3Assay_SEI1  | ICCRBs    | NEGATIVE |
+      | PT_SC04d_NoAssay | PT_SC04d_NoAssay_SEI1 | ICCRBs    | POSITIVE |
 
 
   @patients_p2 @patients_queueless
-  Scenario Outline: PT_AS01. Assay result with invalid patient_id(empty, non-existing, null) should fail
+  Scenario Outline: PT_AS01. Assay result with invalid patient_id(empty, non-existing, null) should fail validation
     Given patient id is "<patient_id>"
     And load template assay message for this patient
     Then set patient message field: "biomarker" to value: "ICCPTENs"
     Then set patient message field: "surgical_event_id" to value: "PT_AS01_SEI1"
-    When POST to MATCH patients service, response includes "<message>" with code "403"
+    When POST to MATCH patients service, response includes "<message>" with code "<status_code>"
     Examples:
-      | patient_id | message    |
-  #    |          |can't be blank             |
-      | nonPatient | registered |
-#    |null      |can't be blank             |
+      | patient_id  | message                            | status_code |
+    #  |             | can't be blank                     | 500         |
+    #  | null        | can't be blank                     | 500         |
+      | abcd        | has not been registered with Match | 403         |
+
 
   @patients_p2 @patients_queueless
   Scenario Outline: PT_AS02. Assay result with invalid study_id(empty, non-existing, null) should fail
