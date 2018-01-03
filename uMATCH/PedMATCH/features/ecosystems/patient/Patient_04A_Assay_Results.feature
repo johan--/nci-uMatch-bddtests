@@ -26,6 +26,19 @@ Feature: Assay Messages
       | PT_AS00_SlideShipped3 | PT_AS00_SlideShipped3_SEI1 | ICCRBs    | NEGATIVE      |
       | PT_AS00_SlideShipped4 | PT_AS00_SlideShipped4_SEI1 | ICCBRG1s  | INDETERMINATE |
 
+@patients_p1 @patients_need_queue
+  Scenario Outline: PT_AS00a. RB Assay message should be rejected before Variant Report is Uploaded
+    Given patient id is "<patient_id>"
+    And load template assay message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "biomarker" to value: "<biomarker>"
+    Then set patient message field: "result" to value: "<result>"
+    Then set patient message field: "reported_date" to value: "current"
+    When POST to MATCH patients service, response includes "rejected because it was not previously requested" with code "403"
+    Examples:
+      | patient_id        | sei                    | biomarker | result   |
+      | PT_AS00a_3AssayRb | PT_AS00a_3AssayRb_SEI1 | ICCRBs    | NEGATIVE |
+
 
   @patients_p2 @patients_queueless
   Scenario Outline: PT_AS01. Assay result with invalid patient_id(empty, non-existing, null) should fail
