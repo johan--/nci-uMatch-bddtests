@@ -1,5 +1,5 @@
 {
-  "Count": 4761,
+  "Count": 4773,
   "Items": [
     {
       "event_message": {
@@ -17438,6 +17438,438 @@
       },
       "event_date": {
         "S": "2017-06-21T02:37:32.012"
+      }
+    },
+    {
+      "event_message": {
+        "S": "REGISTRATION message received from COG for patient PT_AS12_RbPendingConfirmation."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "patient"
+      },
+      "event_data": {
+        "M": {
+          "patient_status": {
+            "S": "REGISTRATION"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:06:34:093.093537"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen of type TISSUE received at NCH."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "event_data": {
+        "M": {
+          "surgical_event_id": {
+            "S": "PT_AS12_RbPendingConfirmation_SEI1"
+          },
+          "collection_dt": {
+            "S": "2018-01-04T00:00:00+00:00"
+          },
+          "patient_id": {
+            "S": "PT_AS12_RbPendingConfirmation"
+          },
+          "received_dttm": {
+            "S": "2018-01-04T17:06:34-05:00"
+          },
+          "study_id": {
+            "S": "APEC1621SC"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "type": {
+            "S": "TISSUE"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:06:41:508.508306"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "event_data": {
+        "M": {
+          "surgical_event_id": {
+            "S": "PT_AS12_RbPendingConfirmation_SEI1"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "molecular_dna_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "molecular_cdna_id": {
+            "NULL": true
+          },
+          "type": {
+            "S": "TISSUE_DNA_AND_CDNA"
+          },
+          "molecular_id": {
+            "S": "PT_AS12_RbPendingConfirmation_MOI1"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:06:49:098.098431"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type SLIDE shipped from NCH."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "SLIDE"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "surgical_event_id": {
+            "S": "PT_AS12_RbPendingConfirmation_SEI1"
+          },
+          "slide_barcode": {
+            "S": "PT_AS12_RbPendingConfirmation_BC1"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:06:56:408.408385"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCPTENs received from MDA."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "event_data": {
+        "M": {
+          "step": {
+            "S": "1.0"
+          },
+          "assay_result": {
+            "S": "POSITIVE"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "biomarker": {
+            "S": "IHC PTEN"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:07:03:748.748264"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCBAF47s received from MDA."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "event_data": {
+        "M": {
+          "step": {
+            "S": "1.0"
+          },
+          "assay_result": {
+            "S": "POSITIVE"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "biomarker": {
+            "S": "IHC BAF47"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:07:12:184.184768"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCBRG1s received from MDA."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "event_data": {
+        "M": {
+          "step": {
+            "S": "1.0"
+          },
+          "assay_result": {
+            "S": "POSITIVE"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "biomarker": {
+            "S": "IHC BRG1"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:07:17:759.759310"
+      }
+    },
+    {
+      "event_message": {
+        "S": "TISSUE Variant Report generated."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "variant_report"
+      },
+      "event_data": {
+        "M": {
+          "analysis_id": {
+            "S": "PT_AS12_RbPendingConfirmation_ANI1"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "specimen_received_date": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "variant_report_type": {
+            "S": "TISSUE"
+          },
+          "clia_lab": {
+            "S": "MDA"
+          },
+          "molecular_id": {
+            "S": "PT_AS12_RbPendingConfirmation_MOI1"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:07:42:837.837857"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Sequence file uploaded."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "variant_report"
+      },
+      "event_data": {
+        "M": {
+          "analysis_id": {
+            "S": "PT_AS12_RbPendingConfirmation_ANI1"
+          },
+          "comment_user": {
+            "S": "qa"
+          },
+          "file_name": {
+            "S": "dna.bam"
+          },
+          "patient_id": {
+            "S": "PT_AS12_RbPendingConfirmation"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "molecular_id": {
+            "S": "PT_AS12_RbPendingConfirmation_MOI1"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:07:48:252.252413"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Sequence file uploaded."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "variant_report"
+      },
+      "event_data": {
+        "M": {
+          "analysis_id": {
+            "S": "PT_AS12_RbPendingConfirmation_ANI1"
+          },
+          "comment_user": {
+            "S": "qa"
+          },
+          "file_name": {
+            "S": "cdna.bam"
+          },
+          "patient_id": {
+            "S": "PT_AS12_RbPendingConfirmation"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "molecular_id": {
+            "S": "PT_AS12_RbPendingConfirmation_MOI1"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:07:54:519.519996"
+      }
+    },
+    {
+      "event_message": {
+        "S": "RB assay order requested"
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "event_data": {
+        "M": {
+          "comment": {
+            "S": "Test"
+          },
+          "status": {
+            "S": "CONFIRMED"
+          },
+          "analysis_id": {
+            "S": "PT_AS12_RbPendingConfirmation_ANI1"
+          },
+          "comment_user": {
+            "S": "QA"
+          },
+          "variant_report_status": {
+            "S": "CONFIRMED"
+          },
+          "patient_id": {
+            "S": "PT_AS12_RbPendingConfirmation"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "surgical_event_id": {
+            "S": "PT_AS12_RbPendingConfirmation_SEI1"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:07:59:370.370992"
+      }
+    },
+    {
+      "event_message": {
+        "S": "TISSUE Variant Report updated to CONFIRMED."
+      },
+      "entity_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "event_type": {
+        "S": "variant_report"
+      },
+      "event_data": {
+        "M": {
+          "comment": {
+            "S": "Test"
+          },
+          "status": {
+            "S": "CONFIRMED"
+          },
+          "analysis_id": {
+            "S": "PT_AS12_RbPendingConfirmation_ANI1"
+          },
+          "comment_user": {
+            "S": "QA"
+          },
+          "variant_report_status": {
+            "S": "CONFIRMED"
+          },
+          "patient_id": {
+            "S": "PT_AS12_RbPendingConfirmation"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "surgical_event_id": {
+            "S": "PT_AS12_RbPendingConfirmation_SEI1"
+          }
+        }
+      },
+      "event_date": {
+        "S": "2018-01-04T22:07:59:395.395876"
       }
     },
     {
@@ -178451,6 +178883,6 @@
       }
     }
   ],
-  "ScannedCount": 4761,
+  "ScannedCount": 4773,
   "ConsumedCapacity": null
 }

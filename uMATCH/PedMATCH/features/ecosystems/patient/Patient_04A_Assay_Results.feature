@@ -25,7 +25,6 @@ Feature: Assay Messages
       | PT_AS00_SlideShipped2 | PT_AS00_SlideShipped2_SEI1 | ICCBAF47s | NEGATIVE      |
       | PT_AS00_SlideShipped4 | PT_AS00_SlideShipped4_SEI1 | ICCBRG1s  | INDETERMINATE |
 
-
 @patients_p1 @patients_need_queue
   Scenario Outline: PT_AS00a. RB Assay message should be rejected before Variant Report is Uploaded
     Given patient id is "<patient_id>"
@@ -41,7 +40,6 @@ Feature: Assay Messages
       | PT_SC04d_NoAssay      | PT_SC04d_NoAssay_SEI1      | ICCRBs    | POSITIVE      |
       | PT_AS11SlideShipped   | PT_AS11SlideShipped_SEI1   | ICCRBs    | INDETERMINATE |
 
-
   @patients_p2 @patients_queueless
   Scenario Outline: PT_AS01. Assay result with invalid patient_id(empty, non-existing, null) should fail validation
     Given patient id is "<patient_id>"
@@ -54,7 +52,6 @@ Feature: Assay Messages
     #  |             | can't be blank                     | 500         |
     #  | null        | can't be blank                     | 500         |
       | abcd        | has not been registered with Match | 403         |
-
 
   @patients_p2 @patients_queueless
   Scenario Outline: PT_AS02. Assay result with invalid study_id(empty, non-existing, null) should fail
@@ -126,7 +123,6 @@ Feature: Assay Messages
       | ICCBAF47s | null                      | can't be blank | 403  |
       | ICCRBs    | 2117-06-06T10:42:13+00:00 | before         | 403  |
 
-
   @patients_p2 @patients_queueless
   Scenario Outline: PT_AS07. Assay result with invalid result(other than POSITIVE, NEGATIVE or INDETERMINATE) should fail
     Given patient id is "PT_AS07_SlideShipped"
@@ -140,7 +136,6 @@ Feature: Assay Messages
       | ICCPTENs  |             | can't be blank | 403  |
       | ICCBRG1s  | otherResult | result         | 403  |
       | ICCBAF47s | null        | can't be blank | 403  |
-
 
 #Logic tests:
   @patients_p2 @patients_queueless
@@ -233,7 +228,6 @@ Feature: Assay Messages
       | ICCBAF47s | INDETERMINATE |
       | ICCBRG1s  | INDETERMINATE |
 
-
   @patients_p2 @demo_p1 @patients_need_queue
   Scenario Outline: PT_AS12. assay result received message can be processed properly
     Given patient id is "<patient_id>"
@@ -297,11 +291,17 @@ Feature: Assay Messages
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Then patient status should change to "PENDING_CONFIRMATION"
     Examples:
-      | patient_id                  | status               | step_number | message          | code |
-      | PT_AS12_PendingConfirmation | PENDING_CONFIRMATION | 1.0         | state validation | 403  |
-      | PT_AS12_PendingApproval     | PENDING_APPROVAL     | 1.0         | successful       | 202  |
-      | PT_AS12_OnTreatmentArm      | ON_TREATMENT_ARM     | 2.0         | successful       | 202  |
+      | patient_id                    | status               | step_number | message          | code |
+      | PT_AS12_RbPendingConfirmation | PENDING_CONFIRMATION | 1.0         | state validation | 403  |
+     # | PT_AS12_RbPendingApproval    | PENDING_APPROVAL     | 1.0         | successful       | 202  |
+     # | PT_AS12_OnTreatmentArm       | ON_TREATMENT_ARM     | 2.0         | successful       | 202  |
 
+    # Old
+   # Examples:
+     # | patient_id                  | status               | step_number | message          | code |
+     # | PT_AS12_PendingConfirmation | PENDING_CONFIRMATION | 1.0         | state validation | 403  |
+     # | PT_AS12_PendingApproval     | PENDING_APPROVAL     | 1.0         | successful       | 202  |
+     # | PT_AS12_OnTreatmentArm      | ON_TREATMENT_ARM     | 2.0         | successful       | 202  |
 
   @patients_p1 @patients_need_queue
   Scenario Outline: PT_AS12b. RB assay can be processed properly
@@ -381,4 +381,3 @@ Feature: Assay Messages
       | ICCPTENs  | 2017-05-06T10:42:13+00:00 | 2017-08-06T10:42:13+00:00 |
       | ICCBAF47s | 2017-05-06T10:43:13+00:00 | 2017-08-06T10:43:13+00:00 |
       | ICCBRG1s  | 2017-05-06T10:44:13+00:00 | 2017-08-06T10:44:13+00:00 |
-      | ICCRBs    | 2017-05-06T10:45:13+00:00 | 2017-08-06T10:45:13+00:00 |

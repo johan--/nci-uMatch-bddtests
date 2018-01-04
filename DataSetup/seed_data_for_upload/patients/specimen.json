@@ -1,5 +1,5 @@
 {
-  "Count": 653,
+  "Count": 654,
   "Items": [
     {
       "surgical_event_id": {
@@ -3463,6 +3463,112 @@
       },
       "active_molecular_id": {
         "S": "PT_SC09_PendingApproval_MOI1"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "surgical_event_id": {
+        "S": "PT_AS12_RbPendingConfirmation_SEI1"
+      },
+      "sorting_key": {
+        "S": "2018-01-04T22:06:41:485.485472"
+      },
+      "collected_date": {
+        "S": "2018-01-04T00:00:00+00:00"
+      },
+      "patient_id": {
+        "S": "PT_AS12_RbPendingConfirmation"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "received_date": {
+        "S": "2018-01-04T22:06:34+00:00"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "active": {
+                "BOOL": true
+              },
+              "result_date": {
+                "S": "2018-01-04T17:07:13-05:00"
+              },
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "POSITIVE"
+              }
+            }
+          },
+          {
+            "M": {
+              "active": {
+                "BOOL": true
+              },
+              "result_date": {
+                "S": "2018-01-04T17:07:05-05:00"
+              },
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "POSITIVE"
+              }
+            }
+          },
+          {
+            "M": {
+              "active": {
+                "BOOL": true
+              },
+              "result_date": {
+                "S": "2018-01-04T17:06:57-05:00"
+              },
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "POSITIVE"
+              }
+            }
+          },
+          {
+            "M": {
+              "active": {
+                "BOOL": true
+              },
+              "comment": {
+                "S": "RB assay order requested"
+              },
+              "result_date": {
+                "S": " "
+              },
+              "requested_date": {
+                "S": "2018-01-04 17:07:59 -0500"
+              },
+              "biomarker": {
+                "S": "ICCRBs"
+              }
+            }
+          }
+        ]
+      },
+      "active_molecular_id": {
+        "S": "PT_AS12_RbPendingConfirmation_MOI1"
       },
       "specimen_type": {
         "S": "TISSUE"
@@ -36270,6 +36376,6 @@
       }
     }
   ],
-  "ScannedCount": 653,
+  "ScannedCount": 654,
   "ConsumedCapacity": null
 }
