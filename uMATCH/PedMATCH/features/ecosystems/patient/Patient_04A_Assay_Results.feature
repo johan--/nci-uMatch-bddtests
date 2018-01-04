@@ -36,9 +36,10 @@ Feature: Assay Messages
     Then set patient message field: "reported_date" to value: "current"
     When POST to MATCH patients service, response includes "rejected because it was not previously requested" with code "403"
     Examples:
-      | patient_id            | sei                        | biomarker | result   |
-      | PT_AS00a_SlideShipped | PT_AS00a_SlideShipped_SEI1 | ICCRBs    | NEGATIVE |
-      | PT_SC04d_NoAssay      | PT_SC04d_NoAssay_SEI1      | ICCRBs    | POSITIVE |
+      | patient_id            | sei                        | biomarker | result        |
+      | PT_AS00a_SlideShipped | PT_AS00a_SlideShipped_SEI1 | ICCRBs    | NEGATIVE      |
+      | PT_SC04d_NoAssay      | PT_SC04d_NoAssay_SEI1      | ICCRBs    | POSITIVE      |
+      | PT_AS11SlideShipped   | PT_AS11SlideShipped_SEI1   | ICCRBs    | INDETERMINATE |
 
 
   @patients_p2 @patients_queueless
@@ -230,11 +231,10 @@ Feature: Assay Messages
       | ICCPTENs  | POSITIVE      |
       | ICCBAF47s | NEGATIVE      |
       | ICCBRG1s  | POSITIVE      |
-      | ICCRBs    | INDETERMINATE |
       | ICCPTENs  | NEGATIVE      |
       | ICCBAF47s | INDETERMINATE |
       | ICCBRG1s  | INDETERMINATE |
-      | ICCRBs    | POSITIVE      |
+
 
   @patients_p2 @demo_p1 @patients_need_queue
   Scenario Outline: PT_AS12. assay result received message can be processed properly
