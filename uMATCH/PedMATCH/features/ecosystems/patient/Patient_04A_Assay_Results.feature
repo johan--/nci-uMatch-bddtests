@@ -125,8 +125,6 @@ Feature: Assay Messages
       | ICCBRG1s  | nonDate                   | date           | 400  |
       | ICCBAF47s | null                      | can't be blank | 403  |
       | ICCRBs    | 2117-06-06T10:42:13+00:00 | before         | 403  |
-#      #we don't check this
-#      | 1997-06-06T10:42:13+00:00 | slide         | 403  |
 
 
   @patients_p2 @patients_queueless
@@ -304,6 +302,7 @@ Feature: Assay Messages
       | PT_AS12_PendingApproval     | PENDING_APPROVAL     | 1.0         | successful       | 202  |
       | PT_AS12_OnTreatmentArm      | ON_TREATMENT_ARM     | 2.0         | successful       | 202  |
 
+
   @patients_p1 @patients_need_queue
   Scenario Outline: PT_AS12b. RB assay can be processed properly
     Given patient id is "<patient_id>"
@@ -311,18 +310,18 @@ Feature: Assay Messages
     Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
     Then set patient message field: "biomarker" to value: "ICCRBs"
     Then set patient message field: "reported_date" to value: "current"
-    When POST to MATCH patients service, response includes "successfully" with code "202"
+    When POST to MATCH patients service, response includes "<response>" with code "<code>"
     Then wait until patient is updated
     Then wait for "5" seconds
     Then patient status should change to "<patient_status>"
     Examples:
-      | patient_id                  | patient_status         |
-      | PT_AS12b_NoVr3Assay         | ASSAY_RESULTS_RECEIVED |
-      | PT_AS12b_VrReceived3Assay   | ASSAY_RESULTS_RECEIVED |
-      | PT_AS12b_VrConfirmed3Assay  | PENDING_CONFIRMATION   |
-      | PT_AS12b_RbRequestedNoAssay | ASSAY_RESULTS_RECEIVED |
-      | PT_AS12b_RbRequested2Assay  | ASSAY_RESULTS_RECEIVED |
-      | PT_AS12b_RbRequest3Assay    | PENDING_CONFIRMATION   |
+      | patient_id                  | patient_status                 | response     | code |
+      | PT_AS12b_NoVr3Assay         | ASSAY_RESULTS_RECEIVED         | rejected     | 403  |
+      | PT_AS12b_VrReceived3Assay   | TISSUE_VARIANT_REPORT_RECEIVED | rejected     | 403  |
+      | PT_AS12b_VrConfirmed3Assay  | PENDING_CONFIRMATION           | rejected     | 403  |
+      | PT_AS12b_RbRequestedNoAssay | ASSAY_RESULTS_RECEIVED         | successfully | 202  |
+      | PT_AS12b_RbRequested2Assay  | ASSAY_RESULTS_RECEIVED         | successfully | 202  |
+      | PT_AS12b_RbRequest3Assay    | PENDING_CONFIRMATION           | successfully | 202  |
 
   @patients_p3
   Scenario: PT_AS13. extra key-value pair in the message body should NOT fail
