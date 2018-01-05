@@ -293,7 +293,7 @@ Feature: Assay Messages
     Examples:
       | patient_id                    | status               | step_number | message          | code |
       | PT_AS12_RbPendingConfirmation | PENDING_CONFIRMATION | 1.0         | state validation | 403  |
-     # | PT_AS12_RbPendingApproval    | PENDING_APPROVAL     | 1.0         | successful       | 202  |
+      | PT_AS12_RbPendingApproval     | PENDING_APPROVAL     | 1.0         | successful       | 202  |
      # | PT_AS12_OnTreatmentArm       | ON_TREATMENT_ARM     | 2.0         | successful       | 202  |
 
     # Old

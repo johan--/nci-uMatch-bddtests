@@ -22432,7 +22432,7 @@
                 "N": "3"
             }, 
             "version_pending_patients": {
-                "N": "45"
+                "N": "46"
             }, 
             "name": {
                 "S": "APEC1621-A"
@@ -22441,7 +22441,7 @@
                 "BOOL": true
             }, 
             "pending_patients": {
-                "N": "45"
+                "N": "46"
             }, 
             "exclusion_drugs": {
                 "L": [
