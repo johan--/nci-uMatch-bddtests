@@ -1,5 +1,5 @@
 {
-    "Count": 656, 
+    "Count": 658, 
     "Items": [
         {
             "surgical_event_id": {
@@ -10545,6 +10545,116 @@
             }, 
             "specimen_type": {
                 "S": "TISSUE"
+            }
+        }, 
+        {
+            "surgical_event_id": {
+                "S": "PT_VC14_BdTsVrUploadedAssayReady_SEI1"
+            }, 
+            "sorting_key": {
+                "S": "2018-01-06T20:06:37:330.330460"
+            }, 
+            "collected_date": {
+                "S": "2018-01-06T00:00:00+00:00"
+            }, 
+            "patient_id": {
+                "S": "PT_VC14_BdTsVrUploadedAssayReady"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "received_date": {
+                "S": "2018-01-06T20:06:29+00:00"
+            }, 
+            "assays": {
+                "L": [
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2018-01-06T15:08:19-05:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBRG1s"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2018-01-06T15:08:12-05:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBAF47s"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2018-01-06T15:08:06-05:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCPTENs"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "active_molecular_id": {
+                "S": "PT_VC14_BdTsVrUploadedAssayReady_MOI1"
+            }, 
+            "specimen_type": {
+                "S": "TISSUE"
+            }
+        }, 
+        {
+            "sorting_key": {
+                "S": "2018-01-06T20:06:58:970.970464"
+            }, 
+            "collected_date": {
+                "S": "2018-01-06T00:00:00+00:00"
+            }, 
+            "patient_id": {
+                "S": "PT_VC14_BdTsVrUploadedAssayReady"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "received_date": {
+                "S": "2018-01-06T20:06:51+00:00"
+            }, 
+            "active_molecular_id": {
+                "S": "PT_VC14_BdTsVrUploadedAssayReady_BD_MOI1"
+            }, 
+            "specimen_type": {
+                "S": "BLOOD"
             }
         }, 
         {
@@ -36594,6 +36704,6 @@
             }
         }
     ], 
-    "ScannedCount": 656, 
+    "ScannedCount": 658, 
     "ConsumedCapacity": null
 }
