@@ -624,16 +624,15 @@ Feature: Patient GET service valid special case tests
 
   @patients_queueless
   Scenario: PT_SC07e specimen_events should display assay history in correct order
-    Given patient GET service: "specimen_events", patient id: "PT_SC07e_FiveAssayThenRbAssay", id: ""
+    Given patient GET service: "specimen_events", patient id: "PT_SC07e_FiveAssay", id: ""
     When GET from MATCH patient API, http code "200" should return
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssayThenRbAssay_SEI1" should have these assays
-      | order | biomarker | result        | result_date |
-      | 1     | ICCBRG1s  | NEGATIVE      | time        |
-      | 2     | ICCBRG1s  | INDETERMINATE | time        |
-      | 3     | ICCPTENs  | POSITIVE      | time        |
-      | 4     | ICCBAF47s | NEGATIVE      | time        |
-      | 5     | ICCPTENs  | NEGATIVE      | time        |
-      | 6     | ICCRBs    | NEGATIVE      | time        |
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" should have these assays
+      | order | biomarker | result        | result_date               |
+      | 1     | ICCPTENs  | NEGATIVE      | 2018-01-06T22:48:56-05:00 |
+      | 2     | ICCBAF47s | NEGATIVE      | 2018-01-06T22:48:50-05:00 |
+      | 3     | ICCPTENs  | POSITIVE      | 2018-01-06T22:48:43-05:00 |
+      | 4     | ICCBRG1s  | INDETERMINATE | 2018-01-06T22:48:37-05:00 |
+      | 5     | ICCBRG1s  | NEGATIVE      | 2018-01-06T22:48:29-05:00 |
 
   @patients_p1 @patients_queueless
   Scenario Outline: PT_SC08a variant report can be downloaded properly

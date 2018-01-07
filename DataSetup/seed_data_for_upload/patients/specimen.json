@@ -1,5 +1,5 @@
 {
-    "Count": 658, 
+    "Count": 657, 
     "Items": [
         {
             "surgical_event_id": {
@@ -3252,10 +3252,10 @@
                 "S": "PT_SC07e_FiveAssay_SEI1"
             }, 
             "sorting_key": {
-                "S": "2017-06-05T21:15:35.535"
+                "S": "2018-01-07T03:48:15:376.376339"
             }, 
             "collected_date": {
-                "S": "2017-06-05T00:00:00+00:00"
+                "S": "2018-01-06T00:00:00+00:00"
             }, 
             "patient_id": {
                 "S": "PT_SC07e_FiveAssay"
@@ -3263,14 +3263,8 @@
             "study_id": {
                 "S": "APEC1621SC"
             }, 
-            "pathology_status_date": {
-                "S": "2017-06-05T21:15:35+00:00"
-            }, 
-            "pathology_status": {
-                "S": "Y"
-            }, 
             "received_date": {
-                "S": "2017-06-05T21:15:33+00:00"
+                "S": "2018-01-07T03:48:08+00:00"
             }, 
             "assays": {
                 "L": [
@@ -3280,13 +3274,13 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-06-05T21:15:47Z"
+                                "S": "2018-01-06T22:48:56-05:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
                             }, 
                             "biomarker": {
-                                "S": "ICCBRG1s"
+                                "S": "ICCPTENs"
                             }, 
                             "result": {
                                 "S": "NEGATIVE"
@@ -3296,48 +3290,10 @@
                     {
                         "M": {
                             "active": {
-                                "BOOL": false
-                            }, 
-                            "result_date": {
-                                "S": "2017-06-05T21:15:43Z"
-                            }, 
-                            "case_number": {
-                                "S": "case-1234"
-                            }, 
-                            "biomarker": {
-                                "S": "ICCBRG1s"
-                            }, 
-                            "result": {
-                                "S": "INDETERMINATE"
-                            }
-                        }
-                    }, 
-                    {
-                        "M": {
-                            "active": {
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-06-05T21:15:41Z"
-                            }, 
-                            "case_number": {
-                                "S": "case-1234"
-                            }, 
-                            "biomarker": {
-                                "S": "ICCPTENs"
-                            }, 
-                            "result": {
-                                "S": "POSITIVE"
-                            }
-                        }
-                    }, 
-                    {
-                        "M": {
-                            "active": {
-                                "BOOL": true
-                            }, 
-                            "result_date": {
-                                "S": "2017-06-05T21:15:39Z"
+                                "S": "2018-01-06T22:48:50-05:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -3356,7 +3312,7 @@
                                 "BOOL": false
                             }, 
                             "result_date": {
-                                "S": "2017-06-05T21:15:38Z"
+                                "S": "2018-01-06T22:48:43-05:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -3365,11 +3321,52 @@
                                 "S": "ICCPTENs"
                             }, 
                             "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2018-01-06T22:48:37-05:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBRG1s"
+                            }, 
+                            "result": {
+                                "S": "INDETERMINATE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": false
+                            }, 
+                            "result_date": {
+                                "S": "2018-01-06T22:48:29-05:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBRG1s"
+                            }, 
+                            "result": {
                                 "S": "NEGATIVE"
                             }
                         }
                     }
                 ]
+            }, 
+            "active_molecular_id": {
+                "S": "PT_SC07e_FiveAssay_MOI1"
             }, 
             "specimen_type": {
                 "S": "TISSUE"
@@ -8819,150 +8816,6 @@
             }, 
             "active_molecular_id": {
                 "S": "PT_AS12_VrReceived_MOI1"
-            }, 
-            "specimen_type": {
-                "S": "TISSUE"
-            }
-        }, 
-        {
-            "surgical_event_id": {
-                "S": "PT_SC07e_FiveAssayThenRbAssay_SEI1"
-            }, 
-            "sorting_key": {
-                "S": "2017-12-19T21:49:05:328.328086"
-            }, 
-            "collected_date": {
-                "S": "2017-12-19T00:00:00+00:00"
-            }, 
-            "patient_id": {
-                "S": "PT_SC07e_FiveAssayThenRbAssay"
-            }, 
-            "study_id": {
-                "S": "APEC1621SC"
-            }, 
-            "received_date": {
-                "S": "2017-12-19T21:48:58+00:00"
-            }, 
-            "assays": {
-                "L": [
-                    {
-                        "M": {
-                            "active": {
-                                "BOOL": true
-                            }, 
-                            "result_date": {
-                                "S": "2017-12-19T16:49:48-05:00"
-                            }, 
-                            "case_number": {
-                                "S": "case-1234"
-                            }, 
-                            "biomarker": {
-                                "S": "ICCRBs"
-                            }, 
-                            "result": {
-                                "S": "NEGATIVE"
-                            }
-                        }
-                    }, 
-                    {
-                        "M": {
-                            "active": {
-                                "BOOL": true
-                            }, 
-                            "result_date": {
-                                "S": "2017-12-19T16:49:43-05:00"
-                            }, 
-                            "case_number": {
-                                "S": "case-1234"
-                            }, 
-                            "biomarker": {
-                                "S": "ICCPTENs"
-                            }, 
-                            "result": {
-                                "S": "NEGATIVE"
-                            }
-                        }
-                    }, 
-                    {
-                        "M": {
-                            "active": {
-                                "BOOL": true
-                            }, 
-                            "result_date": {
-                                "S": "2017-12-19T16:49:37-05:00"
-                            }, 
-                            "case_number": {
-                                "S": "case-1234"
-                            }, 
-                            "biomarker": {
-                                "S": "ICCBAF47s"
-                            }, 
-                            "result": {
-                                "S": "NEGATIVE"
-                            }
-                        }
-                    }, 
-                    {
-                        "M": {
-                            "active": {
-                                "BOOL": false
-                            }, 
-                            "result_date": {
-                                "S": "2017-12-19T16:49:31-05:00"
-                            }, 
-                            "case_number": {
-                                "S": "case-1234"
-                            }, 
-                            "biomarker": {
-                                "S": "ICCPTENs"
-                            }, 
-                            "result": {
-                                "S": "POSITIVE"
-                            }
-                        }
-                    }, 
-                    {
-                        "M": {
-                            "active": {
-                                "BOOL": true
-                            }, 
-                            "result_date": {
-                                "S": "2017-12-19T16:49:25-05:00"
-                            }, 
-                            "case_number": {
-                                "S": "case-1234"
-                            }, 
-                            "biomarker": {
-                                "S": "ICCBRG1s"
-                            }, 
-                            "result": {
-                                "S": "INDETERMINATE"
-                            }
-                        }
-                    }, 
-                    {
-                        "M": {
-                            "active": {
-                                "BOOL": false
-                            }, 
-                            "result_date": {
-                                "S": "2017-12-19T16:49:17-05:00"
-                            }, 
-                            "case_number": {
-                                "S": "case-1234"
-                            }, 
-                            "biomarker": {
-                                "S": "ICCBRG1s"
-                            }, 
-                            "result": {
-                                "S": "NEGATIVE"
-                            }
-                        }
-                    }
-                ]
-            }, 
-            "active_molecular_id": {
-                "S": "PT_SC07e_FiveAssayThenRbAssay_MOI1"
             }, 
             "specimen_type": {
                 "S": "TISSUE"
@@ -36704,6 +36557,6 @@
             }
         }
     ], 
-    "ScannedCount": 658, 
+    "ScannedCount": 657, 
     "ConsumedCapacity": null
 }

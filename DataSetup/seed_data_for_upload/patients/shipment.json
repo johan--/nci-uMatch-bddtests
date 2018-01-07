@@ -1,5 +1,5 @@
 {
-    "Count": 899, 
+    "Count": 898, 
     "Items": [
         {
             "shipment_type": {
@@ -16990,38 +16990,6 @@
             }
         }, 
         {
-            "shipped_date": {
-                "S": "2017-06-05T21:15:35+00:00"
-            }, 
-            "uuid": {
-                "S": "98576ba0-98ca-43b0-a61a-ef2e48f38e2d"
-            }, 
-            "destination": {
-                "S": "MDA"
-            }, 
-            "patient_id": {
-                "S": "PT_SC07e_FiveAssay"
-            }, 
-            "shipment_type": {
-                "S": "SLIDE"
-            }, 
-            "study_id": {
-                "S": "APEC1621SC"
-            }, 
-            "carrier": {
-                "S": "Federal Express"
-            }, 
-            "tracking_id": {
-                "S": "7956 4568 1235"
-            }, 
-            "surgical_event_id": {
-                "S": "PT_SC07e_FiveAssay_SEI1"
-            }, 
-            "slide_barcode": {
-                "S": "PT_SC07e_FiveAssay_BC1"
-            }
-        }, 
-        {
             "shipment_type": {
                 "S": "TISSUE_DNA_AND_CDNA"
             }, 
@@ -17756,38 +17724,6 @@
             }, 
             "molecular_id": {
                 "S": "PT_SR14_TsVrUploaded1_MOI1"
-            }
-        }, 
-        {
-            "shipped_date": {
-                "S": "2017-12-19T21:49:13+00:00"
-            }, 
-            "uuid": {
-                "S": "ab7b2934-c55b-4024-903e-e08a188f4f40"
-            }, 
-            "destination": {
-                "S": "MDA"
-            }, 
-            "patient_id": {
-                "S": "PT_SC07e_FiveAssayThenRbAssay"
-            }, 
-            "shipment_type": {
-                "S": "SLIDE"
-            }, 
-            "study_id": {
-                "S": "APEC1621SC"
-            }, 
-            "carrier": {
-                "S": "Federal Express"
-            }, 
-            "tracking_id": {
-                "S": "7956 4568 1235"
-            }, 
-            "surgical_event_id": {
-                "S": "PT_SC07e_FiveAssayThenRbAssay_SEI1"
-            }, 
-            "slide_barcode": {
-                "S": "PT_SC07e_FiveAssayThenRbAssay_BC1"
             }
         }, 
         {
@@ -28670,6 +28606,47 @@
             }
         }, 
         {
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            }, 
+            "uuid": {
+                "S": "11d18b43-b968-4f9b-912d-69132dc69709"
+            }, 
+            "shipped_date": {
+                "S": "2018-01-07T03:48:16+00:00"
+            }, 
+            "dna_volume_ul": {
+                "N": "10"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_SC07e_FiveAssay"
+            }, 
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "cdna_volume_ul": {
+                "N": "10"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_SC07e_FiveAssay_SEI1"
+            }, 
+            "molecular_id": {
+                "S": "PT_SC07e_FiveAssay_MOI1"
+            }
+        }, 
+        {
             "shipped_date": {
                 "S": "2017-06-21T01:57:23+00:00"
             }, 
@@ -31942,6 +31919,38 @@
             }
         }, 
         {
+            "shipped_date": {
+                "S": "2018-01-07T03:48:24+00:00"
+            }, 
+            "uuid": {
+                "S": "b13fb50c-45f8-4af2-8728-69f069619325"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_SC07e_FiveAssay"
+            }, 
+            "shipment_type": {
+                "S": "SLIDE"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_SC07e_FiveAssay_SEI1"
+            }, 
+            "slide_barcode": {
+                "S": "PT_SC07e_FiveAssay_BC1"
+            }
+        }, 
+        {
             "shipment_type": {
                 "S": "TISSUE_DNA_AND_CDNA"
             }, 
@@ -32613,47 +32622,6 @@
             }, 
             "molecular_id": {
                 "S": "PT_VU01_TissueShipped2_MOI1"
-            }
-        }, 
-        {
-            "shipment_type": {
-                "S": "TISSUE_DNA_AND_CDNA"
-            }, 
-            "uuid": {
-                "S": "23020051-d500-4d59-9cc8-4f07cd03dcc8"
-            }, 
-            "shipped_date": {
-                "S": "2017-12-19T21:49:06+00:00"
-            }, 
-            "dna_volume_ul": {
-                "N": "10"
-            }, 
-            "destination": {
-                "S": "MDA"
-            }, 
-            "patient_id": {
-                "S": "PT_SC07e_FiveAssayThenRbAssay"
-            }, 
-            "dna_concentration_ng_per_ul": {
-                "N": "25"
-            }, 
-            "study_id": {
-                "S": "APEC1621SC"
-            }, 
-            "carrier": {
-                "S": "Federal Express"
-            }, 
-            "tracking_id": {
-                "S": "7956 4568 1235"
-            }, 
-            "cdna_volume_ul": {
-                "N": "10"
-            }, 
-            "surgical_event_id": {
-                "S": "PT_SC07e_FiveAssayThenRbAssay_SEI1"
-            }, 
-            "molecular_id": {
-                "S": "PT_SC07e_FiveAssayThenRbAssay_MOI1"
             }
         }, 
         {
@@ -33537,6 +33505,6 @@
             }
         }
     ], 
-    "ScannedCount": 899, 
+    "ScannedCount": 898, 
     "ConsumedCapacity": null
 }

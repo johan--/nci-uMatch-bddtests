@@ -1201,21 +1201,16 @@ Then(/^this patient tissue specimen_events specimen "([^"]*)" should have these 
       has_result = true
       assays = this_specimen['assays']
       params.each do |this_param|
-        target_assay = assays[this_param['order'].to_i-1]
+        target_assay = assays[this_param['order'].to_i - 1]
         this_param.each do |k, v|
           next if k == 'order'
-          value = v=='null' ? nil : v
+          value = v == 'null' ? nil : v
           expect(target_assay[k]).to eq value
         end
-
       end
-
     end
   }
-  unless has_result
-    raise "Cannot find specimen with molecular id #{moi}"
-  end
-
+  raise "Cannot find specimen with molecular id #{moi}" unless has_result
 end
 
 Then(/^this patient tissue analysis_report should have correct "([^"]*)" file names: "([^"]*)"$/) do |file_type, name|
