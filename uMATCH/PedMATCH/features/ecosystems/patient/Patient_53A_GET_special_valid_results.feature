@@ -219,8 +219,8 @@ Feature: Patient GET service valid special case tests
       | PT_SC04b_PendingConfirmation       | 1     | assignment              | true  |
       | PT_SC04b_PendingApproval           | 1     | approval                | true  |
       | UI_PA09_TsVr52Uploaded             | 2     | confirmed-Slide         | false |
-      | PT_SC04b_RbRequested               | 2     | confirmed-RB            | true  |
-      | PT_SC04b_RbUncheckVrConfirmedAndSd | 3     | PTEN-BAF47-BRG1         | true  |
+      | PT_SC04b_RbRequested               | 1     | RB                      | true  |
+      | PT_SC04b_RbUncheckVrConfirmedAndSd | 1     | assignment              | true  |
 
   @patients_p1 @patients_need_queue
   Scenario: PT_SC04c patient_limbos should update properly after tissue is shipped
