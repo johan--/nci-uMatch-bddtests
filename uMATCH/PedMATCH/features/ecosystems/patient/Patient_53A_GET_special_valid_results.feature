@@ -280,7 +280,7 @@ Feature: Patient GET service valid special case tests
       | patient_id                    | confirm | status                          | count | messages        | amoi  |
       | PT_SC04e_TsVrUploaded1        | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  |
       | PT_SC04e_TsVrUploaded2        | reject  | TISSUE_VARIANT_REPORT_REJECTED  | 4     | variant         | false |
-      | PT_SC04e_RbVrUploaded         | confirm | RB_ORDER_REQUESTED              | 2     | confirmed-RB    | true  |
+      | PT_SC04e_RbVrUploaded         | confirm | RB_ORDER_REQUESTED              | 1     | RB              | true  |
       | PT_SC04e_RbVrUncheckedNoAssay | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  |
 
   @patients_p1 @patients_need_queue
