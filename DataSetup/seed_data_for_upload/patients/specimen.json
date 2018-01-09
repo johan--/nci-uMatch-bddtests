@@ -33742,10 +33742,10 @@
                 "S": "PT_SC04e_RbVrUncheckedNoAssay_SEI1"
             }, 
             "sorting_key": {
-                "S": "2017-12-21T18:05:12:279.279772"
+                "S": "2018-01-09T15:03:32:991.991071"
             }, 
             "collected_date": {
-                "S": "2017-12-21T00:00:00+00:00"
+                "S": "2018-01-09T00:00:00+00:00"
             }, 
             "patient_id": {
                 "S": "PT_SC04e_RbVrUncheckedNoAssay"
@@ -33754,7 +33754,7 @@
                 "S": "APEC1621SC"
             }, 
             "received_date": {
-                "S": "2017-12-21T18:05:06+00:00"
+                "S": "2018-01-09T15:03:30+00:00"
             }, 
             "active_molecular_id": {
                 "S": "PT_SC04e_RbVrUncheckedNoAssay_MOI1"
