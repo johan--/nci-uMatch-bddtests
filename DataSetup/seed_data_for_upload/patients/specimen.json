@@ -1,5 +1,5 @@
 {
-    "Count": 657, 
+    "Count": 658, 
     "Items": [
         {
             "surgical_event_id": {
@@ -21659,6 +21659,93 @@
         }, 
         {
             "surgical_event_id": {
+                "S": "PT_SC04d_VrConfirmedTwoAssay_SEI1"
+            }, 
+            "sorting_key": {
+                "S": "2018-01-09T19:43:39:715.715912"
+            }, 
+            "collected_date": {
+                "S": "2018-01-09T00:00:00+00:00"
+            }, 
+            "patient_id": {
+                "S": "PT_SC04d_VrConfirmedTwoAssay"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "received_date": {
+                "S": "2018-01-09T19:43:38+00:00"
+            }, 
+            "assays": {
+                "L": [
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2018-01-09T14:43:49-05:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCBAF47s"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "result_date": {
+                                "S": "2018-01-09T14:43:46-05:00"
+                            }, 
+                            "case_number": {
+                                "S": "case-1234"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCPTENs"
+                            }, 
+                            "result": {
+                                "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "comment": {
+                                "S": "RB assay not required"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCRBs"
+                            }, 
+                            "requested_date": {
+                                "S": "2018-01-09 14:44:23 -0500"
+                            }, 
+                            "result": {
+                                "S": "UNKNOWN"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "active_molecular_id": {
+                "S": "PT_SC04d_VrConfirmedTwoAssay_MOI1"
+            }, 
+            "specimen_type": {
+                "S": "TISSUE"
+            }
+        }, 
+        {
+            "surgical_event_id": {
                 "S": "PT_VC15_3AssayRbVrReceived_SEI1"
             }, 
             "sorting_key": {
@@ -36557,6 +36644,6 @@
             }
         }
     ], 
-    "ScannedCount": 657, 
+    "ScannedCount": 658, 
     "ConsumedCapacity": null
 }

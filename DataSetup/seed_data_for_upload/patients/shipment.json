@@ -1,5 +1,5 @@
 {
-    "Count": 898, 
+    "Count": 900, 
     "Items": [
         {
             "shipment_type": {
@@ -18629,6 +18629,38 @@
             }
         }, 
         {
+            "shipped_date": {
+                "S": "2018-01-09T19:43:42+00:00"
+            }, 
+            "uuid": {
+                "S": "51c14285-920f-44ee-b8aa-98972cfc28e0"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_SC04d_VrConfirmedTwoAssay"
+            }, 
+            "shipment_type": {
+                "S": "SLIDE"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_SC04d_VrConfirmedTwoAssay_SEI1"
+            }, 
+            "slide_barcode": {
+                "S": "PT_SC04d_VrConfirmedTwoAssay_BC1"
+            }
+        }, 
+        {
             "shipment_type": {
                 "S": "TISSUE_DNA_AND_CDNA"
             }, 
@@ -32588,6 +32620,47 @@
                 "S": "TISSUE_DNA_AND_CDNA"
             }, 
             "uuid": {
+                "S": "81ca91a0-ca3a-46c6-a5b2-99e71a7acbc0"
+            }, 
+            "shipped_date": {
+                "S": "2018-01-09T19:43:39+00:00"
+            }, 
+            "dna_volume_ul": {
+                "N": "10"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_SC04d_VrConfirmedTwoAssay"
+            }, 
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "cdna_volume_ul": {
+                "N": "10"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_SC04d_VrConfirmedTwoAssay_SEI1"
+            }, 
+            "molecular_id": {
+                "S": "PT_SC04d_VrConfirmedTwoAssay_MOI1"
+            }
+        }, 
+        {
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            }, 
+            "uuid": {
                 "S": "1e85039a-86ce-4e05-8630-91bc9062349e"
             }, 
             "shipped_date": {
@@ -33505,6 +33578,6 @@
             }
         }
     ], 
-    "ScannedCount": 898, 
+    "ScannedCount": 900, 
     "ConsumedCapacity": null
 }

@@ -260,7 +260,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC04d_NoAssay             | ICCPTENs  | 3     | variant-BAF47-BRG1 | ASSAY_RESULTS_RECEIVED |
       | PT_SC04d_OneAssay            | ICCBAF47s | 2     | variant-BRG1       | ASSAY_RESULTS_RECEIVED |
       | PT_SC04d_TwoAssay            | ICCBRG1s  | 1     | variant            | ASSAY_RESULTS_RECEIVED |
-    #  | PT_SC04d_VrConfirmedTwoAssay | ICCBRG1s  | 1     | assignment         | PENDING_CONFIRMATION   |
+      | PT_SC04d_VrConfirmedTwoAssay | ICCBRG1s  | 1     | assignment         | PENDING_CONFIRMATION   |
       | PT_SC04d_RbRequested3Assay   | ICCRBs    | 1     | assignment         | PENDING_CONFIRMATION   |
       | PT_SC04d_RbRequestedNoAssay  | ICCRBs    | 3     | PTEN-BAF47-BRG1    | ASSAY_RESULTS_RECEIVED |
 
