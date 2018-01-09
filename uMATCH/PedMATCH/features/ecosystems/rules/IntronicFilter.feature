@@ -8,7 +8,7 @@ Feature: Matchbox should only filter in variants that are exonic.
     Then moi report is returned with the snv variant "COSM3972885"
     And following variants can be found in quality control json
       | category   | identifier | variant_type | position  |
-      | snv_indels | intest1    | snv          | 120471857 |
-      | snv_indels | intest2    | snv          | 21968199  |
+      | snv_indels | intest1    | snp          | 120471857 |
+      | snv_indels | intest2    | snp          | 21968199  |
       | snv_indels | OMINDEL630 | del          | 116411882 |
       | snv_indels | OMINDEL651 | del          | 116412031 |
