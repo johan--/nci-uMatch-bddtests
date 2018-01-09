@@ -10,8 +10,8 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/<moi>/<ani>/<vr_file_name>.vcf" has been removed from S3 bucket
     And file: "IR_TCWEV/<moi>/<ani>/<vr_file_name>.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/<moi>/<ani>/<vr_file_name>.json" has been removed from S3 bucket
-    And file: "IR_TCWEV/<moi>/<ani>/dna.bai" has been removed from S3 bucket
-    And file: "IR_TCWEV/<moi>/<ani>/cdna.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/<moi>/<ani>/dna.bam.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/<moi>/<ani>/cdna.bam.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/<moi>/<ani>/QA.pdf" has been removed from S3 bucket
     Then add field: "analysis_id" value: "<ani>" to message body
     Then add field: "site" value: "mda" to message body
@@ -22,8 +22,8 @@ Feature: Tests for aliquot service in ion ecosystem
     When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait until this sample control has field "variant_report_type" value "<vr_type>"
     Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/<moi>/<ani>/<vr_file_name>.tsv"
-    Then field: "dna_bai_name" for this aliquot should be: "IR_TCWEV/<moi>/<ani>/dna.bai"
-    Then field: "cdna_bai_name" for this aliquot should be: "IR_TCWEV/<moi>/<ani>/cdna.bai"
+    Then field: "dna_bai_name" for this aliquot should be: "IR_TCWEV/<moi>/<ani>/dna.bam.bai"
+    Then field: "cdna_bai_name" for this aliquot should be: "IR_TCWEV/<moi>/<ani>/cdna.bam.bai"
 #    Then field: "qc_name" for this aliquot should be: "IR_TCWEV/<moi>/<ani>/QA.pdf"
     Then field: "analysis_id" for this aliquot should be: "<ani>"
     Then field: "ion_reporter_id" for this aliquot should be: "IR_TCWEV"
@@ -34,8 +34,8 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/<moi>/<ani>/<vr_file_name>.tsv" should be available in S3
     And file: "IR_TCWEV/<moi>/<ani>/<vr_file_name>.json" should be available in S3
     And file: "IR_TCWEV/<moi>/<ani>/<vr_file_name>.vcf" should be available in S3
-    And file: "IR_TCWEV/<moi>/<ani>/dna.bai" should be available in S3
-    And file: "IR_TCWEV/<moi>/<ani>/cdna.bai" should be available in S3
+    And file: "IR_TCWEV/<moi>/<ani>/dna.bam.bai" should be available in S3
+    And file: "IR_TCWEV/<moi>/<ani>/cdna.bam.bai" should be available in S3
 #    And file: "IR_TCWEV/<moi>/<ani>/QA.pdf" should be available in S3
     Examples:
       | moi                | ani                     | vr_file_name | vr_type | status |
@@ -50,13 +50,13 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.json" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.vcf" has been removed from S3 bucket
-    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bai" has been removed from S3 bucket
-    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bam.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bam.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.json" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.vcf" has been removed from S3 bucket
-    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bai" has been removed from S3 bucket
-    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bam.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bam.bai" has been removed from S3 bucket
     Then add field: "analysis_id" value: "ION_AQ02_TsShipped_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
@@ -71,8 +71,8 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.tsv" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.vcf" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.json" should be available in S3
-    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bai" should be available in S3
-    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bai" should be available in S3
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bam.bai" should be available in S3
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bam.bai" should be available in S3
     Then add field: "analysis_id" value: "ION_AQ02_TsShipped_ANI2" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait until patient variant report is updated
@@ -81,8 +81,8 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.tsv" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.vcf" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.json" should be available in S3
-    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bai" should be available in S3
-    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bai" should be available in S3
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bam.bai" should be available in S3
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bam.bai" should be available in S3
 
   @ion_reporter_new_p1
   Scenario: ION_AQ03. for patient blood specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done
@@ -92,13 +92,13 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.json" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.vcf" has been removed from S3 bucket
-    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bai" has been removed from S3 bucket
-    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bam.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bam.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.json" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.vcf" has been removed from S3 bucket
-    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bai" has been removed from S3 bucket
-    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bam.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bam.bai" has been removed from S3 bucket
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
@@ -113,8 +113,8 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.json" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.vcf" should be available in S3
-    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bai" should be available in S3
-    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bai" should be available in S3
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bam.bai" should be available in S3
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bam.bai" should be available in S3
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI2" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait until patient variant report is updated
@@ -123,8 +123,8 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.vcf" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.json" should be available in S3
-    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bai" should be available in S3
-    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bai" should be available in S3
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bam.bai" should be available in S3
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bam.bai" should be available in S3
 
   @ion_reporter_new_p2
   Scenario: ION_AQ04.  if no vcf file passed in, patient status will not change to TISSUE_VARIANT_REPORT_STATUS_RECEIVED
@@ -506,8 +506,8 @@ Feature: Tests for aliquot service in ion ecosystem
     #notice the test data must come from adult match not from ped match, this will make sure this
     #adult match aliquot service do NOT check ped match database for id existence
     Given molecular id is "<moi>"
-    And file: "BDD/<moi>/<ani>/dna.bai" has been removed from adult match S3 bucket
-    And file: "BDD/<moi>/<ani>/cdna.bai" has been removed from adult match S3 bucket
+    And file: "BDD/<moi>/<ani>/dna.bam.bai" has been removed from adult match S3 bucket
+    And file: "BDD/<moi>/<ani>/cdna.bam.bai" has been removed from adult match S3 bucket
     Then add field: "analysis_id" value: "<ani>" to message body
     Then add field: "site" value: "<site>" to message body
     Then add field: "ion_reporter_id" value: "BDD" to message body
@@ -515,8 +515,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "cdna.bam" to message body
     When PUT to adult match aliquot service, response includes "Item updated" with code "200"
     Then wait for "30" seconds
-    And file: "BDD/<moi>/<ani>/dna.bai" should be available in adult match S3
-    And file: "BDD/<moi>/<ani>/cdna.bai" should be available in adult match S3
+    And file: "BDD/<moi>/<ani>/dna.bam.bai" should be available in adult match S3
+    And file: "BDD/<moi>/<ani>/cdna.bam.bai" should be available in adult match S3
     Examples:
       | moi                    | ani                        | site      |
       | Sample-1749-18-DNA     | Sample-1749-18-DNA_ANI1    | dartmouth |
