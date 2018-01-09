@@ -247,6 +247,7 @@ Feature: Patient GET service valid special case tests
     Then set patient message field: "biomarker" to value: "<biomarker>"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
+    Then patient status should change to "<status>"
     Then patient GET service: "patient_limbos", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then there are "1" patient_limbos have field: "patient_id" value: "<patient_id>"
@@ -255,12 +256,13 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos should have "<count>" messages which contain "<contain_message>"
     Then this patient patient_limbos days_pending should be correct
     Examples:
-      | patient_id                  | biomarker | count | contain_message    |
-      | PT_SC04d_NoAssay            | ICCPTENs  | 3     | variant-BAF47-BRG1 |
-      | PT_SC04d_OneAssay           | ICCBAF47s | 2     | variant-BRG1       |
-      | PT_SC04d_TwoAssay           | ICCBRG1s  | 1     | variant            |
-      | PT_SC04d_RbRequested3Assay  | ICCRBs    | 1     | assignment         |
-      | PT_SC04d_RbRequestedNoAssay | ICCRBs    | 3     | PTEN-BAF47-BRG1    |
+      | patient_id                   | biomarker | count | contain_message    | status                 |
+      | PT_SC04d_NoAssay             | ICCPTENs  | 3     | variant-BAF47-BRG1 | ASSAY_RESULTS_RECEIVED |
+      | PT_SC04d_OneAssay            | ICCBAF47s | 2     | variant-BRG1       | ASSAY_RESULTS_RECEIVED |
+      | PT_SC04d_TwoAssay            | ICCBRG1s  | 1     | variant            | ASSAY_RESULTS_RECEIVED |
+    #  | PT_SC04d_VrConfirmedTwoAssay | ICCBRG1s  | 1     | assignment         | PENDING_CONFIRMATION   |
+      | PT_SC04d_RbRequested3Assay   | ICCRBs    | 1     | assignment         | PENDING_CONFIRMATION   |
+      | PT_SC04d_RbRequestedNoAssay  | ICCRBs    | 3     | PTEN-BAF47-BRG1    | ASSAY_RESULTS_RECEIVED |
 
   @patients_p1 @patients_need_queue
   Scenario Outline: PT_SC04e patient_limbos should update properly after variant report is confirmed
