@@ -16074,10 +16074,10 @@
                 "S": "PT_AS12b_VrConfirmed3Assay_SEI1"
             }, 
             "sorting_key": {
-                "S": "2017-12-20T00:35:44:423.423135"
+                "S": "2018-01-09T21:08:16:548.548463"
             }, 
             "collected_date": {
-                "S": "2017-12-19T00:00:00+00:00"
+                "S": "2018-01-09T00:00:00+00:00"
             }, 
             "patient_id": {
                 "S": "PT_AS12b_VrConfirmed3Assay"
@@ -16086,7 +16086,7 @@
                 "S": "APEC1621SC"
             }, 
             "received_date": {
-                "S": "2017-12-20T00:35:39+00:00"
+                "S": "2018-01-09T21:08:14+00:00"
             }, 
             "assays": {
                 "L": [
@@ -16096,7 +16096,7 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-19T19:36:16-05:00"
+                                "S": "2018-01-09T16:08:26-05:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -16115,7 +16115,7 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-19T19:36:08-05:00"
+                                "S": "2018-01-09T16:08:22-05:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -16134,7 +16134,7 @@
                                 "BOOL": true
                             }, 
                             "result_date": {
-                                "S": "2017-12-19T19:36:00-05:00"
+                                "S": "2018-01-09T16:08:20-05:00"
                             }, 
                             "case_number": {
                                 "S": "case-1234"
@@ -16144,6 +16144,25 @@
                             }, 
                             "result": {
                                 "S": "POSITIVE"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "comment": {
+                                "S": "RB assay not required"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCRBs"
+                            }, 
+                            "requested_date": {
+                                "S": "2018-01-09 16:09:34 -0500"
+                            }, 
+                            "result": {
+                                "S": "UNKNOWN"
                             }
                         }
                     }
