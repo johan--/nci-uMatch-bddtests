@@ -381,3 +381,20 @@ Feature: Assay Messages
       | ICCPTENs  | 2017-05-06T10:42:13+00:00 | 2017-08-06T10:42:13+00:00 |
       | ICCBAF47s | 2017-05-06T10:43:13+00:00 | 2017-08-06T10:43:13+00:00 |
       | ICCBRG1s  | 2017-05-06T10:44:13+00:00 | 2017-08-06T10:44:13+00:00 |
+
+
+  @patients_p2 @demo_p1 @patients_need_queue
+  Scenario Outline: PT_AS16. RB Assay should be rejected if it doesn't match with the current active specimen
+    Given patient id is "<patient_id>"
+    And load template assay message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "reported_date" to value: "<date>"
+    Then set patient message field: "biomarker" to value: "ICCRBs"
+    Then set patient message field: "result" to value: "<result>"
+    When POST to MATCH patients service, response includes "<error_message>" with code "403"
+    Examples:
+      | patient_id                             | date                      | error_message | sei                                         | result   |
+      | PT_AS16_RbRequestedStep1SdShippedStep2 | 2017-05-06T10:42:13+00:00 | doesn't match | PT_AS16_RbRequestedStep1SdShippedStep2_SEI1 | POSITIVE |
+      | PT_AS16_SdShippedNoVr                  | 2017-05-06T11:43:13+00:00 | rejected      | PT_AS16_SdShippedNoVr_SEI1                  | NEGATIVE |
+      | PT_AS16_SdShippedRbVr                  | 2017-05-06T10:44:13+00:00 | rejected      | PT_AS16_SdShippedRbVr_SEI1                  | POSITIVE |
+      | PT_AS16_RbRequestedStep1SdShippedStep2 | 2017-05-06T11:46:13+00:00 | rejected      | PT_AS16_RbRequestedStep1SdShippedStep2_SEI2 | NEGATIVE |
