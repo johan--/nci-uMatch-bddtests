@@ -136,7 +136,7 @@ Given(/^with variant report$/) do |variantReport|
 end
 
 Given(/^retrieving all treatment arms based on "(.+?)"$/) do |projection|
-  @projections = "?projection[]=#{projection.split(',').join('&projection[]=')}"
+  @projections = "?projections=#{projection.split(',')}"
   url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@projections}"
   @response = Helper_Methods.get_request(url)
 end
