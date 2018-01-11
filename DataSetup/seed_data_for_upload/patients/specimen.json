@@ -1,5 +1,5 @@
 {
-    "Count": 662, 
+    "Count": 663, 
     "Items": [
         {
             "surgical_event_id": {
@@ -11678,6 +11678,55 @@
             }, 
             "active_molecular_id": {
                 "S": "PT_VU20_OnTreatmentArm_MOI1"
+            }, 
+            "specimen_type": {
+                "S": "TISSUE"
+            }
+        }, 
+        {
+            "surgical_event_id": {
+                "S": "PT_VC17_TsVrConfirmed_SEI1"
+            }, 
+            "sorting_key": {
+                "S": "2018-01-11T22:51:56:533.533716"
+            }, 
+            "collected_date": {
+                "S": "2018-01-11T00:00:00+00:00"
+            }, 
+            "patient_id": {
+                "S": "PT_VC17_TsVrConfirmed"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "received_date": {
+                "S": "2018-01-11T22:51:20+00:00"
+            }, 
+            "assays": {
+                "L": [
+                    {
+                        "M": {
+                            "active": {
+                                "BOOL": true
+                            }, 
+                            "comment": {
+                                "S": "RB assay not required"
+                            }, 
+                            "biomarker": {
+                                "S": "ICCRBs"
+                            }, 
+                            "requested_date": {
+                                "S": "2018-01-11 17:52:58 -0500"
+                            }, 
+                            "result": {
+                                "S": "UNKNOWN"
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "active_molecular_id": {
+                "S": "PT_VC17_TsVrConfirmed_MOI1"
             }, 
             "specimen_type": {
                 "S": "TISSUE"
@@ -36972,6 +37021,6 @@
             }
         }
     ], 
-    "ScannedCount": 662, 
+    "ScannedCount": 663, 
     "ConsumedCapacity": null
 }

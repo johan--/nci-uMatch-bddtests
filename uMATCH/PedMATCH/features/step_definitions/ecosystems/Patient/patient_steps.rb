@@ -413,7 +413,7 @@ end
 
 And(/^patient active tissue specimen field "([^"]*)" should be "([^"]*)"$/) do |field, value|
   get_patient_if_needed
-  converted_value = value=='null' ? nil : value
+  converted_value = value == 'null' ? nil : value
   converted_value = converted_value == 'saved_time_value' ? @saved_time_value : converted_value
   ats = 'active_tissue_specimen'
   expect(@current_patient_hash.keys).to include ats
@@ -421,7 +421,7 @@ And(/^patient active tissue specimen field "([^"]*)" should be "([^"]*)"$/) do |
 end
 
 And(/^this specimen field: "([^"]*)" should be: "([^"]*)"$/) do |field, value|
-  converted_value = value=='null' ? nil : value
+  converted_value = value == 'null' ? nil : value
   actual_match_expect(@current_specimen[field], converted_value)
 end
 

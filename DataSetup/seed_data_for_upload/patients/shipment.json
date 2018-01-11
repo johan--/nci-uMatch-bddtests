@@ -1,5 +1,5 @@
 {
-    "Count": 908, 
+    "Count": 910, 
     "Items": [
         {
             "shipment_type": {
@@ -14328,6 +14328,47 @@
                 "S": "TISSUE_DNA_AND_CDNA"
             }, 
             "uuid": {
+                "S": "dafe43be-c40f-41d5-8080-f4b3a021dfa4"
+            }, 
+            "shipped_date": {
+                "S": "2018-01-11T22:51:56+00:00"
+            }, 
+            "dna_volume_ul": {
+                "N": "10"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_VC17_TsVrConfirmed"
+            }, 
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "cdna_volume_ul": {
+                "N": "10"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_VC17_TsVrConfirmed_SEI1"
+            }, 
+            "molecular_id": {
+                "S": "PT_VC17_TsVrConfirmed_MOI1"
+            }
+        }, 
+        {
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            }, 
+            "uuid": {
                 "S": "a132e2fc-d171-4bf5-a169-a88a339629f6"
             }, 
             "shipped_date": {
@@ -26816,6 +26857,38 @@
             }
         }, 
         {
+            "shipped_date": {
+                "S": "2018-01-11T22:51:59+00:00"
+            }, 
+            "uuid": {
+                "S": "c480c8be-5995-4129-ab62-884a654d277c"
+            }, 
+            "destination": {
+                "S": "MDA"
+            }, 
+            "patient_id": {
+                "S": "PT_VC17_TsVrConfirmed"
+            }, 
+            "shipment_type": {
+                "S": "SLIDE"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "carrier": {
+                "S": "Federal Express"
+            }, 
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }, 
+            "surgical_event_id": {
+                "S": "PT_VC17_TsVrConfirmed_SEI1"
+            }, 
+            "slide_barcode": {
+                "S": "PT_VC17_TsVrConfirmed_BC1"
+            }
+        }, 
+        {
             "shipment_type": {
                 "S": "TISSUE_DNA_AND_CDNA"
             }, 
@@ -33870,6 +33943,6 @@
             }
         }
     ], 
-    "ScannedCount": 908, 
+    "ScannedCount": 910, 
     "ConsumedCapacity": null
 }
