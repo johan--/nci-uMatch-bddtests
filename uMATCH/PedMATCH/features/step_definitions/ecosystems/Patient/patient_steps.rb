@@ -885,6 +885,13 @@ And(/^patient statistics field "([^"]*)" should have correct value$/) do |field|
   end
 end
 
+And(/^this patient\(patient_id: "([^"]*)"\) assignment should be deleted from treatment_arm "([^"]*)" with stratum_id: "([^"]*)"$/) do |patient_id, ta_id, stratum_id|
+  request_url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{ta_id}/#{stratum_id}/assignment_report"
+  taid_strid  = ta_id + '_' + stratum_id
+  response    = Helper_Methods.simple_get_request(request_url)['message_json']
+  patient_assignment = response['patients_list'].select { |a| a['patient_id'] == patient_id && a['treatment_arm_id_stratum_id'] == taid_strid }
+  expect(patient_assignment).to be_empty
+end
 
 And(/^patient pending_items field "([^"]*)" should have correct value$/) do |field|
   # do a get in this step, do not use @get_response which is generated from previous step, because the BDD is running parallelly

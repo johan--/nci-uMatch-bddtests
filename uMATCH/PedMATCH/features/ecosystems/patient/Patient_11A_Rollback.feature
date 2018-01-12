@@ -182,12 +182,38 @@ Feature: Patient API rollback tests
       | PT_VC17_TsVrConfirmed |
 
 
+  #######################################################################
+  ######## PENDING_CONFIRMATION ---> TISSUE_VARIANT_REPORT_CONFIRMED ####
+  #######################################################################
+  # No need of Checking Treatment Arm statistics because TA API doesn't take
+  # PENDING_CONFIRMATION into count for calculating the statistics
+
+  @patients_p1_off
+  Scenario Outline: PT_RB01e. Patient on PENDING_CONFIRMATION can be rolled back properly to TISSUE_VARIANT_REPORT_CONFIRMED
+    Given patient id is "<patient_id>"
+    And this patient(patient_id: "<patient_id>") has status "PENDING_CONFIRMATION"
+    Then patient should "have" assignment report (analysis_id: "<patient_id>_ANI1")
+    And patient should have selected treatment arm: "<selected_ta>" with stratum id: "100"
+    Then patient should have variant report (analysis_id: "<patient_id>_ANI1")
+    And this variant report field: "comment_user" should be "QA"
+    And this variant report field: "status" should be "confirmed"
+    When PUT to MATCH rollback with step number "1.0", response includes "RollBack" with code "202"
+    Then patient(patient_id: "<patient_id>") status should change to "TISSUE_VARIANT_REPORT_CONFIRMED"
+    Then patient should "not have" assignment report (analysis_id: "<patient_id>_ANI1")
+    Then patient should have variant report (analysis_id: "<patient_id>_ANI1")
+    And this variant report field: "status" should be "confirmed"
+    And this patient(patient_id: "<patient_id>") assignment should be deleted from treatment_arm "<selected_ta>" with stratum_id: "100"
+    Examples:
+      | patient_id                      | selected_ta |
+      | PT_VC16_TsVrPendingConfirmation | APEC1621-A  |
+
+
   ##################################################
   ##### ON_TREATMENT_ARM ---> PENDING_APPROVAL #####
   ##################################################
 
  # @patients_p1_off
- # Scenario Outline: PT_RB01e. Patient on ON_TREATMENT_ARM can be rolled back properly to PENDING_APPROVAL
+ # Scenario Outline: PT_RB01f. Patient on ON_TREATMENT_ARM can be rolled back properly to PENDING_APPROVAL
   #  Given patient id is "<patient_id>"
   #  And this patient(patient_id: "<patient_id>") has status "ON_TREATMENT_ARM"
   #  Then patient should have variant report (analysis_id: "<patient_id>_BD_ANI2")
@@ -206,7 +232,7 @@ Feature: Patient API rollback tests
 
 
   @patients_p2_off
-  Scenario Outline: PT_RB01f. rollback request should only rollback the latest confirmed variant report
+  Scenario Outline: PT_RB01g. rollback request should only rollback the latest confirmed variant report
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
     When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "202"
