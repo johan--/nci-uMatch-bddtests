@@ -145,20 +145,20 @@ Feature: Patient API rollback tests
   ######## PENDING_CONFIRMATION ---> TISSUE_VARIANT_REPORT_RECEIVED ####
   ######################################################################
 
-  @patients_p1_off @patients_need_queue
-  Scenario Outline: PT_RB01c. Patient on PENDING_CONFIRMATION can be rolled back properly
-    Given patient id is "<patient_id>"
-    And this patient(patient_id: "<patient_id>") has status "PENDING_CONFIRMATION"
-    Then patient should have variant report (analysis_id: "<patient_id>_BD_ANI2")
-    And this variant report field: "comment_user" should be "QA"
-    And this variant report field: "status" should be "confirmed"
-    When PUT to MATCH rollback with step number "1.0", response includes "RollBack" with code "202"
-    Then patient(patient_id: "<patient_id>") status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
-    Then patient should have variant report (analysis_id: "<patient_id>_BD_ANI2")
-    And this variant report field: "status" should be "pending"
-    Examples:
-      | patient_id                      |
-      | PT_VC16_BdVrPendingConfirmation |
+ # @patients_p1_off @patients_need_queue
+ # Scenario Outline: PT_RB01c. Patient on PENDING_CONFIRMATION can be rolled back properly
+ #   Given patient id is "<patient_id>"
+ #   And this patient(patient_id: "<patient_id>") has status "PENDING_CONFIRMATION"
+ #   Then patient should have variant report (analysis_id: "<patient_id>_BD_ANI2")
+ #   And this variant report field: "comment_user" should be "QA"
+ #   And this variant report field: "status" should be "confirmed"
+ #   When PUT to MATCH rollback with step number "1.0", response includes "RollBack" with code "202"
+ #   Then patient(patient_id: "<patient_id>") status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+ #   Then patient should have variant report (analysis_id: "<patient_id>_BD_ANI2")
+ #   And this variant report field: "status" should be "pending"
+ #   Examples:
+ #     | patient_id                      |
+ #     | PT_VC16_BdVrPendingConfirmation |
 
 
   #################################################################################
