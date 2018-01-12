@@ -1459,7 +1459,7 @@ Then(/^the saved assignment report should have correct assignment result as assi
   results.values.each {|a|
     a.each do |b|
       ta = b['treatment_arm']
-      ta_name = "#{ta['treatment_arm_id']}/#{ta['stratum_id']}/#{ta['version']}"
+      ta_name = "#{ta['treatment_arm_id']} / #{ta['stratum_id']} / #{ta['version']}"
       expect(values.keys).to include ta_name
       expect(values[ta_name]).to eq b['reason']
     end
