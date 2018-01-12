@@ -122,7 +122,7 @@ Feature: Patient API rollback tests
   ######## PENDING_APPROVAL ---> PENDING_CONFIRMATION ########
   ############################################################
 
-  @patients_p1_off
+  @patients_p1_off @patients_need_queue
   Scenario Outline: PT_RB01b. Patient on PENDING_APPROVAL can be rolled back properly to PENDING_CONFIRMATION
     Given patient id is "<patient_id>"
     Then patient should "have" assignment report (analysis_id: "<patient_id>_BD_ANI2")
@@ -145,7 +145,7 @@ Feature: Patient API rollback tests
   ######## PENDING_CONFIRMATION ---> TISSUE_VARIANT_REPORT_RECEIVED ####
   ######################################################################
 
-  @patients_p1_off
+  @patients_p1_off @patients_need_queue
   Scenario Outline: PT_RB01c. Patient on PENDING_CONFIRMATION can be rolled back properly
     Given patient id is "<patient_id>"
     And this patient(patient_id: "<patient_id>") has status "PENDING_CONFIRMATION"
@@ -165,7 +165,7 @@ Feature: Patient API rollback tests
   ######## TISSUE_VARIANT_REPORT_CONFIRMED ---> TISSUE_VARIANT_REPORT_RECEIVED ####
   #################################################################################
 
-  @patients_p1_off
+  @patients_p1_off @patients_need_queue
   Scenario Outline: PT_RB01d. Patient should be able to rollback from TISSUE_VARIANT_REPORT_CONFIRMED
     Given patient id is "<patient_id>"
     And this patient(patient_id: "<patient_id>") has status "TISSUE_VARIANT_REPORT_CONFIRMED"
@@ -188,7 +188,7 @@ Feature: Patient API rollback tests
   # No need of Checking Treatment Arm statistics because TA API doesn't take
   # PENDING_CONFIRMATION into count for calculating the statistics
 
-  @patients_p1_off
+  @patients_p1_off @patients_need_queue
   Scenario Outline: PT_RB01e. Patient on PENDING_CONFIRMATION can be rolled back properly to TISSUE_VARIANT_REPORT_CONFIRMED
     Given patient id is "<patient_id>"
     And this patient(patient_id: "<patient_id>") has status "PENDING_CONFIRMATION"
