@@ -28,7 +28,7 @@ Feature: NCH Specimen shipped messages
     Then patient should have specimen (field: "active_molecular_id" is "PT_SS02_TissueReceived_MOI1")
 
   @patients_p2 @patients_need_queue
-  Scenario: PT_SS02b. specimen_shipped message shouldn't be processed twice if sent twice quickly
+  Scenario: PT_SS02a. specimen_shipped message shouldn't be processed twice if sent twice quickly
     Given patient id is "PT_SS02b_TissueReceived"
     And load template specimen type: "TISSUE" shipped message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SS02b_TissueReceived_SEI1"
@@ -41,7 +41,7 @@ Feature: NCH Specimen shipped messages
     Then patient should have one shipment with molecular_id "PT_SS02b_TissueReceived_MOI1"
 
   @patients_p2 @patients_need_queue
-  Scenario: PT_SS02a. Received specimen_shipped message for type 'TISSUE' from NCH for a patient who has TISSUE_VARIANT_REPORT_REJECTED status
+  Scenario: PT_SS02b. Received specimen_shipped message for type 'TISSUE' from NCH for a patient who has TISSUE_VARIANT_REPORT_REJECTED status
     Given patient id is "PT_SS02a_TsVrRejected"
     And load template specimen type: "TISSUE" shipped message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SS02a_TsVrRejected_SEI1"
@@ -52,7 +52,7 @@ Feature: NCH Specimen shipped messages
     Then patient should have specimen (field: "active_molecular_id" is "PT_SS02a_TsVrRejected_MOI2")
 
   @patients_p2 @patients_need_queue
-  Scenario: PT_SS02b. Leading or ending whitespace in molecular id value should be ignored
+  Scenario: PT_SS02c. Leading or ending whitespace in molecular id value should be ignored
     Given patient id is "PT_SS02b_TsReceived"
     And load template specimen type: "TISSUE" shipped message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SS02b_TsReceived_SEI1"
@@ -295,23 +295,6 @@ Feature: NCH Specimen shipped messages
     When POST to MATCH patients service, response includes "slide barcode already exists" with code "403"
 
   @patients_p2 @patients_queueless
-  Scenario: PT_SS17a. shipped tissue without tissue received fails
-    Given patient id is "PT_SS17a_Registered"
-    And load template specimen type: "TISSUE" shipped message for this patient
-    Then set patient message field: "surgical_event_id" to value: "PT_SS17a_Registered_SEI1"
-    Then set patient message field: "molecular_id" to value: "PT_SS17a_Registered_MOI1"
-    When POST to MATCH patients service, response includes "Unable to find a TISSUE specimen" with code "403"
-
-  @patients_p2 @patients_queueless
-  Scenario: PT_SS17b. shipped slide without tissue received fails
-    Given patient id is "PT_SS17b_Registered"
-    And load template specimen type: "SLIDE" shipped message for this patient
-    Then set patient message field: "surgical_event_id" to value: "PT_SS17b_Registered_SEI1"
-    Then set patient message field: "slide_barcode" to value: "PT_SS17b_Registered_BC1"
-    Then set patient message field: "shipped_dttm" to value: "current"
-    When POST to MATCH patients service, response includes "Unable to find a TISSUE specimen" with code "403"
-
-  @patients_p2 @patients_queueless
   Scenario: PT_SS17. shipped blood without blood received fails
   #  Testing patient: PT_SS17_Registered
   #     These is no blood specimen received event in this patient
@@ -327,6 +310,23 @@ Feature: NCH Specimen shipped messages
 #    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS18_BloodReceived"
 #    Then set patient message field: "surgical_event_id" to value: "SEI_BR_1"
 #    When POST to MATCH patients service, response includes "TBD" with status "Failure"
+
+  @patients_p2 @patients_queueless
+  Scenario: PT_SS17a. shipped tissue without tissue received fails
+    Given patient id is "PT_SS17a_Registered"
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS17a_Registered_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS17a_Registered_MOI1"
+    When POST to MATCH patients service, response includes "Unable to find a TISSUE specimen" with code "403"
+
+  @patients_p2 @patients_queueless
+  Scenario: PT_SS17b. shipped slide without tissue received fails
+    Given patient id is "PT_SS17b_Registered"
+    And load template specimen type: "SLIDE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS17b_Registered_SEI1"
+    Then set patient message field: "slide_barcode" to value: "PT_SS17b_Registered_BC1"
+    Then set patient message field: "shipped_dttm" to value: "current"
+    When POST to MATCH patients service, response includes "Unable to find a TISSUE specimen" with code "403"
 
   @patients_p3
   Scenario: PT_SS20. shipped blood with new molecular_id (in this patient) passes
@@ -542,5 +542,3 @@ Feature: NCH Specimen shipped messages
       | PT_SS32_Registered6 | SLIDE  | slide_barcode | PT_SS32_Registered6_BC1  | 04:01:00-08:00 |
       | PT_SS32_Registered7 | SLIDE  | slide_barcode | PT_SS32_Registered7_BC1  | 08:01:00-09:00 |
       | PT_SS32_Registered8 | SLIDE  | slide_barcode | PT_SS32_Registered8_BC1  | 00:00:01-10:00 |
-
-
