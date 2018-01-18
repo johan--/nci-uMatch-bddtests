@@ -1,5 +1,5 @@
 {
-    "Count": 664, 
+    "Count": 665, 
     "Items": [
         {
             "surgical_event_id": {
@@ -3993,6 +3993,29 @@
             }, 
             "specimen_type": {
                 "S": "TISSUE"
+            }
+        }, 
+        {
+            "sorting_key": {
+                "S": "2018-01-18T16:36:06:105.105709"
+            }, 
+            "collected_date": {
+                "S": "2018-01-18T00:00:00+00:00"
+            }, 
+            "patient_id": {
+                "S": "PT_SS33_BdVrUploaded"
+            }, 
+            "study_id": {
+                "S": "APEC1621SC"
+            }, 
+            "received_date": {
+                "S": "2018-01-18T16:36:04+00:00"
+            }, 
+            "active_molecular_id": {
+                "S": "PT_SS33_BdVrUploaded_BD_MOI1"
+            }, 
+            "specimen_type": {
+                "S": "BLOOD"
             }
         }, 
         {
@@ -37127,6 +37150,6 @@
             }
         }
     ], 
-    "ScannedCount": 664, 
+    "ScannedCount": 665, 
     "ConsumedCapacity": null
 }

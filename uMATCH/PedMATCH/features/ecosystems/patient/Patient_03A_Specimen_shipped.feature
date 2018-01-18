@@ -542,3 +542,18 @@ Feature: NCH Specimen shipped messages
       | PT_SS32_Registered6 | SLIDE  | slide_barcode | PT_SS32_Registered6_BC1  | 04:01:00-08:00 |
       | PT_SS32_Registered7 | SLIDE  | slide_barcode | PT_SS32_Registered7_BC1  | 08:01:00-09:00 |
       | PT_SS32_Registered8 | SLIDE  | slide_barcode | PT_SS32_Registered8_BC1  | 00:00:01-10:00 |
+
+  @patients_p2 @patients_queueless
+  Scenario Outline: PT_SS33. Patient can receive as many specimen received messages as possible
+    Given patient id is "<patient_id>"
+    And load template specimen type: "<type>" received message for this patient
+    Then set patient message field: "<field>" to value: "<value1>"
+    Then set patient message field: "shipped_dttm" to value: "current"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    And load template specimen type: "<type>" received message for this patient
+    Then set patient message field: "<field>" to value: "<value2>"
+    Then set patient message field: "shipped_dttm" to value: "current"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Examples:
+      | patient_id           | type  | field        | value1                    | value2                    |
+      | PT_SS33_BdVrUploaded | BLOOD | molecular_id | PT_SS33_BdVrUploaded_MOI1 | PT_SS33_BdVrUploaded_MOI2 |
