@@ -546,14 +546,28 @@ Feature: NCH Specimen shipped messages
   @patients_p2 @patients_queueless
   Scenario Outline: PT_SS33. Patient can receive as many specimen received messages as possible
     Given patient id is "<patient_id>"
-    And load template specimen type: "<type>" received message for this patient
-    Then set patient message field: "<field>" to value: "<value1>"
-    Then set patient message field: "shipped_dttm" to value: "current"
+    And load template specimen type: "BLOOD" received message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_SS33_BdVrUploaded_MOI1"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
-    And load template specimen type: "<type>" received message for this patient
-    Then set patient message field: "<field>" to value: "<value2>"
-    Then set patient message field: "shipped_dttm" to value: "current"
+    And load template specimen type: "BLOOD" received message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_SS33_BdVrUploaded_MOI2"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Examples:
-      | patient_id           | type  | field        | value1                    | value2                    |
-      | PT_SS33_BdVrUploaded | BLOOD | molecular_id | PT_SS33_BdVrUploaded_MOI1 | PT_SS33_BdVrUploaded_MOI2 |
+      | patient_id           |
+      | PT_SS33_BdVrUploaded |
+
+  @patients_p2 @patients_queueless
+  Scenario Outline: PT_SS33a. Blood VR should be rejected if there is another blood specimen shipment
+    Given patient id is "<patient_id>"
+    And load template specimen type: "BLOOD" shipped message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_SS33_BdVrUploaded_BD_MOI3"
+    Then set patient message field: "shipped_dttm" to value: "current"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient is updated
+    Then patient should have variant report (analysis_id: "PT_SS33_BdVrUploaded_BD_ANI1")
+    And this variant report field: "status" should be "REJECTED"
+    Examples:
+      | patient_id           |
+      | PT_SS33_BdVrUploaded |
