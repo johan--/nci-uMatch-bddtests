@@ -223,8 +223,7 @@ Feature: NCH specimen received messages
     And this variant report field: "status" should be "PENDING"
 
   @patients_p2 @patients_need_queue
-  Scenario: PT_SR14c. When a new BLOOD specimen_received message is received,  the pending BLOOD variant report from the old Surgical event is set to "REJECTED" status
-  #    Test patient: PT_SR14c_BdVrUploaded; variant report files uploaded: PT_SR14c_BdVrUploaded(_BD_MOI1, _ANI1)
+  Scenario: PT_SR14c. When a new BLOOD specimen_received message is received, the pending BLOOD variant report from the old Surgical event shouldn't be affected
     Given patient id is "PT_SR14c_BdVrUploaded"
     And load template specimen type: "BLOOD" received message for this patient
     Then set patient message field: "collection_dt" to value: "today"
@@ -232,7 +231,7 @@ Feature: NCH specimen received messages
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
     Then patient should have variant report (analysis_id: "PT_SR14c_BdVrUploaded_BD_ANI1")
-    And this variant report field: "status" should be "REJECTED"
+    And this variant report field: "status" should be "PENDING"
 
   @patients_p1 @patients_need_queue
   Scenario: PT_SR14d. When a new TISSUE specimen_received message is received,  the pending BLOOD variant report should not change status
