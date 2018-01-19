@@ -739,15 +739,15 @@ Feature: Patient GET service valid special case tests
     Then this patient analysis_report every assignment reports should have these values
       | analysis_id | PT_SC10c_PendingConfirmationStep2_ANI2 |
 
-  @patients_p2 @patients_queueless
-  Scenario: PT_SC11a assay event should have correct values
-    Given patient id is "PT_SC11a_3AssayAndRbRecieved"
-    And patient GET service: "events", patient id: "", id: ""
-    When GET from MATCH patient API, http code "200" should return
-    Then returned events should include assay event with biomarker "IHC PTEN" result "NEGATIVE"
-    Then returned events should include assay event with biomarker "IHC BRG1" result "POSITIVE"
-    Then returned events should include assay event with biomarker "IHC BAF47" result "INDETERMINATE"
-    Then returned events should include assay event with biomarker "IHC RB" result "NEGATIVE"
+#  @patients_p2 @patients_queueless
+#  Scenario: PT_SC11a assay event should have correct values
+#    Given patient id is "PT_SC11a_3AssayAndRbRecieved"
+#    And patient GET service: "events", patient id: "", id: ""
+#    When GET from MATCH patient API, http code "200" should return
+#    Then returned events should include assay event with biomarker "IHC PTEN" result "NEGATIVE"
+#    Then returned events should include assay event with biomarker "IHC BRG1" result "POSITIVE"
+#    Then returned events should include assay event with biomarker "IHC BAF47" result "INDETERMINATE"
+#    Then returned events should include assay event with biomarker "IHC RB" result "NEGATIVE"
 
   @patients_p1 @patients_queueless
   Scenario: PT_SC11b all events should have required field
