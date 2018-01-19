@@ -744,10 +744,10 @@ Feature: Patient GET service valid special case tests
     Given patient id is "PT_SC11a_3AssayAndRbRecieved"
     And patient GET service: "events", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
-    Then returned events should include assay event with biomacker "IHC PTEN" result "NEGATIVE"
-    Then returned events should include assay event with biomacker "IHC BRG1" result "POSITIVE"
-    Then returned events should include assay event with biomacker "IHC BAF47" result "INDETERMINATE"
-    Then returned events should include assay event with biomacker "IHC RB" result "NEGATIVE"
+    Then returned events should include assay event with biomarker "IHC PTEN" result "NEGATIVE"
+    Then returned events should include assay event with biomarker "IHC BRG1" result "POSITIVE"
+    Then returned events should include assay event with biomarker "IHC BAF47" result "INDETERMINATE"
+    Then returned events should include assay event with biomarker "IHC RB" result "NEGATIVE"
 
   @patients_p1 @patients_queueless
   Scenario: PT_SC11b all events should have required field

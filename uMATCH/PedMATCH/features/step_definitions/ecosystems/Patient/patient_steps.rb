@@ -1517,14 +1517,14 @@ Then(/^patient amois should have correct value$/) do
   expect(actual).to eql expect
 end
 
-Then(/^returned events should include assay event with biomacker "([^"]*)" result "([^"]*)"$/) do |biomacker, result|
+Then(/^returned events should include assay event with biomarker "([^"]*)" result "([^"]*)"$/) do |biomarker, result|
   expect(@get_response.class).to eq Array
   assay_events = @get_response.select do |event|
     event['entity_id'] == @patient_id && event['event_type'] == 'assay'
   end
   expect(assay_events.size).to be > 0
-  result = assay_events.select {|event|
-    event['event_data']['assay_result'] == result && event['event_data']['biomarker']==biomacker}
+  result = assay_events.select { |event|
+    event['event_data']['assay_result'] == result && event['event_data']['biomarker'] == biomarker }
   expect(result.size).to eq 1
 end
 
