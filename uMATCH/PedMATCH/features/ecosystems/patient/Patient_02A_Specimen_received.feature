@@ -197,7 +197,7 @@ Feature: NCH specimen received messages
       | PT_SR12_RbRequested            | already has a confirmed variant report |
 
   @patients_p1 @patients_need_queue
-  Scenario: PT_SR14a. When a new TISSUE specimen_received message is received,  the pending TISSUE variant report from the old Surgical event is set to "REJECTED" status
+  Scenario: PT_SR14a. When a new TISSUE specimen_received message is received, the pending TISSUE variant report from the old Surgical event should be unaffected
   #    Test patient: PT_SR14_TsVrUploaded; variant report files uploaded: PT_SR14_TsVrUploaded(_SEI1, _MOI1, _ANI1)
   #          Plan to receive new specimen surgical_event_id: PT_SR14_TsVrUploaded_SEI2
     Given patient id is "PT_SR14_TsVrUploaded"
@@ -208,7 +208,7 @@ Feature: NCH specimen received messages
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded_ANI1")
-    And this variant report field: "status" should be "REJECTED"
+    And this variant report field: "status" should be "PENDING"
 
   @patients_p1 @patients_need_queue
   Scenario: PT_SR14b. When a new BLOOD specimen_received message is received,  the pending TISSUE variant report should not change status
