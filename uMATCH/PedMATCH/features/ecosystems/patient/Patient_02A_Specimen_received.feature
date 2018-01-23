@@ -269,7 +269,7 @@ Feature: NCH specimen received messages
     When POST to MATCH patients service, response includes "surgical_event_id" with code "403"
 
   @patients_p2 @patients_need_queue
-  Scenario: PT_SR15. when a new tissue specimen is received before variant report confirmed, the failed_date of last specimen should be set properly
+  Scenario: PT_SR15. Patient can receive multiple tissue specimen received messages
     Given patient id is "PT_SR15_TsShipped"
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SR15_TsShipped_SEI2"
@@ -279,7 +279,6 @@ Feature: NCH specimen received messages
     Then wait until patient specimen is updated
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR15_TsShipped_SEI2")
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR15_TsShipped_SEI1")
-    Then this specimen should have a correct failed_date
 
 
   @patients_p2 @patients_need_queue
