@@ -146,7 +146,8 @@ GEM
     hitimes (1.2.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    httparty (0.15.6)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
     hurley (0.2)
@@ -161,7 +162,7 @@ GEM
       multi_json
     jwt (2.1.0)
     little-plugger (1.1.4)
-    logger (1.2.8)
+    logger (1.5.3)
     logging (2.2.2)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
